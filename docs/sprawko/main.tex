@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, polish]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{import}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{amsmath}
+
+\graphicspath{{images/}}
+
+\begin{document}
+
+\import{./}{titlepage.tex}
+
+\tableofcontents
+
+\section{Zadanie pierwsze}
+
+Na pierwszy rzut oka widać podział dokumentu na część znajdującą się 
+przed \texttt{\textbackslash begin\{document\}} oraz właściwą treść. Preambuła służy do 
+deklaracji paczek z których będziemy korzystać przy składaniu dokumentu,
+jak i do wstępnej jego konfiguracji.
+
+\section{Zadanie drugie}
+
+Instrukcja \texttt{\textbackslash usepackage\{...\}} umieszczana jest w
+pierwszej części dokumentu i służy do deklaracji wymaganych modułów.
+Z paczkami wymienionymi w poleceniu się zapoznałem, większość z nich
+została także wykorzystana w tym dokumencie.
+
+\section{Zadanie trzecie}
+
+\subsection{Pierwsza podsekcja}
+
+\emph{Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.}
+\textbf{Pewnie wkleję go kilka razy.}
+\texttt{Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.}
+\textit{Pewnie wkleję go kilka razy.}
+\textsc{Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.}
+\textnormal{Pewnie wkleję go kilka razy.}
+
+Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.
+Pewnie wkleję go kilka razy.
+Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.
+Pewnie wkleję go kilka razy.
+Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.
+Pewnie wkleję go kilka razy.
+
+\section{Zadanie czwarte}
+
+Zaraz w tekście wystąpią rożne rodzaje list dostępne w \LaTeX\/.
+Pierwsza z nich przedstawi przedmioty z których będziemy pisać egzaminy w tym semestrze.
+Zostaną one posortowane od najtrudniejszego do najłatwiejszego.
+
+\begin{enumerate}[a)]
+    \item Podstawy Ochrony Danych
+    \item Bazy Danych
+    \item Grafika Komputerowa i Komunikacja Człowiek-Komputer
+\end{enumerate}
+
+Druga lista przedstawi spis znanych przeze mnie języków programowania:
+
+\begin{itemize}
+    \item C
+    \item C++
+    \item C\#
+    \item Python
+    \item Java
+    \item Elixir
+    \item JavaScript
+    \item Go
+\end{itemize}
+
+\section{Zadanie piąte}
+
+Spytałem się Huberta o to czy jest w stanie pomóc mi z tym zadaniem, na co on odpowiedział:
+,,Byczku\footnote{Byczku - Kolego} jeszcze jak''.
+
+\section{Zadanie szóste}
+
+Geograficzne granice Polski wraz z podziałem na województwa możemy zobaczyć na rysunku \ref{fig:granice}.
+
+\begin{figure}[p]
+    \includegraphics[width=\textwidth]{granice_polski.png}
+    \centering
+    \caption{Geograficzne granice Polski, stan na dzień \today}
+    \label{fig:granice}
+\end{figure}
+
+Ponadto w tabeli \ref{tab:wojewodztwa} możemy zauważyć kilka województw
+Polski wraz z powierzchnią jaką zajmują oraz ilością ludności zamieszkałej
+na danym terenie. Tabela znajduje się na stronie \pageref{tab:wojewodztwa}.
+
+\begin{table}[p]
+    \centering
+    \caption{\label{tab:wojewodztwa}Wybrane województwa wraz z ich powierzchnią i populacją}
+    \begin{tabular}{ |c c c c| }
+        \hline
+        Województwo   & Powierzchnia [km2] & Populacja \\
+        \hline\hline
+        Lubelskie     & 25 122             & 2 139 726 \\
+        \hline
+        Mazowieckie   & 35 558             & 5 349 114 \\
+        \hline
+        Wielkopolskie & 29 826             & 3 475 323 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{Zadanie siódme}
+
+Wymagane równania to kolejno:
+
+\begin{enumerate}[a)]
+    \item $\binom{n}{k}= \frac{n!}{k!\left ( n-k \right )!}$
+    \item $a^{2}+b^{2}=c^{2}$
+    \item $\frac{\frac{1}{2}+\frac{1}{4}}{\frac{1}{8}}\neq 1$
+    \item $\sum_{i=1}^{n}i^2=\frac{n(n+1)(2n+1)}{6}$
+    \item $C_{2}^{-3}+O_{0}^{2}\rightarrow C^{+4}O_{2}^{-2}+H_2^{+1}O^{-2}$
+    \item $A_{m,n} = \begin{pmatrix}
+                      a_{1,1} & a_{1,2} & \hdots & a_{1,n} \\
+                      a_{2,1} & a_{2,2} & \hdots & a_{2,n} \\
+                      \vdots  & \vdots  & \ddots & \hdots  \\
+                      a_{m,1} & a_{m,2} & \hdots & a_{m,n}
+                  \end{pmatrix}$
+\end{enumerate}
+
+\section {Zadanie ósme}
+
+Aby zostać pełnoprawnym artykułem dokument ten potrzebuje jeszcze
+kilku pozycji bibliograficznych. Do stworzenia tego dokumentu wykorzystano
+pewien świetny artykuł \cite{article}, dobrą książkę \cite{book}
+oraz wybitny tutorial online \cite{misc}.
+
+\section{Zadanie dziewiąte}
+
+Po wykonaniu tego zadania laboratoryjnego uważam, że \LaTeX\ jest w stanie
+zdecydowanie ułatwić proces składu tekstu im bardziej obszerny on jest.
+Poza trudniejszym formułowaniem tabel \LaTeX\ w każdej kwestii jest lepszy
+od oprogramowania biurowego z którego do tej pory korzystałem.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
