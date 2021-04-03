@@ -1,6 +1,7 @@
 from minizinc import Instance, Model, Solver
+from typing import Union, Dict
 
-def parse_dzn(filepath):
+def parse_dzn(filepath: str) -> Dict[str, Union[int, list, float]]:
     from minizinc.dzn import parse_dzn as pd
 
     with open(filepath, 'r') as f:
