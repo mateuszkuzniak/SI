@@ -1,5 +1,7 @@
 ### Solver łamigłówki Bag Puzzle (aka Coral Puzzle, Cave Puzzle) przedstawionej jako problem spełniania ograniczeń w skończonej dziedzinie (CSP/FD)
 
+[Bag Puzzle Online](http://www.tectonicpuzzel.eu/cave-corral-puzzle-online.html)
+
 #### Instalacja
 
 1. Zainstaluj w systemie [MiniZinc](https://www.minizinc.org/)

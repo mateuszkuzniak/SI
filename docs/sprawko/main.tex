@@ -9,139 +9,160 @@
 \usepackage{indentfirst}
 \usepackage{enumerate}
 \usepackage{amsmath}
+\usepackage{tabularx}
 
 \graphicspath{{images/}}
 
 \begin{document}
 
-\import{./}{titlepage.tex}
+\begin{flushright}
+    \today
+\end{flushright}
 
-\tableofcontents
+\begin{flushleft}
+    \begin{tabular}{ll}
+        Bartosz Kosmala  & 140726 \\
+        Hubert Knioła    & 139644 \\
+        Mateusz Kuźniak  & 139092 \\
+        Jordan Kondracki & 140721
+    \end{tabular}
+\end{flushleft}
 
-\section{Zadanie pierwsze}
+\vspace{0.5cm}
 
-Na pierwszy rzut oka widać podział dokumentu na część znajdującą się 
-przed \texttt{\textbackslash begin\{document\}} oraz właściwą treść. Preambuła służy do 
-deklaracji paczek z których będziemy korzystać przy składaniu dokumentu,
-jak i do wstępnej jego konfiguracji.
+\begin{center}
+    \textbf{Sztuczna Inteligencja - laboratorium}\\[0.3cm]
+    Sprawozdanie robocze, wariant 1\\[0.3cm]
+    \textit{\textbf{Bag Puzzle z wykorzystaniem paradygmatu CSP/FD}}
+\end{center}
 
-\section{Zadanie drugie}
+\vspace{0.5cm}
 
-Instrukcja \texttt{\textbackslash usepackage\{...\}} umieszczana jest w
-pierwszej części dokumentu i służy do deklaracji wymaganych modułów.
-Z paczkami wymienionymi w poleceniu się zapoznałem, większość z nich
-została także wykorzystana w tym dokumencie.
+\section{Opis zadania}
 
-\section{Zadanie trzecie}
+Celem projektu jest stworzenie aplikacji, która umożliwia rozwiązanie łamigłówki
+\textit{Bag}, znanej także jako \textit{Coral} oraz \textit{Cave}, zgodnie z
+paradygmatem CSP (ang. \textit{Contraint Satisfaction Problem}) w skończonej
+dziedzinie (ang. \textit{Finite Domain}).
 
-\subsection{Pierwsza podsekcja}
+Łamigłówka polega na ustaleniu na planszy ciągłej ścieżki, która zawiera wszystkie
+pola z liczbami. Każde z oznaczonych pól posiada informację o ilości przylegających
+ortogonalnie pól ścieżki. Pola niebędące ścieżką określamy mianem ,,ściany''.
 
-\emph{Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.}
-\textbf{Pewnie wkleję go kilka razy.}
-\texttt{Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.}
-\textit{Pewnie wkleję go kilka razy.}
-\textsc{Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.}
-\textnormal{Pewnie wkleję go kilka razy.}
+Każdy ciąg ścian musi mieć połączenie z zewnętrznymi krawędziami planszy.
+Przykładową rozwiązaną łamigłówkę widać na rysunku \ref{fig:puzzle1}.
 
-Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.
-Pewnie wkleję go kilka razy.
-Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.
-Pewnie wkleję go kilka razy.
-Trochę tekstu który można wykorzystać jako przykładowy w dokumencie.
-Pewnie wkleję go kilka razy.
-
-\section{Zadanie czwarte}
-
-Zaraz w tekście wystąpią rożne rodzaje list dostępne w \LaTeX\/.
-Pierwsza z nich przedstawi przedmioty z których będziemy pisać egzaminy w tym semestrze.
-Zostaną one posortowane od najtrudniejszego do najłatwiejszego.
-
-\begin{enumerate}[a)]
-    \item Podstawy Ochrony Danych
-    \item Bazy Danych
-    \item Grafika Komputerowa i Komunikacja Człowiek-Komputer
-\end{enumerate}
-
-Druga lista przedstawi spis znanych przeze mnie języków programowania:
-
-\begin{itemize}
-    \item C
-    \item C++
-    \item C\#
-    \item Python
-    \item Java
-    \item Elixir
-    \item JavaScript
-    \item Go
-\end{itemize}
-
-\section{Zadanie piąte}
-
-Spytałem się Huberta o to czy jest w stanie pomóc mi z tym zadaniem, na co on odpowiedział:
-,,Byczku\footnote{Byczku - Kolego} jeszcze jak''.
-
-\section{Zadanie szóste}
-
-Geograficzne granice Polski wraz z podziałem na województwa możemy zobaczyć na rysunku \ref{fig:granice}.
-
-\begin{figure}[p]
-    \includegraphics[width=\textwidth]{granice_polski.png}
+\begin{figure}[h]
+    \includegraphics[width=0.5\textwidth]{1.png}
     \centering
-    \caption{Geograficzne granice Polski, stan na dzień \today}
-    \label{fig:granice}
+    \caption{Przykładowa rozwiązana plansza \textit{Bag Puzzle}}
+    \label{fig:puzzle1}
 \end{figure}
 
-Ponadto w tabeli \ref{tab:wojewodztwa} możemy zauważyć kilka województw
-Polski wraz z powierzchnią jaką zajmują oraz ilością ludności zamieszkałej
-na danym terenie. Tabela znajduje się na stronie \pageref{tab:wojewodztwa}.
+\newpage
 
-\begin{table}[p]
-    \centering
-    \caption{\label{tab:wojewodztwa}Wybrane województwa wraz z ich powierzchnią i populacją}
-    \begin{tabular}{ |c c c c| }
+\section{Założenia realizacyjne}
+
+W tym rozdziale zawarto informację o algorytmie i technologii wykorzystanej do
+rozwiązania problemu.
+
+\subsection{Zdefiniowanie problemu oraz opis algorytmu}
+
+Rozwiązaniem CSP jest przypisanie każdej zmiennej wartości z jej dziedziny
+spełniającej wszystkie ograniczenia. Zadaniem jest znalezienie jednego
+lub wszystkich rozwiązań.\footnote{,,Programowanie logiczne z użyciem ograniczeń'' \cite{cotocsp}}
+
+\subsection{Język programowania, narzędzia informatyczne, środowisko i biblioteki}
+
+Do implementacji aplikacji wykorzystamy język programowania ogólnego przeznaczenia
+\textit{Python} oraz język \textit{MiniZinc}, który pozwala na definiowanie
+problemów CSP \cite{minizinc}.
+
+Do pisania kodu wykorzystamy narzędzie \textit{Visual Studio Code}. Do kontroli
+wersji aplikacji
+użyjemy systemu \textit{Git} wraz z platformą \textit{GitHub}.
+
+W implementacji skorzystamy z biblioteki \texttt{minizinc}
+dla języka \textit{Python}. Pozwala ona na korzystanie ze środowiska
+\textit{MiniZinc} z poziomu interpretera. Umożliwia ona m.in. komplilację modeli
+oraz rozwiązywanie ich.
+
+\section{Podział prac}
+
+Podział prac przy projekcie pomiędzy jego członków jest widoczny na
+tablicy \ref{tab:podzialprac}.
+
+\begin{table}[h!]
+    \caption{\label{tab:podzialprac}Podział prac przy projekcie}
+    \begin{tabularx}{\textwidth}{ | p{\dimexpr.28\linewidth-2\tabcolsep-1.3333\arrayrulewidth} | X | }
         \hline
-        Województwo   & Powierzchnia [km2] & Populacja \\
-        \hline\hline
-        Lubelskie     & 25 122             & 2 139 726 \\
+        Autor            & Wkład  \\
         \hline
-        Mazowieckie   & 35 558             & 5 349 114 \\
+        Bartosz Kosmala  &
+        \begin{itemize}
+            \item redagowanie sprawozdań roboczych
+            \item implementacja interfejsu graficznego aplikacji
+            \item zapoznanie się z wymaganymi technologiami
+        \end{itemize} \\
         \hline
-        Wielkopolskie & 29 826             & 3 475 323 \\
+        Hubert Knioła    &
+        \begin{itemize}
+            \item implementacja interfejsu graficznego aplikacji
+            \item zapoznanie się z wymaganymi technologiami
+            \item pomoc merytoryczna przy sprawozdaniu
+        \end{itemize} \\
         \hline
-    \end{tabular}
+        Mateusz Kuźniak  &
+        \begin{itemize}
+            \item implementacja modelu CSP
+            \item zapoznanie się z wymaganymi technologiami
+        \end{itemize} \\
+        \hline
+        Jordan Kondracki &
+        \begin{itemize}
+            \item implementacja modelu CSP
+            \item pomoc merytoryczna przy sprawozdaniu
+            \item zapoznanie się z wymaganymi technologiami
+        \end{itemize} \\
+        \hline
+    \end{tabularx}
 \end{table}
 
-\section{Zadanie siódme}
+\newpage
 
-Wymagane równania to kolejno:
+\section{Opis implementacji}
 
-\begin{enumerate}[a)]
-    \item $\binom{n}{k}= \frac{n!}{k!\left ( n-k \right )!}$
-    \item $a^{2}+b^{2}=c^{2}$
-    \item $\frac{\frac{1}{2}+\frac{1}{4}}{\frac{1}{8}}\neq 1$
-    \item $\sum_{i=1}^{n}i^2=\frac{n(n+1)(2n+1)}{6}$
-    \item $C_{2}^{-3}+O_{0}^{2}\rightarrow C^{+4}O_{2}^{-2}+H_2^{+1}O^{-2}$
-    \item $A_{m,n} = \begin{pmatrix}
-                      a_{1,1} & a_{1,2} & \hdots & a_{1,n} \\
-                      a_{2,1} & a_{2,2} & \hdots & a_{2,n} \\
-                      \vdots  & \vdots  & \ddots & \hdots  \\
-                      a_{m,1} & a_{m,2} & \hdots & a_{m,n}
-                  \end{pmatrix}$
-\end{enumerate}
+\dots
 
-\section {Zadanie ósme}
+\subsection{Struktury danych wykorzystywane w programie}
 
-Aby zostać pełnoprawnym artykułem dokument ten potrzebuje jeszcze
-kilku pozycji bibliograficznych. Do stworzenia tego dokumentu wykorzystano
-pewien świetny artykuł \cite{article}, dobrą książkę \cite{book}
-oraz wybitny tutorial online \cite{misc}.
+\dots
 
-\section{Zadanie dziewiąte}
+\subsection{Funkcje oraz procedury}
 
-Po wykonaniu tego zadania laboratoryjnego uważam, że \LaTeX\ jest w stanie
-zdecydowanie ułatwić proces składu tekstu im bardziej obszerny on jest.
-Poza trudniejszym formułowaniem tabel \LaTeX\ w każdej kwestii jest lepszy
-od oprogramowania biurowego z którego do tej pory korzystałem.
+\dots
+
+\section{Użytkowanie i testowanie systemu}
+
+\dots
+
+\subsection{Interfejs aplikacji}
+
+\dots
+
+\subsection{Sterowanie aplikacją}
+
+\dots
+
+\subsection{Testy aplikacji}
+
+\dots
+
+\section{Funkcjonalności dodatkowe}
+
+\dots
+
+\newpage
 
 \bibliographystyle{unsrt}
 \bibliography{references}
