@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     # with open('./res/pre.html', 'r') as f:
     #     html = f.read()
-    #     instance["puzzle_input"] = get_board(hmtl)
+    #     instance["puzzle_input"] = get_board(html)
 
     result = instance.solve()
 
