@@ -17,6 +17,6 @@
 1. Lecisz:
 
     ```powershell
-    (venv) PS D:\Repos\SI> python .\src\main.py
+    (venv) PS D:\Repos\BagPuzzle> python -m src.main
     [[5, 3, 1, 4, 8, 9, 6, 2, 7], [6, 4, 9, 7, 5, 2, 8, 1, 3], ...
     ```

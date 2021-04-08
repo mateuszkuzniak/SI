@@ -1,0 +1,1773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0059)http://www.tectonicpuzzel.eu/cave-corral-puzzle-online.html -->
+<html><link type="text/css" id="dark-mode" rel="stylesheet" href="http://www.tectonicpuzzel.eu/cave-corral-puzzle-online.html"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="./post_files/f.txt" id="google_shimpl"></script><script async="" src="./post_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131254660-1');
+</script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cave puzzle online aka Bag or Corral puzzles</title>
+  
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="Description" content="Cave puzzle rules and solving techniques. Tips and strategies to solve Bag or Corral puzzles online.">
+  <meta name="keywords" content="tectonic, puzzles, sudoku for kids, killer sudoku, suguru, sudoku app">
+  <meta name="author" content="danny demeersseman">  
+  <meta name="robots" content="INDEX, FOLLOW"> 
+  <meta name="revisit-after" content="7 days"> 
+  <meta name="cache-control" content="no-cache"> 
+  <meta name="copyright" content="© 2020 Tectonic / Suguru puzzles"> 
+  <meta name="language" content="EN"> 
+  <link rel="stylesheet" type="text/css" href="./post_files/tectonic.css">
+<script>
+
+var juist = 0;
+var niv = "1";
+var oef = "1";
+var opg = "";
+var imx = 4;
+var jmx = 11;
+var tec = new Array();
+for (i=1;i<imx;i++) {
+ tec[i]=new Array();
+ for (j=1;j<jmx;j++) {
+  tec[i][j]=""; }
+}
+imx = 4;
+jmx = 11;
+var opl = new Array();
+for (i=1;i<imx;i++) {
+ opl[i]=new Array();
+ for (j=1;j<jmx;j++) {
+  opl[i][j]=""; }
+}
+
+
+tec[1][1] = " 6           2   2   6     6   4       4     7 6   8     9       7 6       7   8 9     8     5   7     610   7         3               6   7     9      10           4             2 3     5 3   6   4  ";
+tec[1][2] = "   7   7   7   8                   5     8   8   7 8     4 6 5 7   7     5     6   4   4           5 2       6     6                       3     3 4         5         3 6     8             5       4  ";
+tec[1][3] = " 5   5 5   5   4           7   7       2               3         4   4       8 6 4         7          101011  16  1015   4           8     4         6     5         3    11   6 6   3   4   3   7     3";
+tec[1][4] = "   7 2   6   8     3 2         7    12         2     8 6     2 7             7           9   8     3   7               3       7 9   4   7       7     8     8  11   8       7     2   4   5 7          ";
+tec[1][5] = "     5   3   6  11   2   4             2   7   9 810                        10 4     4     4           9   810 9    10   7       9     510     5         6  12           5               3   7     5   3";
+tec[1][6] = " 4       5             2   5     6       4       3     4   7     6            10   6 7   4     6 4 9     6             7      11     9                 8                   4   5   9       3         4  ";
+tec[1][7] = "       2   4 2  10     5   6           2           5    10                  10   3     6 2   6 4   4   7            10   3     5        11 4     6     7          151113    1211  11     5   2      12  ";
+tec[1][8] = "     3   3         4 3 7     3     5           9         5   4   5         4         410     4         6  12   6   9                     5 5 2 4     6                   6       6     6 4   8   4     2";
+tec[1][9] = "       7     7   7 7                         4   5     7 5 3   8       8   9      11 8           4   6   8 8 8     6       7         6       4         2           8         8   5       5   5         4";
+tec[1][10]= " 6   3   5         5             6 7     6   4     5       5                 6   6     8   8 7 8  11     8 5   2           3           6 6 3       4             4   7   3         3   4     3   3 6    ";
+tec[1][11]= "   5   5     2     2141010      10 910                       8 6       3       3   6         7 6 7  10      10             5   4   6     6 3        10       8     3         7       6   7  11       6 4";
+tec[1][12]= "     7   4     5   7     5       5       4       4              11   9   9   811             3         4 6     4     3 2     9  10   7 9       7   7             4       4   5 6   5   4   2         3  ";
+tec[1][13]= "     2   4 7     3   4     8             4         7 5     6   8     4     3   6 5         7             4           7 8   9   6             4         4   5   3   9     6   5 7     5   4   3       6  ";
+tec[1][14]= "         4 4     4 5              10   8 4 4   5 7   6 9   3   4                         7         3       5   8             7   7     6   6     4     6       6   6   4         7   2 5       8   6   4";
+tec[1][15]= " 8     6   8   5   4       4             9         4   2       6 5   8       9 9       6                   6     4   7 5 8                     4   3   3 5             3       6       6 4   4   3   2  ";
+tec[1][16]= "     3             2 6     3         3       3   5   2   4   6           4     8   3   5   6     3      11    10     3 9 6           3           5           3 9       5   2   4     9  12       8 9   8";
+tec[1][17]= "       2     5  13 410     3 4   2         4     3      10   9         6   3       4       5    11 412     8     5         9 8    11    10   9        11           3   6     7     5   2   5        10  ";
+tec[1][18]= "  11       3   2     5     6 7   8   6    11         3        13   5   5       3       2   4          10             8    11     810   813 7         5       7   513         5        11   5       4    ";
+tec[1][19]= "       4 8     7   3 3         8           3       4   6       6   8       6 8       7     6       3         9       7   5   7 7     2     5   3               4         6     6           9 9 9 9   811";
+tec[1][20]= " 3         5 8   4 4   4       8         5   9      12 7         7   4 6           3         8 2       5   4           5               4   5 8 612     9               5               2   3   4   3 3  ";
+
+
+
+
+
+
+
+tec[2][1] = "     9                           9      10 7   7    15     2           7                 3     8     4          12               3     8       3       6             4           5         6   3       2";
+tec[2][2] = "     4   4         2 2 7         5     5         4     5     4     7     2          10             9                         7       4     7      15                 6             9 4         3 3     7";
+tec[2][3] = "     8     8   8  11 6                     9         9             5     6                     2           2               8   5     8       2                 2     3   7       7    10       9   6   5";
+tec[2][4] = " 910   9                 3                       6 7       8             6   6       7                       7           4     9   6     5                10   3     9 9         4   3       3         3";
+tec[2][5] = "       5     2     8   6           5   8   4             4           4   4         8                 6         7                          10       3   3               6     6   4     2 7       4     2";
+tec[2][6] = "     3   2       3 3           6               5     6     6 3           5                14    10  121513                       8           3         6   4                               9    11     9";
+tec[2][7] = "   5         3           9   6     4   3   5       3         3   5             3         3   3                 6       2     3         8   4 2       3   3                 8     7           6         2";
+tec[2][8] = " 6     7   8   811 8   3     7                           5                 7   5     3                     5                         7           4     9     6         6     5       6         5       4";
+tec[2][9] = "       6         2                     6   4   5               3         7 6                     8       2     6     4               6     3   4         8       7           8      10     5           4";
+tec[2][10]= " 2       4                   5                 2  11 8       2               4       2               610           5          10         9   6       612               7         5   8             2   8";
+
+tec[2][11]= "   7     6           4               8     9 3   5       8               6     4  11                 5                     9     3     4   5 3         5               9     9           6         3    ";
+tec[2][12]= "   7     7                       8         3           8   5           5        12   6   7      10       5     4   7                     9 6   4     8   8           4            1010       3     4    ";
+tec[2][13]= " 2         5  12     4               5 4     6   4           3         6 3           6                 5   5   7  14   911      13  11  12     4               5         4                 4     2     5";
+tec[2][14]= "         7             7   7           8 5             7         7     5       8   2           5               4         5 7             3         6 6   4     9   3                       7   9       7";
+tec[2][15]= "     3           2       7     9   5     2       5       4       2 4     7   6 6 2                         5   5                         5       5             5      1110     9     2 6         4      ";
+tec[2][16]= " 8           4   4     6    11           5    10       9 8     2               3         9                     6   5   3   8         4             4             3 5             3                     7";
+tec[2][17]= "1012  11          10     5   5             3         7                     6           813    11 9                       7         9             4   9             2             3           6     4   4";
+tec[2][18]= "      12           8           7               5           5   5           5     5  10   5                         3     5         8 4         5      10       9       3         4       7     6   3    ";
+tec[2][19]= " 7   5         4                       5   4   5     2           4           4 7   3           3                 5     4             2   5   7                 2  11                 4       9   4   7  ";
+tec[2][20]= "       7 9                       5     3     7    12                         3     5   3   6     5                                         6   5   3           411         5               7   9   8 7  ";
+
+
+
+tec[3][1] = "               6 6       5                         2       6        10     3     7     9               5   8                                   4       9   7 9     6                       6     5     5";
+tec[3][2] = "             7   4           3               8              11         3               8     8     6                                       7   5       4   4           3         4   3                 3";
+tec[3][3] = " 4             3         8             3 4         3               4           3   9                       3       3     3           4                 9     4       7         5     2         8       5";
+tec[3][4] = "     3         4           2           8           4           9 8                           6       4           4                        10 6   6         7 4         4               3     5   4      ";
+tec[3][5] = "     2   3          10           8                               3   8        13           9   8         9                 7                     4   3       3   4           5                 9        ";
+tec[3][6] = "   8   5               7       9     5   6     6           3             5           6               3                 5     4                     6         3       5     2           5           6    ";
+tec[3][7] = " 5           3     3               9       4                           3             7         8               3               2     6     2                     8     2           311   4           9  ";
+tec[3][8] = " 5     4                         8     3                     6           3     2    11                         7       2               5         5 7        11     4     5         2   4         2      ";
+tec[3][9] = "     3  11           2    12       2            10             2              11             5               8      10       3         5             5                       7       3         6        ";
+tec[3][10]= " 8      10   8   3                     6   9               3 2     5     4                                   7   5   3             8   7   9                 4                       5   4       6      ";
+tec[3][11]= " 2   3         7           6         4                         8       8       2              12     6   7             3         6       4 5 2                     7     6             8   4       6    ";
+tec[3][12]= "   4           4     5         9 6               4           3           4                     2               2                 7     6     5           3           4                11   7           2";
+tec[3][13]= "    11     2         6             4 6   6                10   5       8                     9                                 2   8       8   4                 4             4           2           5";
+tec[3][14]= " 4         3           4           6        10       5     8     8           5     3               5    13               3     3   2                                   2     2   3   3                 8";
+tec[3][15]= "   2       3     3         8                 5     3   3   4 3                                 2      12           9     2     4                           6         7               3       4 7       3";
+tec[3][16]= "   4           2             7 7       7 9   911    10                     5             7         7                   7 3   5         4           3                       8         9        1210      ";
+tec[3][17]= " 4     6         4 2          11           4           5   3             4         3                 2       6                    10   2     6                 2     8                     5   9     2  ";
+tec[3][18]= "     3     3       7   7         6                              1410       8    11         5                                   2         5              10                 4             8   4         5";
+tec[3][19]= "   8       3   4   3               5     9   3   4             7           4                   6           7           4            11  11             4                             3       7          ";
+tec[3][20]= " 5       3       3     8       4       2     4                       3 6         2               4           9           3         7   9           5     9     3     9               2                  ";
+
+
+
+
+
+
+opl[1][1] = ".#.##..#...#..#.###..#..#......#..#.........##...#.....###..####.............###.#..##.#...#...#...#";
+opl[1][2] = "#.......#.######...........#......#..#..#.#.#####...#..#..######....#.##...##...###..#....####.##..#";
+opl[1][3] = "....#....#......##..#######..###....#....####.##.............##....##...##....###..##........#...#..";
+opl[1][4] = "#..#....#...##......#.#..#......####.#.##.#....#....##.###...##....#.#......##.........##...#..#####";
+opl[1][5] = "##...#...#.#..##.#.........#.#####...#..#..##.##........##.......##..#..#..#....####.#....##...#..#.";
+opl[1][6] = ".###...###..#.....##.###.##.#....###....#....##...#...#####.##........###.#.....#####.#...###...##.#";
+opl[1][7] = "###.#..#.##.....##..####...#.#..####.#.#..#..#....#.#.####.#..#.#..#......#.....#............#.#...#";
+opl[1][8] = "...#.###....##.##...#.#..##.......##..###...#..##.#.#.....#.###..##.....#..#...##.#..#....#....#..#.";
+opl[1][9] = "###.......#####.######.#..#...#..#.....#.....##..#.....#..###.#.##..##..#.#..##...####.........#.#..";
+opl[1][10]= ".#...##.#..###.......#....###..######....##...........#.##.##..####...##....#.##...#.##......#.#...#";
+opl[1][11]= "#....#.#...........#.#########...##..#.....#...........#####..#...#...####.....##..#............#...";
+opl[1][12]= "#....#....##..##.....#...####..#.........####..###....#.##..##.......#.....##.##..##.#......#..#.#..";
+opl[1][13]= "##.#...#...#.........####...#...#...#.#...#...###.#...###...#...#.##.#..###.#......#.....#...#..#..#";
+opl[1][14]= "####..#....###........#.....#...#####.###.....#...###...##.##.....#...#..##.#...#...#.#.....#.#...#.";
+opl[1][15]= ".##.....#..##...###...###.#.#....#...........###.#.....#.....######.....#.#...###.#.##...##....#.#.#";
+opl[1][16]= "##.#####...#...###.#.#.#.#.#...###...##...#...##.........#...#..#..##.##.#####......#.#...........#.";
+opl[1][17]= "..#.##......#..#.#.#..##.###.#.###..#.....###.##......#..#.........#.#.##.........#..#....#.#.####.#";
+opl[1][18]= "..##..#.##..#......#..####.###....#..#..#.#.#.##..#.###.#..#..#.......#....###.#....##......#..#...#";
+opl[1][19]= "###...#....##......#..##..#..#.....##..###....#...##....##.#....#..#....#######.###.....#.##........";
+opl[1][20]= ".####..#.....##........#......##.#...####..###..##....##.##.##.##...#.......#....##...###...#.#.#...";
+
+opl[2][1] = ".....#######.###.###.......##..#.#.......#.#.#..##.#####....###..#..###.#......##...##....#...#...#.";
+opl[2][2] = "#....#..#...####....#.#..##.##..#..#..#......##.......#####.##..#...#...........##.####.......#...#.";
+opl[2][3] = ".#.........###.####...#.....#.....#..##...####..##..#.#..####.#....###..##..##..#..#.....#...##.....";
+opl[2][4] = ".........##..####.######.........##......#..###.#..#......##.#....#..###..#.#.......####.#..#...#...";
+opl[2][5] = "#...##..#.....###.#...#..#....####.#..#.#.......#.......###.##.####...##..#.##..##.....#.##..#...#..";
+opl[2][6] = "...#..#...#.###.#.##..#.#...#...#.#..##.#....................#...####..#.#....#.####...####.........";
+opl[2][7] = "#...#...##......#......##.####.#..###...###..#..####......#.#..####.....##.#..#####.......##....###.";
+opl[2][8] = "..#.........##.......#######.#...##......#..###..####.#...##.##....##..#..#......#..#..#.....##.###.";
+opl[2][9] = "#......#.#####........#.....###.####...#...#.......#.#..##...###...##...#.....##..##.....#.....#....";
+opl[2][10]= ".###...###..#....#.##.#.#..#....###..#..#..#...##...##....#...#.........#...##......#.#.......#.#.#.";
+opl[2][11]= "#.#..#.#.#..##.#.#.....#.#.#....##...#..#.....##.#...####..#...#.##....#....###.##........##.###..##";
+opl[2][12]= ".......########........###.....###.....#.....##....#....#....#######....##.........#.........#.#..##";
+opl[2][13]= ".###..#......#..#...##.#..#..#...##...####.####..##...#.................#...#.#.####.##.#.#....#..#.";
+opl[2][14]= ".#......#.......#.#....##.#...##.#..#.#.#..####.#.##....###......###..#.#....#..#.###.#######.......";
+opl[2][15]= "#..#..#..#......#.##.##...#...##..#......#####..##..#.#..####.#...##..#.....#...#.#.........#..#...#";
+opl[2][16]= "....##.........##.##.##.........#..###...###...######.....#......#.##.#.#..#......######.#..#.......";
+opl[2][17]= "..........#....#.####.####..########...###.........###....##......###.##.#....#.#..#.##...##.#.#..#.";
+opl[2][18]= ".#.........##.....##..#.#.........###..#.#....######.#..#.#....##...#.....#......#..#.##..##.##.#...";
+opl[2][19]= ".....#.....#######....#..#.##.#....#....#.#..##.#####..#....####.#.#.#.....###...........#..#..#...#";
+opl[2][20]= ".##.........##...##........#....#.#.##.#..#.#.#....####.#.##..#####.....#...###...###...#...#.......";
+
+opl[3][1] = "#####.....##..###...#...#.###.......#........####...#....#..####.###.#..#...........#.####....#.....";
+opl[3][2] = ".#..##.#...#...#.#......##.#......#..##..#..#..#...##.##...#..#.........###.#.###...#.#......##.##..";
+opl[3][3] = "....#.#.###.......#...###.#.......#####....##..####...#...##...##..##.##....##..#..##.......##...#..";
+opl[3][4] = "#...###...#.#.#.......###.###.......#.#..#.#....##.#.###..#.####............#...#.#..####.#.#..#....";
+opl[3][5] = ".#.#..#...........#..########.##.#......#.......#........##...######..#..#.#.#.....#...###........##";
+opl[3][6] = "..#.....#.#.###...........###.#..##...##....#..##...####....#....##.#####...#.......#.#.##....###..#";
+opl[3][7] = ".....#..#.###.....#...#.###.......#...##....##.....#.##..#.#.#..#..#...#####.#.#.##.####......##....";
+opl[3][8] = "..#..#.#.........#......####.#...##..#..##.......##.....##..###..##..##....#....#..#.##.#...####..##";
+opl[3][9] = "##.#.......#....#.#......####.#.#..###..###..#....##...#....##..###....##...##.........#...#....##..";
+opl[3][10]= ".......#....##.#....#.#..####...#....####.########.....#.#.#..#.........##...#.....###.##..#...#..##";
+opl[3][11]= ".#..#.........#.#..####...#.....##..###.#.......##......#.#.#.##..#.....#####...#.#.....##..#...#.##";
+opl[3][12]= "#..##.#......#.........#..###..#.#....#.##.####.#....#..###......##.....##.#...#...####...#.......#.";
+opl[3][13]= ".#..#.##...#....#....#.####......#..##.........##....##.....##..#..##....##.###....##...####..#.....";
+opl[3][14]= "..#...###...##.##.#....#.#....##.#.#.......#.##.#..#......##.#..#.#...##.######.##..##.#.....##.....";
+opl[3][15]= "#..##.#...##......#.#...#.#.#...#.#####...#####.###........#..#...#########.....##......#....#...##.";
+opl[3][16]= "..#...#.#...#.....#........##.##..##.........#..#..###.####..#....#.#.##..#.#.#######..............#";
+opl[3][17]= "....####..#.#...#..#..#...#...####....##...##.####.#.#....####.#..#.##......###.#...#.....#...#.##.#";
+opl[3][18]= "...#..#.....##........#..####.........#.....#..##....##..###.#..#..#...#.###....##.#...#..#..#...#..";
+opl[3][19]= "...##.#.....##....##...#...###..####...#..#.....##.....####..#........####...#.......#.#....#..#.#.#";
+opl[3][20]= "...#...#.#..###.##.....##....##..#...###..####.#..#..#.....#...#......##...#..#......#..#..#...#.###";
+
+ var tel = new Array();
+
+function controle() {
+  
+  juist = 0;
+  var k = 0;
+  var m = 0;
+  for (j = 0; j < 10; j++) {
+  for (i = 0; i < 10; i++) {
+
+  //   opg = opl[niv][oef];
+  //   var test = opg.substring(k, k+1);
+
+     opg = tec[niv][oef];
+     var test = opg.substring(k, k+2);
+
+     opg = opl[niv][oef];
+     var rood = tel[m];
+   
+    if(test == "  ")
+    {
+
+	if(rood != opg.substring(m, m+1))
+	{
+        document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('rood.jpg')"; 
+        document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover";  
+
+	        if(rood=="G")
+        	{
+        	document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('grijs.jpg')"; 
+        	document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover";  
+        	}  
+
+	} else
+	{
+
+
+        if(rood==".")
+        {
+        document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('grint.jpg')"; 
+        document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover";  
+        }  
+        if(rood=="#")
+        {
+        document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('gras.jpg')"; 
+        document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover";  
+        }  
+
+
+	juist = juist + 1;
+        }
+    }
+
+     if(test != "   ")
+     {
+     juist = juist - 1;
+     }  
+
+  m = m + 1;
+  k = k + 2;
+  }  
+  } 
+
+res = 1 - juist;
+res = res - 1;
+
+//if(res==0)
+//alert("Proficiat! De Rabbits and Trees is correct.")
+//if(res==1)
+//alert("Nog 1 foutje in de puzzel!");
+//if(res>1)
+//alert("Nog slechts " + res + " fouten!");
+
+
+
+}
+
+function losop() {
+  
+  juist = 0;
+  var k = 0;
+  var m = 0;
+  for (j = 0; j < 10; j++) {
+  for (i = 0; i < 10; i++) {
+
+
+  opg = opl[niv][oef];
+  var test = opg.substring(k, k+1);
+     
+     document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('grint.jpg')"; 
+     document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover";  
+
+
+     if(test=="#")
+     {
+     document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('gras.jpg')"; 
+     document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover";  
+     }  
+
+  m = m + 2;
+  k = k + 1;
+  }  
+  } 
+
+
+
+
+}
+
+
+function leeg() {
+document.getElementById("koef").focus();
+document.getElementById("koef").setSelectionRange(0, 9999);
+} 
+
+function start() {
+
+for (i = 0; i < 100; i++) {
+tel[i] = "X";  
+} 
+
+opg = tec[niv][oef];
+
+  var k = 0;
+  for (j = 0; j < 10; j++) {
+  for (i = 0; i < 10; i++) {
+  var test = opg.substring(k, k+2);
+
+  document.getElementById("grid").rows[j].cells[i].style.fontSize = "26px"; 
+  document.getElementById("grid").rows[j].cells[i].style.color = "white";
+  document.getElementById("grid").rows[j].cells[i].innerHTML= test;
+
+
+
+   if(test=="  ") {
+   document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('grijs.jpg')"; 
+   document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover"; 
+   var c = i + (j*10);
+   tel[c] = "G"; 
+  } else {
+   document.getElementById("grid").rows[j].cells[i].style.backgroundImage = "url('grint.jpg')"; 
+   document.getElementById("grid").rows[j].cells[i].style.backgroundSize = "cover";
+
+   } 
+  k = k + 2;
+  }  
+  }   
+
+}
+
+function suivant() {
+niv = document.getElementById("kniv").value;
+oef = document.getElementById("koef").value;
+oef = Number(oef) + 1;
+document.getElementById("koef").value = oef;
+
+if(oef > 20) {
+oef = 1;
+alert("Maximum is puzzle 20!");
+document.getElementById("koef").value = oef;
+}
+start();
+}
+
+function oefkiezen() {
+niv = document.getElementById("kniv").value;
+oef = document.getElementById("koef").value;
+
+if(oef > 20) {
+oef = 1;
+alert("Maximum is puzzle 20!");
+document.getElementById("koef").value = oef;
+}
+start();
+}
+
+
+function change(a,b,c) {
+
+//  document.getElementById("grid").rows[a].cells[b].style.color = "white";
+  var test = document.getElementById("grid").rows[a].cells[b].innerHTML;
+ if(test=="  ") 
+ {
+  if(tel[c]=="G") {
+  document.getElementById("grid").rows[a].cells[b].style.backgroundImage = "url('grint.jpg')"; 
+  document.getElementById("grid").rows[a].cells[b].style.backgroundSize = "cover";
+  document.getElementById("grid").rows[a].cells[b].style.color = "white";
+  tel[c] = ".";
+  return;
+  }
+  if(tel[c]==".") {
+  document.getElementById("grid").rows[a].cells[b].style.backgroundImage = "url('gras.jpg')"; 
+  document.getElementById("grid").rows[a].cells[b].style.backgroundSize = "cover";
+  tel[c] = "#";
+  return;
+  }
+  if(tel[c]=="#") {
+  document.getElementById("grid").rows[a].cells[b].style.backgroundImage = "url('grijs.jpg')"; 
+  document.getElementById("grid").rows[a].cells[b].style.backgroundSize = "cover";
+  tel[c] = "G";
+  return;
+  }
+ }
+ else
+ {
+  var post = document.getElementById("grid").rows[a].cells[b].style.color;
+  if(post=="white")  {
+  document.getElementById("grid").rows[a].cells[b].style.color = "black";
+  }
+  else  {
+  document.getElementById("grid").rows[a].cells[b].style.color = "white";
+  }
+ }
+}
+
+
+var digitsOnly = /[1234567890]/g;
+
+function restrictCharacters(myfield, e, restrictionType) {
+	if (!e) var e = window.event
+	if (e.keyCode) code = e.keyCode;
+	else if (e.which) code = e.which;
+	var character = String.fromCharCode(code);
+	if (code==27) { this.blur(); return false; }
+	if (!e.ctrlKey && code!=9 && code!=8 && code!=36 && code!=37 && code!=38 && (code!=39 || (code==39 && character=="'")) && code!=40) {
+		if (character.match(restrictionType)) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+}
+
+</script><style type="text/css">:root topadblock, :root script[src^="http://free-shoutbox.net/app/webroot/shoutbox/sb.php?shoutbox="] + #freeshoutbox_content, :root input[onclick^="window.open('http://www.FriendlyDuck.com/"], :root img[alt^="Fuckbook"], :root iframe[src^="http://static.mozo.com.au/strips/"], :root div[jscontroller="U835zd"] + c-wiz[jsrenderer="YnuqN"], :root div[id^="zergnet-widget"], :root div[id^="traffective-ad-"], :root div[id^="sticky_ad_"], :root div[id^="rc-widget-"], :root div[id^="q1-adset-"], :root div[id^="proadszone-"], :root div[id^="lazyad-"], :root div[id^="gtm-ad-"], :root div[id^="ezoic-pub-ad-"], :root div[id^="dmRosAdWrapper"], :root div[id^="div-adtech-ad-"], :root div[id^="dfp-slot-"], :root div[id^="dfp-ad-"], :root div[id^="block-views-topheader-ad-block-"], :root div[id^="advt-"], :root div[id^="advads_"], :root div[id^="ads300_600-widget"], :root input[onclick^="window.open('http://www.friendlyduck.com/"], :root div[id^="ads300_250-widget"], :root div[id^="ads300_100-widget"], :root div[id^="ads250_250-widget"], :root div[id^="ads120_600-widget"], :root div[id^="adrotate_widgets-"], :root div[id^="ad_script_"], :root div[id^="ad_rect_"], :root div[id^="ad_position_"], :root div[id^="ad-server-"], :root div[id^="ad-cid-"], :root div[id^="acm-ad-tag-"], :root div[id^="YFBMSN"], :root div[id^="ADV-SLOT-"], :root div[data-spotim-slot], :root div[data-role="sidebarAd"], :root div[data-native_ad], :root div[data-mediatype="advertising"], :root div[data-id-advertdfpconf], :root div[data-crl="true"][data-id^="CarouselPLA-"], :root div[data-content="Advertisement"], :root div[data-adunit], :root div[data-adunit-path], :root div[class^="zn-sponsored-outbrain-"], :root div[class^="proadszone-"], :root div[class^="pane-google-admanager-"], :root div[class^="lifeOnwerAd"], :root div[class^="largeRectangleAd_"], :root div[class^="kiwiad-popup"], :root div[class^="kiwiad-desktop"], :root div[class^="index_adBeforeContent_"], :root div[class^="index_adAfterContent_"], :root div[class^="index__adWrapper"], :root div[class^="block-openx-"], :root div[class^="backfill-taboola-home-slot-"], :root div[class^="articleAdUnitMPU_"], :root div[class^="advertisement-desktop"], :root div[class^="adsbutt_wrapper_"], :root div[class^="ads-partner-"], :root div[class^="adbanner_"], :root div[class^="ad_position_"], :root div[class^="SponsoredAds"], :root div[class^="ResponsiveAd-"], :root div[class^="PreAd_"], :root div[class^="Display_displayAd"], :root div[class^="BannerAd_"], :root div[class^="AdhesionAd_"], :root div[class^="Ad__bigBox"], :root div[class^="Ad__adContainer"], :root div[id^="divAdvAD_"], :root div[class^="ad_border_"], :root div[class^="AdItem-"], :root div[class^="AdEmbeded__AddWrapper"], :root span[data-component-type="s-ads-metrics"], :root div[class^="AdBannerWrapper-"], :root div[class*="_AdInArticle_"], :root div[class*="-storyBodyAd-"], :root div[cel_widget_id="dpx-sponsored-products-detail_csm_instrumentation_wrapper"], :root div[id^="adfox_"], :root div#main > div.D1fz0e, :root div > [class][onclick*=".updateAnalyticsEvents"], :root bottomadblock, :root aside[id^="tn_ads_widget-"], :root aside[id^="adrotate_widgets-"], :root amp-ad-custom, :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[target="_blank"][href^="http://api.taboola.com/"], :root a[style="display:block;width:300px;min-height:250px"][href^="http://li.cnet.com/click?"], :root div[class^="BlockAdvert-"], :root a[src^="https://www.utherverse.com/net/"], :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root div[role="navigation"] + c-wiz > script + div > .kxhcC, :root a[onclick*="//m.economictimes.com/etmack/click.htm"], :root a[href^="https://zononi.com/"], :root a[href^="https://www.what-sexdating.com/"], :root a[href^="https://www.vewwrmp.com/"], :root a[href^="https://www.spyoff.com/"], :root a[href^="https://www.share-online.biz/affiliate/"], :root a[href^="https://www.securegfm.com/"], :root a[href^="https://www.passeura.com/"], :root div[id^="amzn-assoc-ad"], :root a[href^="https://www.oboom.com/ref/"], :root div[itemtype="http://schema.org/WPAdBlock"], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.iyalc.com/"], :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://www.gambling-affiliation.com/cpc/"], :root a[href^="http://webgirlz.online/landing/"], :root a[href^="https://www.g4mz.com/"], :root a[href^="https://www.clicktraceclick.com/"], :root a[href^="https://www.camyou.com/?cam="][href*="&track="], :root a[href^="https://www.camsoda.com/enter.php?id="], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root a[href^="https://www.bebi.com"], :root a[href^="https://www.awin1.com/cread.php?awinaffid="], :root a[href^="https://www.adskeeper.co.uk/"], :root a[href^="http://farm.plista.com/pets"], :root a[href^="https://windscribe.com/promo/"], :root a[href^="https://unreshiramor.com/"], :root a[href^="http://ad-emea.doubleclick.net/"], :root a[href^="https://understandsolar.com/signup/?lead_source="][href*="&tracking_code="], :root div[id^="tms-ad-dfp-"], :root a[href^="https://trust.zone/go/r.php?RID="], :root a[href^="https://trf.bannerator.com/"], :root a[href^="http://go.247traffic.com/"], :root a[href^="https://bestcond1tions.com/"], :root a[href^="https://trappist-1d.com/"], :root a[href^="https://traffic.bannerator.com/"], :root a[href^="https://tracking.truthfinder.com/?a="], :root #rhs_block .xpdopen > ._OKe > div > .mod > ._yYf, :root a[href^="https://tracking.gitads.io/"], :root a[href^="https://track.ultravpn.com/"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root a[href^="https://track.healthtrader.com/"], :root a[href^="https://track.clickmoi.xyz/"], :root a[href^="https://control.trafficfabrik.com/"], :root a[href^="https://track.52zxzh.com/"], :root .ra[align="right"][width="30%"], :root a[href^="https://axdsz.pro/"], :root a[href^="https://tour.mrskin.com/"], :root a[href^="https://t.mobtya.com/"], :root a[href^="https://t.hrtyj.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://syndication.optimizesrv.com/splash.php?"], :root a[href^="http://connectlinking6.com/"], :root a[href^="http://cdn3.adexprts.com/"], :root a[href^="https://spygasm.com/track?"], :root div[id^="ad-div-"], :root a[href^="https://secure.eveonline.com/ft/?aid="], :root a[href^="https://secure.bstlnk.com/"], :root div[class^="kiwi-ad-wrapper"], :root a[href^="https://rev.adsession.com/"], :root [href*=".trackmstr.com"], :root a[href^="https://refpasrasw.world/"], :root a[href^="https://refpaexhil.top/"], :root AD-SLOT, :root a[href^="https://pubads.g.doubleclick.net/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"], :root a[href^="https://prf.hn/click/"][href*="/adref:"], :root #rhs_block .mod > .gws-local-hotels__booking-module, :root a[href^="http://www.my-dirty-hobby.com/?sub="], :root a[href^="https://porndeals.com/?track="], :root a[href^="https://offerforge.net/"], :root div[id^="ad_head_celtra_"], :root a[href^="https://t.grtyi.com/"], :root a[href^="https://myusenet.xyz/"], :root a[href^="https://my-movie.club/"], :root a[href^="https://msecure117.com/"], :root a[href^="https://mk-cdn.net/"], :root a[href^="https://mk-ads.com/"], :root a[href^="https://misspkl.com/"], :root a[href^="https://medleyads.com/"], :root iframe[src^="https://tpc.googlesyndication.com/"], :root a[href*=".approvallamp.club/"], :root a[href^="https://landing1.brazzersnetwork.com"], :root a[href^="http://adrunnr.com/"], :root a[href^="https://landing.brazzersplus.com/"], :root a[href^="https://land.rk.com/landing/"], :root .lads[width="100%"][style="background:#FFF8DD"], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://join.virtuallust3d.com/"], :root a[href^="http://www.uniblue.com/cm/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://incisivetrk.cvtr.io/click?"], :root a[href^="https://iactrivago.ampxdirect.com/"], :root a[href^="https://iac.ampxdirect.com/"], :root div[data-ismultirow="true"][data-id^="CarouselPLA-"], :root a[href^="https://horny-pussies.com/tds"], :root a[href^="https://graizoah.com/"], :root td[valign="top"] > .mainmenu[style="padding:10px 0 0 0 !important;"], :root a[href^="http://feedads.g.doubleclick.net/"], :root a[href^="https://redsittalvetoft.pro/"], :root a[href^="https://googleads.g.doubleclick.net/pcs/click"], :root a[href^="http://cdn.adstract.com/"], :root a[href^="https://gogoman.me/"], :root div[jsdata*="CarouselPLA-"][data-id^="CarouselPLA-"], :root a[href^="https://go.trackitalltheway.com/"], :root a[href^="https://go.stripchat.com/"][href*="&campaignId="], :root a[href^="https://go.julrdr.com/"], :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://adnetwrk.com/"], :root a[href^="https://go.gldrdr.com/"], :root div[id^="mainads"], :root a[href^="https://go.currency.com/"], :root a[href^="https://track.afftck.com/"], :root a[href^="http://guideways.info/"], :root a[href^="https://go.cmrdr.com/"], :root a[href*=".inclk.com/"], :root a[href^="https://go.ad2up.com/"], :root a[href^="https://freeadult.games/"], :root a[href^="https://fonts.fontplace9.com/"], :root a[href^="http://clkmon.com/adServe/"], :root a[href^="https://flirtaescopa.com/"], :root a[href^="https://fleshlight.sjv.io/"], :root a[href^="https://fakelay.com/"], :root a[href^="https://earandmarketing.com/"], :root [lazy-ad="leftthin_banner"], :root a[href^="https://dynamicadx.com/"], :root .GFYY1SVE2 > .GFYY1SVD2 > .GFYY1SVG5, :root a[href^="https://djtcollectorclub.org/"][href*="?affiliate_id="], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="//srv.buysellads.com/"], :root a[href^="https://dianches-inchor.com/"], :root a[href^="http://adf.ly/?id="], :root a[href^="https://uncensored3d.com/"], :root a[href^="https://creacdn.top-convert.com/"], :root a[href*="=exoclick"], :root a[href^="https://www.chngtrack.com/"], :root iframe[src^="https://pagead2.googlesyndication.com/"], :root a[href^="https://retiremely.com/"], :root a[href^="https://cpmspace.com/"], :root .commercial-unit-mobile-top > .v7hl4d, :root a[href^="https://click.plista.com/pets"], :root a[href^="https://chaturbate.xyz/"], :root a[href^="http://look.djfiln.com/"], :root a[href^="https://chaturbate.jjgirls.com/"][href*="?tour="], :root a[href^="https://chaturbate.com/in/?track="], :root a[href^="https://chaturbate.com/in/?tour="], :root a[href^="https://chaturbate.com/affiliates/"], :root [href*="wap4dollar.com/"], :root .__y_elastic .__y_item, :root a[href^="https://mcdlks.com/"], :root a[href^="https://bs.serving-sys.com"], :root .mod > ._jH + .rscontainer, :root a[href^="https://blackorange.go2cloud.org/"], :root a[href^="https://affiliates.bet-at-home.com/processing/"], :root a[href^="https://ads.ad4game.com/"], :root a[href^="https://betway.com/"][href*="&a="], :root a[href^="http://www.linkbucks.com/referral/"], :root a[href^="https://azpresearch.club/"], :root a[href^="https://awptjmp.com/"], :root a[href^="http://www.fleshlight.com/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://awentw.com/"], :root a[href^="https://albionsoftwares.com/"], :root a[href^="//postlnk.com/"], :root a[href^="https://affiliate.rusvpn.com/click.php?"], :root a[href^="//bwnjijl7w.com/"], :root a[href^="https://adultfriendfinder.com/go/page/landing"], :root a[href*="pussl3.com"], :root a[href^="https://adswick.com/"], :root .GKJYXHBF2 > .GKJYXHBE2 > .GKJYXHBH5, :root ADS-RIGHT, :root a[href^="https://adserver.adreactor.com/"], :root a[href^="https://refpaano.host/"], :root a[href^="https://meet-to-fuck.com/tds"], :root a[href^="https://adhealers.com/"], :root app-advertisement, :root a[href^="https://ad.doubleclick.net/"], :root a[href^="http://zevera.com/afi.html"], :root a[href^="http://go.oclaserver.com/"], :root a[href^="https://ad.atdmt.com/"], :root .trc_rbox .syndicatedItem, :root a[href^="https://aaucwbe.com/"], :root a[href^="http://xtgem.com/click?"], :root a[href^="https://ads.trafficpoizon.com/"], :root div[class^="local-feed-banner-ads"], :root a[href^="http://wxdownloadmanager.com/dl/"], :root a[href^="http://www.zergnet.com/i/"], :root a[onmousedown^="this.href='http://staffpicks.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="http://www.usearchmedia.com/signup?"], :root a[href^="http://www.torntv-downloader.com/"], :root a[href^="http://www.tirerack.com/affiliates/"], :root a[href^="http://www.text-link-ads.com/"], :root a[href^="https://weedzy.co.uk/"][href*="&utm_"], :root a[href^="http://pokershibes.com/index.php?ref="], :root a[href^="https://usenetxs.website/"], :root a[href^="https://gghf.mobi/"], :root a[href^="http://www.terraclicks.com/"], :root a[href^="https://ads-for-free.com/click.php?"], :root a[href^="http://www.socialsex.com/"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[href^="http://www.sfippa.com/"], :root a[href^="http://www.xmediaserve.com/"], :root a[href^="http://www.sex.com/videos/?utm_"], :root a[href^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www.sex.com/?utm_"], :root a[href^="http://secure.signup-page.com/"], :root a[href^="http://www.quick-torrent.com/download.html?aff"], :root a[href^="http://www.pinkvisualgames.com/?revid="], :root a[href^="https://trklvs.com/"], :root a[href^="http://www.paddypower.com/?AFF_ID="], :root a[href^="http://www.onwebcam.com/random?t_link="], :root a[href^="https://go.247traffic.com/"], :root a[href^="http://www.freefilesdownloader.com/"], :root a[href^="http://www.mysuperpharm.com/"], :root .trc_rbox_border_elm .syndicatedItem, :root a[href^="http://www.myfreepaysite.com/sfw_int.php?aid"], :root a[href^="http://www.myfreepaysite.com/sfw.php?aid"], :root .rhsvw[style="background-color:#fff;margin:0 0 14px;padding-bottom:1px;padding-top:1px;"], :root a[href^="http://www.moneyducks.com/"], :root a[href^="http://bcntrack.com/"], :root a[href^="http://www.securegfm.com/"], :root a[href^="http://www.liversely.net/"], :root [href*="//trackmstr.com"], :root [href*="prayuserparka.com/"], :root a[href^="http://www.idownloadplay.com/"], :root a[href^="http://www.hitcpm.com/"], :root a[href^="http://fusionads.net"], :root a[href^="http://www.hibids10.com/"], :root div[class^="awpcp-random-ads"], :root [href*="//securesafemembers.com"], :root a[href^="http://www.graboid.com/affiliates/"], :root a[href^="http://www.gamebookers.com/cgi-bin/intro.cgi?"], :root div[id^="div_openx_ad_"], :root a[href^="http://www.friendlyquacks.com/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href*=".tfaln.com/"], :root a[href^="http://www.friendlyduck.com/AF_"], :root a[href^="https://content.oneindia.com/www/delivery/"], :root a[href^="http://www.fpcTraffic2.com/blind/in.cgi?"], :root a[href^="http://www.flashx.tv/downloadthis"], :root .trc_rbox_div a[target="_blank"][href^="http://tab"], :root a[href^="https://americafirstpolls.com/"], :root a[href^="http://clickserv.sitescout.com/"], :root a[href^="http://www.firstload.de/affiliate/"], :root a[href^="http://www.twinplan.com/AF_"], :root a[href^="http://www.fducks.com/"], :root a[href^="http://www.easydownloadnow.com/"], :root a[href^="http://www.duckssolutions.com/"], :root a[href^="https://offers.refchamp.com/"], :root a[href^="https://go.trkclick2.com/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="http://www.duckcash.eu/"], :root a[href^="http://go.seomojo.com/tracking202/"], :root a[href^="http://www.downloadweb.org/"], :root a[href^="http://www.down1oads.com/"], :root a[href^="https://trafficmedia.center/"], :root a[href^="http://www.dealcent.com/register.php?affid="], :root .rscontainer > .ellip, :root a[href^="http://www.clkads.com/adServe/"], :root a[href^="https://track.interactivegf.com/"], :root div[class^="adpubs-"], :root a[href*="deliver.trafficfabrik.com"], :root a[href^="http://www.cash-duck.com/"], :root a[href^="https://aff-ads.stickywilds.com/"], :root a[href^="http://www.bitlord.me/share/"], :root div[class^="Directory__footerAds"], :root a[href^="http://www.bet365.com/"][href*="?affiliate="], :root a[href^="http://www.bet365.com/"][href*="&affiliate="], :root .grid > .container > #aside-promotion, :root a[href^="http://www.babylon.com/welcome/index?affID"], :root a[onmousedown^="this.href='/wp-content/embed-ad-content/"], :root a[href^="//adbit.co/?a=Advertise&"], :root a[href^="http://popup.taboola.com/"], :root a[href^="https://fast-redirecting.com/"], :root a[href^="http://www.sexgangsters.com/?pid="], :root a[href^="http://www.amazon.co.uk/exec/obidos/external-search?"], :root a[href^="http://go.ad2up.com/"], :root a[href^="https://badoinkvr.com/"], :root a[href*="/adServe/banners?"], :root a[href^="http://www.adxpansion.com"], :root .plistaList > .itemLinkPET, :root a[href^="http://www.adbrite.com/mb/commerce/purchase_form.php?"], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root a[href^="http://www.ragazzeinvendita.com/?rcid="], :root a[href^="http://www.TwinPlan.com/AF_"], :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="http://www.1clickdownloader.com/"], :root a[href^="http://www.123-reg.co.uk/affiliate2.cgi"], :root div[itemtype="http://www.schema.org/WPAdBlock"], :root a[href^="http://wopertific.info/"], :root a[href^="http://bodelen.com/"], :root a[href^="http://wgpartner.com/"], :root a[href^="http://web.adblade.com/"], :root a[href^="https://go.onclasrv.com/"], :root a[href^="http://wct.link/"], :root a[href^="https://topoffers.com/"][href*="/?pid="], :root a[href^="http://vinfdv6b4j.com/"], :root a[href^="http://us.marketgid.com"], :root a[href^="http://ul.to/ref/"], :root a[href^="http://ucam.xxx/?utm_"], :root a[href^="https://adsrv4k.com/"], :root a[href^="http://trk.mdrtrck.com/"], :root a[href^="http://traffic.tc-clicks.com/"], :root a[href^="http://www.liutilities.com/"], :root a[href^="http://www.dl-provider.com/search/"], :root a[href^="http://tc.tradetracker.net/"] > img, :root a[href^="http://tracking.deltamediallc.com/"], :root div[aria-label="Ads"], :root a[href^="http://axdsz.pro/"], :root a[href^="https://go.ebrokerserve.com/"], :root a[href^="http://galleries.securewebsiteaccess.com/"], :root a[href^="http://stateresolver.link/"], :root a[href^="http://sharesuper.info/"], :root a[href^="https://awecrptjmp.com/"], :root a[href^="http://server.cpmstar.com/click.aspx?poolid="], :root .trc_related_container div[data-item-syndicated="true"], :root a[href^="https://www.firstload.com/affiliate/"], :root a[href^="http://see.kmisln.com/"], :root a[href^="http://secure.vivid.com/track/"], :root a[href^="http://www.downloadthesefiles.com/"], :root a[href^="http://secure.cbdpure.com/aff/"], :root aside[id^="advads_ad_widget-"], :root a[href^="http://lp.ezdownloadpro.info/"], :root a[href^="http://uploaded.net/ref/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="http://s9kkremkr0.com/"], :root a[href^="http://azmobilestore.co/"], :root a[href^="http://s5prou7ulr.com/"], :root a[href^="https://easygamepromo.com/ef/custom_affiliate/"], :root a[href^="http://record.betsafe.com/"], :root a[href^="http://mo8mwxi1.com/"], :root a[href^="https://bnsjb1ab1e.com/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"], :root a[href^="//oardilin.com/"], :root a[href^="http://pwrads.net/"], :root a[href^="http://promos.bwin.com/"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root a[href^="http://play4k.co/"], :root a[href^="http://partner.sbaffiliates.com/"], :root div[id^="ad-gpt-"], :root a[href^="http://pan.adraccoon.com?"], :root a[href*="//ezofferz.com/"], :root a[href^="https://dltags.com/"], :root a[href^="http://onclickads.net/"], :root a[href^="http://n.admagnet.net/"], :root a[href^="//awejmp.com/"], :root a[href^="http://mob1ledev1ces.com/"], :root a[href^="http://mmo123.co/"], :root a[href^="http://media.paddypower.com/redirect.aspx?"], :root a[href^="https://fileboom.me/pr/"], :root a[href^="http://marketgid.com"], :root a[href^="http://liversely.net/"], :root div[id^="drudge-column-ads-"], :root a[href^="http://tour.mrskin.com/"], :root [src^="/Redirect.a2b?"], :root a[href^="http://linksnappy.com/?ref="], :root a[href^="https://deliver.ptgncdn.com/"], :root a[href^="http://latestdownloads.net/download.php?"], :root a[data-redirect^="http://click.plista.com/pets"], :root .section-subheader > .section-hotel-prices-header, :root a[href^="http://landingpagegenius.com/"], :root a[href^="http://keep2share.cc/pr/"], :root a[href^="http://k2s.cc/pr/"], :root a[href^="http://k2s.cc/code/"], :root a[href^="http://www.revenuehits.com/"], :root a[href^="http://install.securewebsiteaccess.com/"], :root .widget-pane-section-result[data-result-ad-type], :root a[href^="http://imads.integral-marketing.com/"], :root div[id^="crt-"][style], :root a[href^="http://igromir.info/"], :root a[href^="https://intrev.co/"], :root a[href^="http://https://www.get-express-vpn.com/offer/"], :root a[href^="http://searchtabnew.com/"], :root a[href*="?adlivk="][href*="&refer="], :root a[href^="//look.djfiln.com/"], :root a[href^="http://greensmoke.com/"], :root a[href^="https://look.utndln.com/"], :root a[href^="//5e1fcb75b6d662d.com/"], :root #tads[aria-label], :root a[href^="http://googleads.g.doubleclick.net/pcs/click"], :root aside[itemtype="https://schema.org/WPAdBlock"], :root a[href^="https://watchmygirlfriend.tv/"], :root .nrelate .nr_partner, :root a[href^="http://go.xtbaffiliates.com/"], :root a[href^="http://go.mobisla.com/"], :root a[href^="http://g1.v.fwmrm.net/ad/"], :root a[href^="http://freesoftwarelive.com/"], :root a[href^="http://adtrackone.eu/"], :root a[href^="http://finaljuyu.com/"], :root a[href^="http://fileloadr.com/"], :root a[href^="http://t.wowtrk.com/"], :root a[href^="//syndication.dynsrvtbg.com/splash.php?"], :root a[href^="http://extra.bet365.com/"][href*="?affiliate="], :root a[href^="http://ethfw0370q.com/"], :root a[href^="https://tracking.comfortclick.eu/"], :root [id^="bunyad_ads_"], :root a[href^="http://elitefuckbook.com/"], :root a[href^="http://eclkmpsa.com/"], :root a[href^="http://earandmarketing.com/"], :root a[href*=".mfroute.com/"], :root #content > #center > .dose > .dosesingle, :root a[href^="http://campaign.bharatmatrimony.com/track/"], :root a[href*="3wr110.xyz/"], :root a[href^="http://d2.zedo.com/"], :root a[href^="https://iqoption.com/lp/mobile-partner/"][href*="?aff="], :root a[href^="http://cp.cbbp1.com"], :root a[href^="http://codec.codecm.com/"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root a[href^="http://www.downloadplayer1.com/"], :root a[href^="http://clicks.binarypromos.com/"], :root a[href^="https://dediseedbox.com/clients/aff.php?"], :root [href^="/ucmini.php"], :root a[href^="http://www.wantstraffic.com/"], :root a[href^="http://databass.info/"], :root div[class^="AdCard_"], :root a[href^="http://www.urmediazone.com/signup"], :root a[href^="http://click.plista.com/pets"], :root a[href^="http://chaturbate.com/affiliates/"], :root a[href^="http://www.firstload.com/affiliate/"], :root a[href^="http://www.friendlyadvertisements.com/"], :root a[href^="http://go.fpmarkets.com/"], :root a[href^="//00ae8b5a9c1d597.com/"], :root a[href^="http://cdn3.adbrau.com/"], :root [href^="https://secure.bmtmicro.com/servlets/"], :root a[href^="http://amzn.to/"] > img[src^="data"], :root a[href^="http://bs.serving-sys.com/"], :root a[href^="http://cpaway.afftrack.com/"], :root a[href^="http://cdn.adsrvmedia.net/"], :root [lazy-ad="top_banner"], :root a[href^="http://360ads.go2cloud.org/"], :root a[href^="http://dftrck.com/"], :root a[href^="http://casino-x.com/?partner"], :root a[href^="http://record.sportsbetaffiliates.com.au/"], :root a[href^="http://campeeks.com/"][href*="&utm_"], :root #flowplayer > div[style="position: absolute; width: 300px; height: 275px; left: 222.5px; top: 85px; z-index: 999;"], :root a[href^="http://download-performance.com/"], :root a[href^="http://www.on2url.com/app/adtrack.asp"], :root #\5f _nq__hh[style="display:block!important"], :root div[data-flt-ve="sponsored_search_ads"], :root [href^="https://affect3dnetwork.com/track/"], :root div[class^="index_displayAd_"], :root a[href^="http://adultgames.xxx/"], :root a[href^="https://s.zlink2.com/"], :root a[href^="http://semi-cod.com/clicks/"], :root a[href^="http://campaign.bharatmatrimony.com/cbstrack/"], :root a[href^="http://istri.it/?"], :root a[href^="https://gamescarousel.com/"], :root a[href^="http://yads.zedo.com/"], :root a[href^="https://bullads.net/get/"], :root a[href^="http://down1oads.com/"], :root a[href^="http://buysellads.com/"], :root a[href^="https://uncensored.game/"], :root a[href^="http://betahit.click/"], :root a[href^="https://torguard.net/aff.php"] > img, :root a[href^="http://bestorican.com/"], :root a[href^="http://bcp.crwdcntrl.net/"], :root a[href^="http://bc.vc/?r="], :root a[href^="http://banners.victor.com/processing/"], :root a[href^="http://www.fbooksluts.com/"], :root a[href^="http://www.cdjapan.co.jp/aff/click.cgi/"], :root a[href^="http://intent.bingads.com/"], :root a[href^="//api.ad-goi.com/"], :root a[href*="//ridingintractable.com/"], :root a[href^="http://c.actiondesk.com/"], :root a[href^="http://affiliate.glbtracker.com/"], :root a[href^="https://transfer.xe.com/signup/track/redirect?"], :root a[href^="http://anonymous-net.com/"], :root a[href^="http://hotcandyland.com/partner/"], :root a[href^="http://affiliates.thrixxx.com/"], :root a[href^="http://affiliate.coral.co.uk/processing/"], :root a[href^="http://aff.ironsocket.com/"], :root a[href^="http://adsrv.keycaptcha.com"], :root a[href^="https://secure.adnxs.com/clktrb?"], :root a[href^="http://adserver.adtechus.com/"], :root a[href^="http://adserver.adreactor.com/"], :root a[href^="//go.onclasrv.com/"], :root .GHOFUQ5BG2 > .GHOFUQ5BF2 > .GHOFUQ5BG5, :root #\5f _mom_ad_2, :root a[href^="http://ads.sprintrade.com/"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="http://adserver.adtech.de/"], :root a[href^="http://cwcams.com/landing/click/"], :root a[href^="http://ads.betfair.com/redirect.aspx?"], :root a[href^="http://reallygoodlink.extremefreegames.com/"], :root a[href^="http://adlev.neodatagroup.com/"], :root a[href^="http://ad.doubleclick.net/"], :root a[href^="https://k2s.cc/pr/"], :root a[href^="http://ad.au.doubleclick.net/"], :root a[href*=".directtl.xyz/"], :root a[href^="https://clickadilla.com/"], :root a[href^="http://websitedhoome.com/"], :root .ob_container .item-container-obpd, :root a[href^="http://www.adskeeper.co.uk/"], :root a[href^="http://srvpub.com/"], :root [data-dynamic-ads], :root a[href^="http://a.adquantix.com/"], :root a[href^="http://NowDownloadAll.com"], :root a[href^="http://adtrack123.pl/"], :root ad-desktop-sidebar, :root [id*="MGWrap"], :root a[href^="http://9amq5z4y1y.com/"], :root a[href^="http://1phads.com/"], :root a[href^="https://ismlks.com/"], :root a[href^="//zenhppyad.com/"], :root a[href^="//www.pd-news.com/"], :root [href*=".doubleclick-net.com"], :root a[href^="//www.mgid.com/"], :root a[href^="http://lp.ncdownloader.com/"], :root a[href^="//pubads.g.doubleclick.net/"], :root a[href^="https://www.travelzoo.com/oascampaignclick/"], :root a[href^="https://see.kmisln.com/"], :root a[href^="http://refer.webhostingbuzz.com/"], :root a[onmousedown^="this.href='http://staffpicks.outbrain.com/network/redir?"][target="_blank"], :root a[href^="//nlkdom.com/"], :root a[href^="//medleyads.com/spot/"], :root a[href^="https://ilovemyfreedoms.com/"][href*="?affiliate_id="], :root [href*=".afftracks.online/"], :root div[class^="Component-dfp-"], :root a[href^="//healthaffiliate.center/"], :root .l-container > #fishtank, :root a[href^="http://www.ducksnetwork.com/"], :root a[href^="//go.vedohd.org/"], :root [onclick*="content.ad/"], :root a[href^="https://clixtrac.com/"], :root a[href^="//4f6b2af479d337cf.com/"], :root a[href^="//4c7og3qcob.com/"], :root a[href^="https://www.arthrozene.com/"][href*="?tid="], :root a[href^="http://tezfiles.com/pr/"], :root #rhs_block > ol > .rhsvw > .kp-blk > .xpdopen > ._OKe > ol > ._DJe > .luhb-div, :root a[href^=".vddfe.club/"], :root [href^="/ucdownloader.php"], :root a[href^="https://awejmp.com/"], :root [href*="//go2page.net"], :root a[href^=" http://www.sex.com/"][href*="&utm_"], :root .GPMV2XEDA2 > .GPMV2XEDP1 > .GPMV2XEDJBB, :root a[href*="onclkds."], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href*=".intab.fun/"], :root a[href*="get-express-vpn.xyz"], :root a[href*="=adscript"], :root #mn #center_col > div > h2.spon:first-child, :root a[href*="=Adtracker"], :root a[href^="http://4c7og3qcob.com/"], :root a[href^="https://trusted-click-host.com/"], :root a[href^="https://members.linkifier.com/public/affiliateLanding?refCode="], :root a[href^="https://jmp.awempire.com/"], :root [href^="https://wct.link/"], :root a[href^="https://track.totalav.com/"], :root a[href^="http://ad-apac.doubleclick.net/"], :root c-wiz[jsrenderer="YnuqN"] > div > div > .Rn1jbe, :root a[href*="/servlet/click/zone?"], :root a[href^="http://refpaano.host/"], :root a[href*="/cmd.php?ad="], :root a[href^="http://track.trkvluum.com/"], :root #atvcap + #tvcap > .mnr-c > .commercial-unit-mobile-top, :root a[href*="/adrotate-out.php?"], :root a[href^="https://track.trkinator.com/"], :root div[id^="ad-position-"], :root a[data-redirect^="this.href='http://paid.outbrain.com/network/redir?"], :root a[href^="http://liversely.com/"], :root a[href^="http://www.firstclass-download.com/"], :root a[href*="//bongacams7.com/track?"], :root div[id^="advads-"], :root a[href^="http://www.myfreecams.com/?co_id="][href*="&track="], :root a[href^="https://track.afcpatrk.com/"], :root a[href*=".ad-center.com/"], :root a[href*=".udncoeln.com/"], :root a[href*=".trust.zone"], :root a[href*=".smartadserver.com"], :root a[href^="https://a.bestcontentfood.top/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > div > .vci, :root a[href*="delivery.trafficfabrik.com"], :root #ads > .dose > .dosesingle, :root a[href*=".revimedia.com/"], :root .commercial-unit-desktop-rhs > div[jscontroller="YD5eo"], :root [id^="div-gpt-ad"], :root .__ywvr .__y_item, :root a[href^="https://farm.plista.com/pets"], :root a[href*=".red90121.com/"], :root a[href^="http://www.greenmangaming.com/?tap_a="], :root a[href*=".opskln.com/"], :root a[href^="http://z1.zedo.com/"], :root a[href*=".irtyc.com/"], :root div[id^="div_ad_stack_"], :root a[href*=".ichlnk.com/"], :root div[id^="ad_bigbox_"], :root #content > #right > .dose > .dosesingle, :root #assetsListings[style="display: block;"], :root a[href^="http://9nl.es/"], :root [lazy-ad="leftbottom_banner"], :root a[href*=".fwd28.com/"], :root div[id^="yandex_ad"], :root a[href^="https://www.pornhat.com/"][rel="nofollow"], :root a[href^="https://www.hotgirls4fuck.com/"], :root a[href^="http://y1jxiqds7v.com/"], :root a[href*=".frtyl.com/"], :root a[href^="http://www.badoink.com/go.php?"], :root a[class="RBAd"], :root a[href^="http://a63t9o1azf.com/"], :root a[href*=".axdsz.pro/"], :root div[class^="adUnit_"], :root a[href^="https://deliver.tf2www.com/"], :root a[href^="http://spygasm.com/track?"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root [src*="//www.dianomi.com/smartads.epl"], :root a[href*=".adk2x.com/"], :root a[href*=".allsports4you.club"], :root a[href^="https://track.bruceads.com/"], :root div[data-adservice-param-tagid="contentad"], :root #MAIN.ShowTopic > .ad, :root a[href^="https://porngames.adult/?SID="], :root a[href^="http://findersocket.com/"], :root a[href^="https://m.do.co/c/"] > img, :root [href*=".ltroute.com/"], :root div[class*="margin-Advert"], :root #tads + div + .c, :root a[href^="//jsmptjmp.com/"], :root .commercial-unit-mobile-top .jackpot-main-content-container > .UpgKEd + .nZZLFc > .vci, :root a[href^="https://financeads.net/tc.php?"], :root #ssmiwdiv[jsdisplay], :root a[href*=".adform.net/"], :root a[href^="http://duckcash.eu/"], :root a[href^="http://www.mobileandinternetadvertising.com/"], :root a[href^="http://join3.bannedsextapes.com/track/"], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root .GB3L-QEDGY .GB3L-QEDF- > .GB3L-QEDE-, :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root [href*=".jetx.info/"], :root div[id^="cns_ads_"], :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://www.getyourguide.com/?partner_id="], :root [onclick^="window.open('https://www.brazzersnetwork.com/landing/"], :root #resultspanel > #topads, :root a[href^="http://admrotate.iplayer.org/"], :root a[href^="http://espn.zlbu.net/"], :root a[href^="https://vod09197d7.club/"], :root [href^="/admdownload.php"], :root [onclick^="window.open('window.open('//delivery.trafficfabrik.com/"], :root a[href^="https://keep2share.cc/pr/"], :root [id*="MarketGid"], :root a[href^="https://scurewall.co/"], :root .commercial-unit-desktop-rhs > .iKidV > .Ee92ae + .P2mpm + .hp3sk, :root div[class*="_browserAdOuterContainer_"], :root [name^="google_ads_iframe"], :root a[data-oburl^="http://paid.outbrain.com/network/redir?"], :root a[href^="http://refpa.top/"], :root a[href*="//bongacams.com/track?"], :root a[href^="https://servedbyadbutler.com/"], :root a[href^="https://mob1ledev1ces.com/"], :root a[data-redirect^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://explore.findanswersnow.net/"], :root [id^="adframe_wrap_"], :root .mw > #rcnt > #center_col > #taw > #tvcap > .c, :root a[href^="https://playuhd.host/"], :root [href^="https://go.affiliatexe.com/"], :root a[href^="http://mgid.com/"], :root a[href*=".adsrv.eacdn.com/"] > img, :root [href*="//etracking.pro"], :root a[href^="http://www.fonts.com/BannerScript/"], :root a[href^="http://c.ketads.com/"], :root a[href^="http://6kup12tgxx.com/"], :root a[href^="http://www.roboform.com/php/land.php"], :root a[href^="http://online.ladbrokes.com/promoRedirect?"], :root a[href^="//mob1ledev1ces.com/"], :root .ra[width="30%"][align="right"] + table[width="70%"][cellpadding="0"], :root a[href^="http://www.coiwqe.site/"], :root iframe[id^="google_ads_frame"], :root a[href^="http://www.bluehost.com/track/"] > img, :root a[data-url^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://www.popads.net/users/"], :root a[href^="http://adultfriendfinder.com/p/register.cgi?pid="], :root a[href*="a2g-secure.com"], :root [href^="http://raboninco.com/"], :root .GFYY1SVD2 > .GFYY1SVC2 > .GFYY1SVF5, :root [href^="https://join3.bannedsextapes.com"], :root [href^="https://bulletprofitsmartlink.com/"], :root a[href^="http://www.pinkvisualpad.com/?revid="], :root a[href^="https://www.oneclickroot.com/?tap_a="] > img, :root DFP-AD, :root a[href^="//porngames.adult/?SID="], :root a[href^="https://www.friendlyduck.com/AF_"], :root [href^="http://advertisesimple.info/"], :root a[href^="http://secure.hostgator.com/~affiliat/"], :root [onclick^="window.open('http://adultfriendfinder.com/search/"], :root [href*=".revrtb.com/"], :root .mod > .gws-local-promotions__border, :root .icons-rss-feed + .icons-rss-feed div[class$="_item"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root a[href^="http://affiliates.score-affiliates.com/"], :root [href^="/ucdownload.php"], :root a[href^="http://allaptair.club/"], :root a[href^="http://affiliates.pinnaclesports.com/processing/"], :root #header + #content > #left > #rlblock_left, :root a[href^="http://partners.etoro.com/"], :root [id^="google_ads_iframe"], :root [href*="cadsecs.com/"], :root a[href^="http://adserving.unibet.com/"], :root [href*="//trackout.business"], :root #rhs_block .mod > .luhb-div > div[data-async-type="updateHotelBookingModule"], :root a[href^="http://adclick.g.doubleclick.net/"], :root [href*="//mclick.net"], :root [href^="https://refpahrwzjlv.top/"], :root a[href^="http://czotra-32.com/"], :root div[role="navigation"] + c-wiz > div > .kxhcC, :root a[href^="http://www.download-provider.org/"], :root a[href^="https://go.nordvpn.net/aff_c"] > img, :root a[href*=".qertewrt.com/"], :root [href*="//doubleclick-net.com"], :root a[href^="http://deloplen.com/afu.php?zoneid="], :root a[href^="//db52cc91beabf7e8.com/"], :root [id*="ScriptRoot"], :root [href*=".xiloy.site/"], :root [src^="http://api.lanistaads.com/ServeAd?"], :root a[href^="http://webtrackerplus.com/"], :root a[href^="https://ad13.adfarm1.adition.com/"], :root a[href^="http://clickandjoinyourgirl.com/"], :root a[href*=".xromp.com/landing/click/"], :root #center_col > #res > #topstuff + #search > div > #ires > #rso > #flun, :root [href*=".trackout.business"], :root #center_col > #taw > #tvcap > .rscontainer, :root [href*=".securesafemembers.com"], :root [href*=".grtya.com/"], :root .gbfwa > div[class$="_item"], :root a[href^="https://goraps.com/"], :root [href*=".etracking.pro"], :root #main-content > [style="padding:10px 0 0 0 !important;"], :root #center_col > #resultStats + div[style="border:1px solid #dedede;margin-bottom:11px;padding:5px 7px 5px 6px"], :root a[href^="https://www.oboom.com/ad/"], :root [href*=".adcampo.com/"], :root [data-ad-module], :root a[href^="http://get.slickvpn.com/"], :root a[href^="https://track.themadtrcker.com/"], :root a[href^="http://hyperlinksecure.com/go/"], :root a[href^="http://xads.zedo.com/"], :root a[href^="http://www.affiliates1128.com/processing/"], :root a[href^="http://c.jumia.io/"], :root [class^="div-gpt-ad"], :root [href*=".go2page.net"], :root a[href^="http://hd-plugins.com/download/"], :root a[href^="//voyeurhit.com/cs/"], :root a[href^="http://www.afgr3.com/"], :root [ad-id^="googlead"], :root .ra[align="left"][width="30%"], :root a[href^="https://trackjs.com/?utm_source"], :root AFS-AD, :root [id^="ad-wrap-"], :root #center_col > #\5f Emc, :root a[href^="http://ads2.williamhill.com/redirect.aspx?"], :root AD-TRIPLE-BOX, :root #center_col > div[style="font-size:14px;margin-right:0;min-height:5px"] > div[style="font-size:14px;margin:0 4px;padding:1px 5px;background:#fff8e7"], :root a[href*=".trck5.com/"], :root .trc_rbox_div .syndicatedItem, :root a[href^="http://www.streamate.com/exports/"], :root [href*="maskip.co/"], :root a[href^="http://aflrm.com/"], :root div[id^="google_dfp_"], :root [href*="get-download.club/"], :root .section-result[data-result-ad-type], :root a[href^="https://syndication.exoclick.com/splash.php?"], :root #mn div[style="position:relative"] > #center_col > div > ._dPg, :root a[href*="//bongacams5.com/track?"], :root FBS-AD, :root a[href^="http://see-work.info/"], :root .inlineNewsletterSubscription + .inlineNewsletterSubscription div[class$="_item"], :root a[href*=".orange2258.com/"], :root #taw > .med + div > #tvcap > .mnr-c:not(.qs-ic) > .commercial-unit-mobile-top, :root .plista_widget_belowArticleRelaunch_item[data-type="pet"], :root a[href*=".clksite.com/"], :root a[href^="http://www.webtrackerplus.com/"], :root .GJJKPX2N1 > .GJJKPX2M1 > .GJJKPX2P4, :root a[href*=".bang.com/"][href*="&aff="], :root #topstuff > #tads, :root a[href*=".purple6401.com/"], :root a[href^="http://goldmoney.com/?gmrefcode="], :root a[href^="http://papi.mynativeplatform.com:80/pub2/"], :root LEADERBOARD-AD, :root #mn #center_col > div > h2.spon:first-child + ol:last-child, :root a[href*=".cfm?fp="][href*="&prvtof="], :root a[href*="n47adshostnet.com/"], :root #center_col > #taw > #tvcap > .commercial-unit-desktop-top, :root .plistaList > .plista_widget_underArticle_item[data-type="pet"], :root a[href^="http://servicegetbook.net/"], :root #rhs_block > #mbEnd, :root a[href^="http://cinema.friendscout24.de?"], :root [lazy-ad="lefttop_banner"], :root a[href^="http://www.mrskin.com/tour"], :root .jobs-information-call-to-action + .jobs-information-call-to-action div[class$="_item"], :root a[href^="https://go.hpyjmp.com/"], :root .vi-lb-placeholder[title="ADVERTISEMENT"], :root a[href^="http://www.menaon.com/installs/"], :root a[href^="http://taboola-"][href*="/redirect.php?app.type="], :root .mw > #rcnt > #center_col > #taw > .c, :root .commercial-unit-mobile-top > div[data-pla="1"], :root a[href^="http://api.content.ad/"], :root a[href*=".clkcln.com/"], :root #rhs_block > script + .c._oc._Ve.rhsvw, :root #\5f _mom_ad_12, :root .__zinit .__y_item, :root .ch[onclick="ga(this,event)"], :root .__ywl .__y_item, :root div[id^="div-ads-"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="http://at.atwola.com/"], :root #center_col > #resultStats + #tads, :root .__yinit .__y_item, :root a[href^="https://secure.cbdpure.com/aff/"], :root AMP-AD, :root iframe[src*="mellowads.com"], :root .__y_inner > .__y_item, :root a[href^="https://affiliate.geekbuying.com/gkbaffiliate.php?"], :root #cnt #center_col > #res > #topstuff > .ts, :root a[href^="https://landing.brazzersnetwork.com/"], :root #cnt #center_col > #taw > #tvcap > .c._oc._Lp, :root div[class^="hp-ad-rect-"], :root a[href^="http://dwn.pushtraffic.net/"], :root a[href$="/vghd.shtml"], :root a[href^="https://a.adtng.com/"], :root #rhswrapper > #rhssection[border="0"][bgcolor="#ffffff"], :root .Mpopup + #Mad > #MadZone, :root a[href^="http://ads.expekt.com/affiliates/"], :root a[href^="http://www.streamtunerhd.com/signup?"], :root a[href^="http://fsoft4down.com/"], :root a[href*="ad2upapp.com/"], :root a[href^="https://www.adxtro.com/"], :root a[href^="http://click.payserve.com/"], :root iframe[src^="http://ad.yieldmanager.com/"], :root a[href^="http://pubads.g.doubleclick.net/"], :root a[href^="http://serve.williamhill.com/promoRedirect?"], :root a[href^="http://www.gfrevenge.com/landing/"], :root a[href^="http://hpn.houzz.com/"], :root a[href^="http://45eijvhgj2.com/"], :root [href*=".mclick.net"], :root #center_col > #taw > #tvcap > .cu-container > .commercial-unit-desktop-top, :root a[href*="//promo-bc.com/track?"], :root a[href^="https://sexsimulator.game/tab/?SID="], :root .rc-cta[data-target], :root #rhs_block > .ts[cellspacing="0"][cellpadding="0"][style="padding:0"], :root div[data-ad-underplayer], :root #mbEnd[cellspacing="0"][cellpadding="0"], :root a[href^="http://3wr110.net/"], :root .trc_rbox_div .syndicatedItemUB, :root a[href^="https://www.im88trk.com/"], :root a[href^="http://ffxitrack.com/"], :root #center_col > #main > .dfrd > .mnr-c > .c._oc._zs, :root a[href^="http://www.seekbang.com/cs/"], :root a[href^="http://syndication.exoclick.com/"], :root a[href^="http://bluehost.com/track/"], :root a[href^="https://squren.com/rotator/?atomid="], :root div[id^="adspot-"], :root #\5f _admvnlb_modal_container, :root a[href^="//40ceexln7929.com/"], :root #center_col > #resultStats + div + #res + #tads, :root a[href^="//88d7b6aa44fb8eb.com/"], :root a[href^="http://www.afgr2.com/"], :root #mn div[style="position:relative"] > #center_col > ._Ak, :root #tadsb[aria-label], :root a[href*="//bongacams2.com/track?"], :root #center_col > #resultStats + #tads + #res + #tads, :root a[href^="//z6naousb.com/"], :root a[href^="https://reachtrgt.com/"], :root div[data-subscript="Advertising"], :root div[class$="dealnews"] > .dealnews, :root a[href^="http://t.mdn2015x2.com/"], :root div[class^="Ad__container"], :root a[href^="http://adprovider.adlure.net/"], :root a[href^="http://rs-stripe.wsj.com/stripe/redirect"], :root #main_col > #center_col div[style="font-size:14px;margin:0 4px;padding:1px 5px;background:#fff7ed"], :root a[data-nvp*="'trafficUrl':'https://paid.outbrain.com/network/redir?"], :root [href^="https://www.xvbelink.com/"], :root a[href^="http://www.sex.com/pics/?utm_"], :root a[href^="http://vo2.qrlsx.com/"], :root a[href^="http://engine.newsmaxfeednetwork.com/"], :root a[href^="http://ad.yieldmanager.com/"], :root a[href^="http://www.plus500.com/?id="], :root #flowplayer > div[style="z-index: 208; position: absolute; width: 300px; height: 275px; left: 222.5px; top: 85px;"], :root a[href^="https://giftsale.co.uk/?utm_"], :root a[href^="https://syndication.dynsrvtbg.com/splash.php?"] { display: none !important; }</style><meta http-equiv="origin-trial" content="A+b/H0b8RPXNaJgaNFpO0YOFuGK6myDQXlwnJB3SwzvNMfcndat4DZYMrP4ClJIzYWo3/yP2S+8FTZ/lpqbPAAEAAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A9ZgbRtm4pU3oZiuNzOsKcC8ppFSZdcjP2qYcdQrFKVzkmiWH1kdYY1Mi9x7G8+PS8HV9Ha9Cz0gaMdKsiVZIgMAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxL6oBxcpn5rQDPKSAs+d0oxNyJYq2/4esBUh3Yx5z8QfcLu+AU8iFCXYRcr/CEEfDnkxxLTsvXPJFQBxHfvkgMAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9KPtG5kl3oLTk21xqynDPGQ5t18bSOpwt0w6kGa6dEWbuwjpffmdUpR3W+faZDubGT+KIk2do0BX2ca16x8qAcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A3HucHUo1oW9s+9kIKz8mLkbcmdaj5lxt3eiIMp1Nh49dkkBlg1Fhg4Fd/r0vL69mRRA36YutI9P/lJUfL8csQoAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A0OysezhLoCRYomumeYlubLurZTCmsjTb087OvtCy95jNM65cfEsbajrJnhaGwiTxhz38ZZbm+UhUwQuXfVPTg0AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxoOxdZQmIoA1WeAPDixRAeWDdgs7ZtVFfH2y19ziTgD1iaHE5ZGz2UdSjubkWvob9C5PrjUfkWi4ZSLgWk3Xg8AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7+rMYR5onPnACrz+niKSeFdH3xw1IyHo2AZSHmxrofRk9w4HcQPMYcpBUKu6OQ6zsdxf4m/vqa6tG6Na4OLpAQAAAB4eyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+b/H0b8RPXNaJgaNFpO0YOFuGK6myDQXlwnJB3SwzvNMfcndat4DZYMrP4ClJIzYWo3/yP2S+8FTZ/lpqbPAAEAAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A9ZgbRtm4pU3oZiuNzOsKcC8ppFSZdcjP2qYcdQrFKVzkmiWH1kdYY1Mi9x7G8+PS8HV9Ha9Cz0gaMdKsiVZIgMAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxL6oBxcpn5rQDPKSAs+d0oxNyJYq2/4esBUh3Yx5z8QfcLu+AU8iFCXYRcr/CEEfDnkxxLTsvXPJFQBxHfvkgMAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9KPtG5kl3oLTk21xqynDPGQ5t18bSOpwt0w6kGa6dEWbuwjpffmdUpR3W+faZDubGT+KIk2do0BX2ca16x8qAcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A3HucHUo1oW9s+9kIKz8mLkbcmdaj5lxt3eiIMp1Nh49dkkBlg1Fhg4Fd/r0vL69mRRA36YutI9P/lJUfL8csQoAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A0OysezhLoCRYomumeYlubLurZTCmsjTb087OvtCy95jNM65cfEsbajrJnhaGwiTxhz38ZZbm+UhUwQuXfVPTg0AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxoOxdZQmIoA1WeAPDixRAeWDdgs7ZtVFfH2y19ziTgD1iaHE5ZGz2UdSjubkWvob9C5PrjUfkWi4ZSLgWk3Xg8AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7+rMYR5onPnACrz+niKSeFdH3xw1IyHo2AZSHmxrofRk9w4HcQPMYcpBUKu6OQ6zsdxf4m/vqa6tG6Na4OLpAQAAAB4eyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+
+
+
+
+<body onload="start()">
+
+<div id="kader">
+<div id="thuis">
+</div>
+<div id="url"><a class="cat" titel="tectonic online" href="http://www.tectonicpuzzel.eu/">WWW.TECTONICPUZZEL.EU</a></div>
+
+<div class="menu"><a class="wit" href="http://www.tectonicpuzzel.eu/suguru-puzzle-generator.html">HOME</a></div>
+<div class="menu"><a class="wit" href="http://www.tectonicpuzzel.eu/puzzle-solving-strategies.html">PUZZLE RULES</a></div>
+<div class="menu"><a class="wit" href="http://www.tectonicpuzzel.eu/puzzle-solving-methods.html">PUZZLE TECHNIQUES</a></div>
+<div class="menu"><a class="wit" href="http://www.tectonicpuzzel.eu/puzzle-solving-techniques.html">PUZZLE ONLINE</a></div>
+<div class="menu"><a class="wit" href="http://www.tectonicpuzzel.eu/suguru-puzzle-app.html">PRIVACY</a></div>
+<div class="menu"><a class="wit" href="http://www.tectonicpuzzel.eu/suguru-puzzle-online.html">CONTACT</a></div>
+
+
+<div id="tekstvak">
+<div id="google">
+<div id="google0" align="center"><br>
+<iframe src="./post_files/banners.html" scrolling="no" width="200px" height="100px;"></iframe>
+</div>
+<div id="google1">
+<script async="" src="./post_files/f(1).txt"></script>
+<!-- tectonic -->
+<ins class="adsbygoogle" style="display: none !important;" data-ad-client="ca-pub-5911116160671192" data-ad-slot="4501464641" data-ad-format="auto" data-adsbygoogle-status="done"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+
+<div id="tekst">
+<div align="center">
+</div>
+
+
+<h1>CAVE PUZZLES ONLINE</h1>
+
+<div align="center">
+<a href="http://www.tectonicpuzzel.eu/suguru-puzzle-generator.html"><img src="./post_files/suguru-puzzle-online.jpg" alt="suguru puzzle"></a>
+&nbsp;
+<a href="http://www.tectonicpuzzel.eu/"><img src="./post_files/tectonic-puzzel-online.jpg" alt="tectonic puzzel"></a>
+</div>
+
+<br>
+<p>
+We like to receive at 
+<script type="text/javascript">
+<!-- 
+emailE=('info@' + 'digitown.be')
+document.write('<A class="cat" href="mailto:' + emailE + '?subject=contact via www.tectonicpuzzel.eu' +'">' + emailE + '</a>')
+ //-->
+</script><a class="cat" href="mailto:info@digitown.be?subject=contact%20via%20www.tectonicpuzzel.eu">info@digitown.be</a>
+your suggestions for improvements and additions to this website.
+</p>
+<br>
+
+
+
+<table id="grid" align="center" class="akari">
+<tbody><tr>
+<td name="vak" onclick="change(0,0,0)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(0,1,1)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(0,2,2)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(0,3,3)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(0,4,4)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(0,5,5)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(0,6,6)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 2</td>
+<td name="vak" onclick="change(0,7,7)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(0,8,8)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 2</td>
+<td name="vak" onclick="change(0,9,9)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+</tr>
+<tr>
+<td name="vak" onclick="change(1,0,10)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(1,1,11)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(1,2,12)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(1,3,13)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(1,4,14)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(1,5,15)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 4</td>
+<td name="vak" onclick="change(1,6,16)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(1,7,17)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(1,8,18)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(1,9,19)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 4</td>
+</tr>
+<tr>
+<td name="vak" onclick="change(2,0,20)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(2,1,21)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(2,2,22)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 7</td>
+<td name="vak" onclick="change(2,3,23)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(2,4,24)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(2,5,25)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 8</td>
+<td name="vak" onclick="change(2,6,26)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(2,7,27)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(2,8,28)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 9</td>
+<td name="vak" onclick="change(2,9,29)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+</tr>
+<tr>
+<td name="vak" onclick="change(3,0,30)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(3,1,31)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(3,2,32)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 7</td>
+<td name="vak" onclick="change(3,3,33)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(3,4,34)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(3,5,35)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(3,6,36)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(3,7,37)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 7</td>
+<td name="vak" onclick="change(3,8,38)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(3,9,39)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 8</td>
+</tr>
+<tr>
+<td name="vak" onclick="change(4,0,40)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 9</td>
+<td name="vak" onclick="change(4,1,41)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(4,2,42)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(4,3,43)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 8</td>
+<td name="vak" onclick="change(4,4,44)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(4,5,45)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(4,6,46)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 5</td>
+<td name="vak" onclick="change(4,7,47)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(4,8,48)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 7</td>
+<td name="vak" onclick="change(4,9,49)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+</tr>
+<tr>
+<td name="vak" onclick="change(5,0,50)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(5,1,51)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(5,2,52)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">10</td>
+<td name="vak" onclick="change(5,3,53)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(5,4,54)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 7</td>
+<td name="vak" onclick="change(5,5,55)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(5,6,56)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(5,7,57)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(5,8,58)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(5,9,59)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 3</td>
+</tr>
+<tr>
+<td name="vak" onclick="change(6,0,60)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,1,61)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,2,62)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,3,63)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,4,64)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,5,65)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,6,66)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,7,67)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(6,8,68)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(6,9,69)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 7</td>
+</tr>
+<tr>
+<td name="vak" onclick="change(7,0,70)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(7,1,71)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(7,2,72)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 9</td>
+<td name="vak" onclick="change(7,3,73)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(7,4,74)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(7,5,75)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(7,6,76)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">10</td>
+<td name="vak" onclick="change(7,7,77)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(7,8,78)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(7,9,79)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+</tr>
+<tr>
+<td name="vak" onclick="change(8,0,80)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,1,81)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,2,82)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 4</td>
+<td name="vak" onclick="change(8,3,83)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,4,84)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,5,85)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,6,86)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,7,87)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,8,88)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(8,9,89)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 2</td>
+</tr>
+<tr>
+<td name="vak" onclick="change(9,0,90)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 3</td>
+<td name="vak" onclick="change(9,1,91)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(9,2,92)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(9,3,93)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 5</td>
+<td name="vak" onclick="change(9,4,94)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 3</td>
+<td name="vak" onclick="change(9,5,95)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(9,6,96)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 6</td>
+<td name="vak" onclick="change(9,7,97)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;">  </td>
+<td name="vak" onclick="change(9,8,98)" style="font-size: 26px; color: white; background-image: url(&quot;grint.jpg&quot;); background-size: cover;"> 4</td>
+<td name="vak" onclick="change(9,9,99)" style="font-size: 26px; color: white; background-image: url(&quot;gras.jpg&quot;); background-size: cover;">  </td>
+</tr>
+</tbody></table>
+
+<table align="center" id="groot" class="kiezen">
+<tbody><tr>
+<td class="mcel" style="text-align:center;line-height:31px;">
+LEV&nbsp;&nbsp;<select class="ing1" id="kniv">
+  <option value="1">1 (20)</option>
+  <option value="2">2 (20)</option>
+  <option value="3">3 (20)</option>
+</select>
+&nbsp;&nbsp;PUZ&nbsp;&nbsp;<input onclick="leeg()" pattern="[0-9]*" value="1" class="invoef" maxlength="3" size="3" type="text" id="koef" onkeypress="return restrictCharacters(this, event, digitsOnly);">
+<br><button class="knop" type="button" onclick="oefkiezen()">START</button>
+&nbsp;<button class="knop" type="button" title=" next " onclick="suivant()">⏭</button>
+&nbsp;<button class="knop" type="button" onclick="controle()">✓</button>
+&nbsp;<button class="knop" type="button" onclick="losop()">SOL</button>
+</td></tr>
+</tbody></table>
+
+<p><b>Cave puzzles</b> are also sometimes called Bag puzzles or Corral puzzles.
+</p>
+<p>
+In this sudoku variant, all the cells with a number form a group - called <i>cave</i> - and they get, in our design, a garden tile. Each number indicates the total number of cells connected vertically and horizontally to the numbered cell including the cell with the number itself.
+</p> <p>
+All the cell that do NOT belong to the cave (= gras zone in our design) must be connected as separate groups to an edge of the grid. They may not be surrounded by the number loop, the cave..
+</p><p>
+The cells that belong to the cave should be provided with a garden tile as a background and the other
+cells with a grass zone.
+</p><p>
+Also visit our page with 
+<a class="cat" href="http://www.tectonicpuzzel.eu/cave-coral-bag-puzzle-solving-techniques.html"><b>Cave puzzle solving techniques</b></a>.
+</p>
+
+<p>
+Follow the rules and tips below to solve our Cave puzzles:
+</p>
+
+<ul style="padding-left:50px">
+<li>LEV: choose your starting level.</li>
+<li>PUZ: enter the number of the Masyu puzzle you want to solve.</li>
+<li>START: this Corral puzzle is now loaded.</li>
+<li>Click on ⏭ to go to the next puzzle.</li>
+<li>Click on a gray cell to turn into a garden tile. This cell is now part of the number loop. </li>
+<li>Click on a garden tile to turn into a grass zone. </li>
+<li>Click on a grass zone to make it gray and neutral. </li>
+<li>Click on a NUMBER and it turns black. This means that you have marked all the cells for this number. </li>
+<li>Click on ✓ to check the Cave puzzle. The wrong cells turn red.</li>
+<li>Click on SOL to show the solution of the Bag puzzle. </li>
+</ul>
+</div>
+
+<div id="google2">
+<script async="" src="./post_files/f(1).txt"></script>
+<!-- tectonic -->
+<ins class="adsbygoogle" style="display: none !important;" data-ad-client="ca-pub-5911116160671192" data-ad-slot="4501464641" data-ad-format="auto" data-adsbygoogle-status="done"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+
+
+<div id="footer">
+<a onclick="window.scrollTo(0,0)" style="cursor:pointer;"><img alt="tectonic puzzel printen" title="sudoku oplossen" src="./post_files/tectonic-puzzel.png"></a>
+&nbsp;
+<b>CORRAL PUZZLE TIPS</b>
+&nbsp;
+
+</div>
+<!--Start Cookie Script--> <script type="text/javascript" charset="UTF-8" src="./post_files/233a1fbe5d7a01ef0af7c07149751f33.js"></script> <!--End Cookie Script-->
+
+
+
+
+
+
+
+
+
+</div>
+    <style data-type="cookiescriptstyles">
+      #cookiescript_injected {
+    background-color: #F4F4F4;
+    z-index: 999997;
+    opacity: 1;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'Open Sans', Arial, 'Trebuchet MS', 'Segoe UI', 'Helvetica', sans-serif;
+    box-shadow: 1px 2px 8px 0 rgba(0, 0, 0, 0.35);
+    color: #333333;
+    box-sizing: border-box;
+}
+.cookiescript_checkbox_label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding:0 4px;
+    line-height: 1.5;
+    margin:0;
+}
+#cookiescript_close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 29px;
+    line-height: 13px;
+    cursor: pointer;
+    color: #333333;
+    height: 15px;
+    width: 15px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    letter-spacing: 0;
+    font-family: 'Trebuchet MS', 'Arial', sans-serif;
+    font-weight: 100;
+    opacity: 0.85;
+    z-index: 999999;
+}
+
+#cookiescript_buttons {
+    display: flex;
+    flex-direction: row;
+    font-weight: 700;
+}
+#cookiescript_manage_wrap {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.1px;
+    font-weight: 500;
+    outline: none;
+}
+#cookiescript_manage {
+    display: inline;
+    cursor: pointer;
+    color: #333333;
+    opacity:0.85;
+}
+#cookiescript_manage #cookiescript_manageicon .cookiescript_gear {
+    fill: #333333;
+}
+#cookiescript_manage:hover #cookiescript_manageicon .cookiescript_gear {
+    fill: #6BBE6B;;
+}
+
+svg#cookiescript_manageicon {
+    width: 15px;
+    height: 15px;
+    display: inline;
+    margin: 0 5px 0 0;
+    padding: 0;
+    position: relative;
+    top: 3px;
+    vertical-align: baseline;
+}
+#cookiescript_header {
+    background-color: transparent;
+    z-index: 999998;
+    color: #333333;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    opacity:1;
+}
+.cookiescript_checkbox {
+    display: flex;
+    flex-direction: row;
+}
+input.cookiescript_checkbox_input {
+}
+span.cookiescript_checkbox_text {
+    display: inline-block;
+    font-size: 11px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #333333;
+}
+#cookiescript_accept,
+#cookiescript_save {
+    border: 0;
+    transition: all 0.25s ease 0s;
+    background-color: #6BBE6B;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 11px;
+    text-align: center;
+    line-height: 3.3;
+    letter-spacing: 0.4px;
+}
+/*IE 9 fixes*/
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) {
+    .cookiescript_checkbox_label {
+        position: relative;
+        top:-10px;
+    }
+    #cookiescript_accept, #cookiescript_reject, #cookiescript_save{
+    	display: inline-block;
+    }
+    #cookiescript_buttons{
+    	text-align:center;
+    }
+}
+#cookiescript_save{
+    display: none;
+}
+#cookiescript_reject {
+    border: 1px solid #333333;
+    text-align: center;
+    line-height: 3;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #333333;
+    background: #F4F4F4;
+}
+
+
+#cookiescript_accept, #cookiescript_reject, #cookiescript_save {
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+    min-width: 103px;
+}
+.cookiescript_bigger {
+    transform: scale(1.1);
+}
+#cookiescript_link {
+    text-decoration: none;
+    color: #333333;
+    font-size: 9px;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+#cookiescript_readmore,
+#cookiescript_reportlink,
+#cookiescript_cookiescriptlink {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    transition: all 100ms ease 0s;
+    background-color: transparent;
+    color: #333333;
+    display: inline;
+    font-size: 11px;
+}
+
+#cookiescript_description {
+    color: #333333;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    line-height: 1.8;
+    font-weight: 400;
+    opacity: 0.85;
+}
+#cookiescript_checkboxs {
+}
+#cookiescript_close:hover,
+#cookiescript_manage:hover,
+#cookiescript_link:hover
+{
+    opacity: 1;
+}
+#cookiescript_reject:hover {
+    background-color: #E1E1E1;
+}
+#cookiescript_accept:hover,
+#cookiescript_save:hover {
+    background-color: #61AB61;
+}
+#cookiescript_readmore:hover,
+#cookiescript_reportlink:hover,
+#cookiescript_cookiescriptlink:hover
+{
+    color: #6BBE6B;
+}
+#cookiescript_badge {
+    position: fixed;
+    line-height: 0;
+    cursor: pointer;
+    z-index: 99999;
+    font-size: 0;
+    color: #999;
+left: 10px;
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+}
+
+#cookiescript_badgetext{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Open Sans', Arial, 'Trebuchet MS', 'Segoe UI', 'Helvetica', sans-serif;
+    overflow: hidden;
+    transition-duration: 500ms;
+    white-space: nowrap;
+    padding-right: 0;
+    color: #333333;
+}
+
+#cookiescript_badgesvg{
+    width:40px;
+    height: 40px;
+}
+
+
+
+#cookiescript_badge {
+bottom: 10px;
+    border-radius:25px;
+    padding:3px;
+    transition-duration: 500ms;
+    box-shadow: 1px 2px 8px 0 rgba(0, 0, 0, 0.2);
+    background: #F4F4F4;
+}
+#cookiescript_badge:hover #cookiescript_badgetext{
+    max-width: 300px;
+    padding-right: 15px;
+    padding-left: 12px;
+}
+#cookiescript_badgetext {
+    font-size: 16px;
+    line-height: 2.5;
+    max-width: 0;
+}
+#cookiescript_badgeimage {
+    width: 40px;
+    height: 40px;
+}
+@media only screen and (max-width: 414px) {
+    #cookiescript_badgeimage {
+        width: 30px;
+        height: 30px;
+    }
+    #cookiescript_badgesvg{
+        width:30px;
+        height: 30px;
+    }
+    #cookiescript_badgetext{
+        display: none;
+    }
+}
+/*IE 9 fixes*/
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) {
+	#cookiescript_badgeimage{
+    	float:left;
+    }
+}
+
+@media print{
+    #cookiescript_injected{
+        display:none;
+    }
+}
+
+.cookiescript_fullreport,
+.cookiescript_fullreport tbody,
+.cookiescript_fullreport thead,
+.cookiescript_fullreport tr,
+.cookiescript_fullreport th,
+.cookiescript_fullreport td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+table.cookiescript_fullreport {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+#cookiescript_maintabs {
+	display: flex;
+	justify-content: space-around;
+	background: rgba(193, 193, 193, 0.6);
+	align-items: stretch;
+	overflow: hidden;
+	min-height: 36px;
+}
+
+#cookiescript_categories {
+	display: flex;
+	justify-content: center;
+	padding: 7px 0;
+	border-bottom: 1px solid #F1F1F1;
+	flex-wrap: wrap;
+}
+
+#cookiescript_cookietablewrap {
+	max-width: 1140px;
+	overflow: hidden;
+	min-height: 216px;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	max-height: 300px;
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+#cookiescript_cookietablewrap.cookiescript_hidden {
+	opacity: 0.0;
+	height: 0;
+	min-height: 0;
+	max-height: 0;
+	margin: 0;
+}
+
+#cookiescript_reportwrap {
+	height: 137px;
+	overflow: auto;
+}
+
+#cookiescript_reportwrap > div {
+	transition: opacity 200ms 0ms, height 0ms 200ms;
+}
+
+.cookiescript_category_description {
+	padding: 7px 10px;
+	font-size: 11px;
+	text-align: left;
+	font-weight: normal;
+	line-height: 1.5;
+	color: #6f6f6f;
+	margin: 0;
+}
+
+.cookiescript_fullreport th {
+	background: #F5F5F5;
+	color: #4b4b4b;
+}
+
+#cookiescript_categories > div {
+	cursor: pointer;
+	padding: 0 9px;
+	font-size: 11px;
+	font-weight: 600;
+	background: #f5f5f5;
+	color: #4b4b4b;
+	line-height: 2;
+	margin: 3px 5px;
+	white-space: nowrap;
+}
+
+#cookiescript_maintabs > div {
+	cursor: pointer;
+	width: 50%;
+	transition: all 300ms ease 0s;
+	text-transform: uppercase;
+	font-size: 12px;
+	text-align: center;
+	line-height: 1.5;
+	font-weight: 500;
+	color: #FEFEFE;
+	padding: 9px 0;
+	position: relative;
+}
+
+#cookiescript_maintabs .cookiescript_active {
+	background: #fefefe;
+	color: #6BBE6B;
+}
+
+#cookiescript_declarationwrap {
+	background: #FEFEFE;
+	transition: opacity 200ms 0ms, height 0ms 200ms;
+}
+
+#cookiescript_categories .cookiescript_active {
+	background: #6BBE6B;
+	color: #FEFEFE;
+}
+
+#cookiescript_reportwrap::-webkit-scrollbar-track,
+#cookiescript_aboutwrap::-webkit-scrollbar-track {
+	background-color: #DADADA;
+}
+
+#cookiescript_reportwrap::-webkit-scrollbar,
+#cookiescript_aboutwrap::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+#cookiescript_reportwrap::-webkit-scrollbar-thumb,
+#cookiescript_aboutwrap::-webkit-scrollbar-thumb {
+	background-color: #6BBE6B;
+}
+
+.cookiescript_fullreport {
+	border-collapse: collapse;
+	width: 100%;
+	}
+
+.cookiescript_fullreport td:nth-child(1) {
+	font-weight: 600;
+}
+
+.cookiescript_fullreport td:nth-child(3), .cookiescript_fullreport th:nth-child(3) {
+	text-align: center;
+}
+
+.cookiescript_fullreport td, .cookiescript_fullreport th {
+	white-space: normal;
+	padding: 0 8px;
+	font-size: 11px;
+	font-weight: 600;
+	text-align: left;
+	line-height: 3;
+	margin: 0;
+}
+
+.cookiescript_fullreport td {
+	padding: 7px 8px;
+	line-height: 1.3;
+	vertical-align: top;
+	font-weight: 400;
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	color: #6f6f6f;
+	background: transparent;
+}
+
+.cookiescript_fullreport td:last-child, .cookiescript_fullreport th:last-child {
+	padding-right: 18px;
+}
+
+.cookiescript_fullreport td:nth-child(1), .cookiescript_fullreport th:nth-child(1) {
+	padding-left: 18px;
+	word-break: normal;
+}
+
+#cookiescript_aboutwrap {
+	padding: 7px 18px;
+	font-size: 12px;
+	text-align: left;
+	font-weight: normal;
+	line-height: 1.5;
+	background-color: #fefefe;
+	box-sizing: border-box;
+	color: #6f6f6f;
+	transition: opacity 200ms 0ms;
+	overflow: auto;
+	flex-grow: 0;
+	height: 180px;
+}
+
+#cookiescript_aboutwrap.cookiescript_hidden {
+	opacity: 0;
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+#cookiescript_declarationwrap.cookiescript_hidden {
+	opacity: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+#cookiescript_tabscontent {
+	background: #FEFEFE;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+#cookiescript_reportwrap .cookiescript_hidden {
+	opacity: 0;
+	height: 0;
+	transition: opacity 200ms 0ms, height 0ms 200ms;
+	overflow: hidden;
+}
+#cookiescript_reportdate{
+	font-size: 11px;
+	text-align: right;
+	opacity: 0.9;
+	padding: 0 10px;
+	margin: 0;
+}
+
+#cookiescript_injected.hascookiereport #cookiescript_copyright{
+	display: none;
+}
+#cookiescript_maintabs{
+	border-top: 1px solid rgba(193, 193, 193, 0.8);
+    border-left: 1px solid rgba(193, 193, 193, 0.8);
+    border-right: 1px solid rgba(193, 193, 193, 0.8);
+}
+#cookiescript_tabscontent{
+	border-left: 1px solid rgba(193, 193, 193, 0.8);
+    border-bottom: 1px solid rgba(193, 193, 193, 0.8);
+    border-right: 1px solid rgba(193, 193, 193, 0.8);
+}
+
+
+@media only screen and (max-width: 414px) {
+	.cookiescript_fullreport thead {
+		display: none;
+	}
+
+	.cookiescript_fullreport td {
+		display: flex;
+	}
+
+	.cookiescript_fullreport td::before {
+		content: attr(label);
+		font-weight: bold;
+		width: 120px;
+		min-width: 120px;
+	}
+
+	.cookiescript_category_description,
+	.cookiescript_fullreport td,
+	.cookiescript_fullreport td:nth-child(1),
+	.cookiescript_fullreport td:nth-child(3) {
+		padding: 7px 10px;
+		text-align: left;
+	}
+
+	.cookiescript_fullreport td:last-child {
+		border-bottom: none;
+	}
+
+	.cookiescript_fullreport tr:nth-child(even) {
+		background: #f5f5f5;
+	}
+
+.cookiescript_fullreport tr:nth-child(even) td {
+    border-bottom: 1px solid #FFF;
+	}
+}
+
+
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) {
+	#cookiescript_maintabs > div{
+		display:block;
+		float:left;
+	}
+	#cookiescript_categories > div{
+		display:inline-block;
+	}
+
+}
+
+
+#cookiescript_categories > div {
+	border-radius: 20px;
+}
+#cookiescript_reportwrap::-webkit-scrollbar-track,
+#cookiescript_aboutwrap::-webkit-scrollbar-track {
+	border-radius: 6px;
+}
+#cookiescript_reportwrap::-webkit-scrollbar-thumb,
+#cookiescript_aboutwrap::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+}
+#cookiescript_maintabs {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+#cookiescript_tabscontent {
+	
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+#cookiescript_injected .mdc-checkbox{
+    box-sizing: content-box !important;
+}
+#cookiescript_injected .mdc-checkbox__native-control {
+    z-index: 1;
+}
+#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:focus~.mdc-checkbox__background::before, #cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before {
+    background-color: var(--mdc-theme-secondary, #FFFFFF);
+}
+
+#cookiescript_injected .mdc-checkbox{display:inline-block;position:relative;flex:0 0 18px;box-sizing:content-box;width:18px;height:18px;line-height:0;white-space:nowrap;cursor:pointer;vertical-align:bottom;padding:11px}#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:checked~.mdc-checkbox__background::before,#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before{background-color:#333333}@supports not (-ms-ime-align:auto){.mdc-checkbox .mdc-checkbox__native-control:checked~.mdc-checkbox__background::before,#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before{background-color:var(--mdc-theme-secondary, #333333)}}#cookiescript_injected .mdc-checkbox .mdc-checkbox__background{top:11px;left:11px}#cookiescript_injected .mdc-checkbox .mdc-checkbox__background::before{top:-13px;left:-13px;width:40px;height:40px}#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control{top:0;right:0;left:0;width:40px;height:40px}#cookiescript_injected .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate)~.mdc-checkbox__background{border-color:#333333;background-color:transparent}#cookiescript_injected .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,#cookiescript_injected .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background{border-color:#333333;background-color:#333333}#cookiescript_injected .mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate)~.mdc-checkbox__background{border-color:rgba(51,51,51,0.26);background-color:transparent}#cookiescript_injected .mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,#cookiescript_injected .mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background{border-color:transparent;background-color:rgba(51,51,51,0.26)}#cookiescript_injected .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#F4F4F4}#cookiescript_injected .mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#F4F4F4}#cookiescript_injected .mdc-checkbox__background{display:inline-flex;position:absolute;align-items:center;justify-content:center;box-sizing:border-box;width:18px;height:18px;border:2px solid #333333;border-radius:2px;background-color:transparent;pointer-events:none;will-change:background-color,border-color;transition:background-color 90ms 0s cubic-bezier(.4,0,.6,1),border-color 90ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox__background .mdc-checkbox__background::before{background-color:#000}@supports not (-ms-ime-align:auto){.mdc-checkbox__background .mdc-checkbox__background::before{background-color:var(--mdc-theme-on-surface,#000)}}#cookiescript_injected .mdc-checkbox__checkmark{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;opacity:0;transition:opacity 180ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox__checkmark-path{transition:stroke-dashoffset 180ms 0s cubic-bezier(.4,0,.6,1);stroke:currentColor;stroke-width:3.12px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}#cookiescript_injected .mdc-checkbox__native-control:checked~.mdc-checkbox__background,#cookiescript_injected .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background{transition:border-color 90ms 0s cubic-bezier(0,0,.2,1),background-color 90ms 0s cubic-bezier(0,0,.2,1)}#cookiescript_injected .mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark-path,#cookiescript_injected .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark-path{stroke-dashoffset:0}#cookiescript_injected .mdc-checkbox__background::before{position:absolute;-webkit-transform:scale(0,0);transform:scale(0,0);border-radius:50%;opacity:0;pointer-events:none;content:"";will-change:opacity,transform;transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox__native-control:focus~.mdc-checkbox__background::before{-webkit-transform:scale(1);transform:scale(1);opacity:.12;transition:opacity 80ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 80ms 0s cubic-bezier(0,0,.2,1);transition:opacity 80ms 0s cubic-bezier(0,0,.2,1),transform 80ms 0s cubic-bezier(0,0,.2,1);transition:opacity 80ms 0s cubic-bezier(0,0,.2,1),transform 80ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 80ms 0s cubic-bezier(0,0,.2,1)}#cookiescript_injected .mdc-checkbox__native-control{position:absolute;margin:0;padding:0;opacity:0;cursor:inherit}#cookiescript_injected .mdc-checkbox__native-control:disabled{cursor:default;pointer-events:none}#cookiescript_injected .mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark{transition:opacity 180ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 180ms 0s cubic-bezier(0,0,.2,1);transition:opacity 180ms 0s cubic-bezier(0,0,.2,1),transform 180ms 0s cubic-bezier(0,0,.2,1);transition:opacity 180ms 0s cubic-bezier(0,0,.2,1),transform 180ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 180ms 0s cubic-bezier(0,0,.2,1);opacity:1}#cookiescript_injected .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark{-webkit-transform:rotate(45deg);transform:rotate(45deg);opacity:0;transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox{-webkit-tap-highlight-color:transparent}
+#cookiescript_injected {
+bottom: 20px;
+left: 20px;
+    position: fixed;
+    padding: 15px 20px 15px 20px;
+    width: 300px;
+    text-align: left;
+    max-height: 85%;
+    overflow-y: auto;
+    max-width: calc(100% - 40px);
+}
+#cookiescript_copyright {
+    line-height: 1;
+    text-align: center;
+}
+#cookiescript_buttons {
+    justify-content: space-between;
+    margin: 0 -5px 0 -5px;
+    flex-wrap: wrap;
+}
+#cookiescript_manage_wrap {
+    margin: 0 0 11px 0;
+}
+#cookiescript_header {
+    padding: 14px 0 12px;
+    text-align: left;
+    margin: 0;
+}
+#cookiescript_checkboxs {
+    margin: -6px 0 18px -11px;
+}
+.cookiescript_checkbox {
+    margin: 0 0 -10px 0;
+}
+#cookiescript_accept,
+#cookiescript_save,
+#cookiescript_reject {
+    flex-grow: 1;
+    padding: 0 7px;
+    margin: 0 5px 10px 5px;
+}
+#cookiescript_description {
+    margin: 0 0 12px;
+}
+
+.cookiescript_checkbox_label{
+    padding: 0;
+    margin: 0 10px 0 -2px;
+}
+
+#cookiescript_injected{
+    transition: width 200ms 600ms;
+}
+
+#cookiescript_injected.hascookiereport{
+    width:600px;
+    transition: width 200ms 0ms;
+}
+#cookiescript_cookietablewrap {
+    transition: height 300ms 200ms, min-height 300ms 200ms, max-height 300ms 200ms, opacity 200ms 300ms;
+}
+#cookiescript_cookietablewrap.cookiescript_hidden {
+    transition: height 300ms 200ms, min-height 300ms 200ms, max-height 300ms 200ms, opacity 200ms 0ms;
+}
+
+#cookiescript_accept, #cookiescript_reject, #cookiescript_save {
+	border-radius: 20px;
+}
+
+#cookiescript_injected {
+	border-radius: 10px;
+}
+
+@media only screen and (max-width: 414px) {
+    #cookiescript_injected{
+    bottom: 0;
+    left: 0;
+        width: 100%;
+        padding: 15px;
+        border-radius:0;
+		max-width: 100%;
+    }
+    #cookiescript_description,
+    #cookiescript_buttons,
+    #cookiescript_manage_wrap,
+    #cookiescript_checkboxs
+    {
+        margin-bottom: 8px;
+    }
+    #cookiescript_header{
+        padding-top:5px;
+    }
+    #cookiescript_checkboxs {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #cookiescript_injected {
+		max-height: 100%;
+	}
+}
+
+
+    </style>
+  <div id="cookiescript_injected" style="">
+    <div id="cookiescript_header" data-cs-i18n-text="[]">
+    Deze website gebruikt cookies  </div>
+  <div id="cookiescript_description">
+    <span data-cs-i18n-text="[]" data-cs-i18n-read="Deze website maakt gebruik van cookies om uw gebruikerservaring te verbeteren. Door het gebruik van onze website gaat u akkoord met alle cookies in overeenstemming met ons cookiebeleid.">
+      Deze website maakt gebruik van cookies om uw gebruikerservaring te verbeteren. Door het gebruik van onze website gaat u akkoord met alle cookies in overeenstemming met ons cookiebeleid.    </span>
+
+    
+      
+      <a id="cookiescript_readmore" data-cs-i18n-text="[]" data-cs-i18n-url="[]" href="http://www.tectonicpuzzel.eu/tectonic-puzzel-printen.html" target="_blank">
+        Lees meer      </a>
+
+      </div>
+  <div id="cookiescript_checkboxs">
+                
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input id="cookiescript_category_performance" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="performance">
+          <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_performance">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="[]">
+            Performance          </span>
+        </label>
+      </div>
+
+          
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input id="cookiescript_category_targeting" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="targeting">
+          <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_targeting">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="[]">
+            Targeting          </span>
+        </label>
+      </div>
+
+                
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input id="cookiescript_category_unclassified" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="unclassified">
+          <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_unclassified">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="[]">
+            Unclassified          </span>
+        </label>
+      </div>
+
+      </div>
+  <div id="cookiescript_buttons">
+          <div id="cookiescript_save" tabindex="0" role="button" data-cs-i18n-text="[]">
+        Save &amp; Close      </div>
+              <div id="cookiescript_accept" tabindex="0" role="button" data-cs-i18n-text="[]">
+        Akkoord      </div>
+              <div id="cookiescript_reject" tabindex="0" role="button" data-cs-i18n-text="[]">
+        Niet akkoord      </div>
+      </div>
+  <div id="cookiescript_manage_wrap" tabindex="0" role="button">
+    <div id="cookiescript_manage">
+      <svg id="cookiescript_manageicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.62 9.57">
+        <g id="Layer_2">
+          <g id="Layer_1-2">
+            <path class="cookiescript_gear" d="M9.46,6.06l-1.1-.78c0-.16.06-.31.06-.47a1.27,1.27,0,0,0-.06-.47L9.57,3.4l-1.15-2L7,1.93a2.74,2.74,0,0,0-.83-.47L6,0H3.61L3.35,1.46a7.14,7.14,0,0,0-.79.47L1.15,1.36,0,3.4l1.15.94c0,.16,0,.31,0,.47a1.51,1.51,0,0,0,0,.47l-1,.78A.75.75,0,0,0,0,6.17l1.15,2,1.41-.58a2.49,2.49,0,0,0,.84.47l.21,1.47H6a.53.53,0,0,1,0-.21L6.22,8.1a4,4,0,0,0,.84-.47l1.41.58,1.15-2A.75.75,0,0,0,9.46,6.06Zm-4.65.19A1.47,1.47,0,1,1,6.28,4.78,1.47,1.47,0,0,1,4.81,6.25Z"></path>
+          </g>
+        </g>
+      </svg>
+      <span data-cs-show-title="cookie-script" data-cs-i18n-text="[]">
+        Show details      </span>
+      <span style="display: none" data-cs-hide-title="cookie-script" data-cs-i18n-text="[]">
+        Hide details      </span>
+    </div>
+  </div>
+	<div class="cookiescript_hidden" id="cookiescript_cookietablewrap">
+		
+    <div id="cookiescript_maintabs" data-cs-maintabs="cookiescript">
+      <div id="cookiescript_declaration" class="cookiescript_active" data-cs-maintab="declaration" data-cs-i18n-text="[]">
+        Cookie declaration      </div>
+      <div id="cookiescript_aboutcookies" data-cs-maintab="aboutcookies" data-cs-i18n-text="[]">
+        About cookies      </div>
+    </div>
+    <div id="cookiescript_tabscontent">
+      <div id="cookiescript_declarationwrap" data-cs-maintab-content="declaration">
+        <div id="cookiescript_categories" data-cs-tabs="cookiescript">
+                      <div class="cookiescript_category_performance  cookiescript_active" data-cs-tab="performance" data-cs-i18n-text="[]">
+              Performance            </div>
+                      <div class="cookiescript_category_targeting  " data-cs-tab="targeting" data-cs-i18n-text="[]">
+              Targeting            </div>
+                      <div class="cookiescript_category_unclassified  " data-cs-tab="unclassified" data-cs-i18n-text="[]">
+              Unclassified            </div>
+                  </div>
+        <div id="cookiescript_reportwrap">
+                                  <div class="cookiescript_report_performance " data-cs-tab-content="performance">
+              <div class="cookiescript_category_description" data-cs-i18n-text="[]">
+                Performance cookies are used to see how visitors use the website, eg. analytics cookies. Those cookies cannot be used to directly identify a certain visitor.              </div>
+              <div class="cookiescript_tablewrap">
+                <table class="cookiescript_fullreport" data-cs-table-report="cookiescript">
+                  <thead>
+                  <tr>
+                    <th data-cs-i18n-text="[]">
+                      Name                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Domain                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Expiration                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Description                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                                      <tr>
+                      <td label="Name">_gid</td>
+                      <td label="Domain">.tectonicpuzzel.eu</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;23 \u0447\u0430\u0441\u0430 59 \u043c\u0438\u043d\u0443\u0442\u0438&quot;,&quot;hr&quot;:&quot;23 sata 59 minuta&quot;,&quot;cs&quot;:&quot;23 hodin 59 minut&quot;,&quot;da&quot;:&quot;23 timer 59 minutter&quot;,&quot;nl&quot;:&quot;23 uur 59 minuten&quot;,&quot;et&quot;:&quot;23 tundi 59 minutit&quot;,&quot;fi&quot;:&quot;23 tuntia 59 minuuttia&quot;,&quot;fr&quot;:&quot;23 heures 59 minutes&quot;,&quot;de&quot;:&quot;23 Stunden 59 Minuten&quot;,&quot;el&quot;:&quot;23 \u03ce\u03c1\u03b5\u03c2 59 \u03bb\u03b5\u03c0\u03c4\u03ac&quot;,&quot;hu&quot;:&quot;23 \u00f3ra 59 perc&quot;,&quot;ga&quot;:&quot;23 uair an chloig 59 n\u00f3im\u00e9ad&quot;,&quot;it&quot;:&quot;23 ore 59 minuti&quot;,&quot;lv&quot;:&quot;23 stund\u0101m 59 min\u016bt\u0113m&quot;,&quot;lt&quot;:&quot;23 valandos 59 minut\u0117s&quot;,&quot;ru&quot;:&quot;23 \u0447\u0430\u0441\u0430 59 \u043c\u0438\u043d\u0443\u0442&quot;,&quot;mt&quot;:&quot;23 sieg\u0127at 59 minuti&quot;,&quot;pl&quot;:&quot;23 godziny 59 minut&quot;,&quot;pt&quot;:&quot;23 horas 59 minutos&quot;,&quot;ro&quot;:&quot;23 ore 59 minute&quot;,&quot;sk&quot;:&quot;23 hod\u00edn 59 min\u00fat&quot;,&quot;sl&quot;:&quot;23 ur 59 minut&quot;,&quot;es&quot;:&quot;23 horas 59 minutos&quot;,&quot;sv&quot;:&quot;23 timmar 59 minuter&quot;,&quot;en&quot;:&quot;23 hours 59 minutes&quot;}" label="Expiration">
+                        23 hours 59 minutes                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie name is asssociated with Google Universal Analytics. This appears to be a new cookie and as of Spring 2017 no information is available from Google. It appears to store and update a unique value for each page visited.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">_ga</td>
+                      <td label="Domain">.tectonicpuzzel.eu</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0433\u043e\u0434\u0438\u043d\u0430 12 \u043c\u0435\u0441\u0435\u0446\u0430&quot;,&quot;hr&quot;:&quot;1 godinu 12 mjeseci&quot;,&quot;cs&quot;:&quot;1 rok 12 m\u011bs\u00edc\u016f&quot;,&quot;da&quot;:&quot;1 \u00e5r 12 m\u00e5neder&quot;,&quot;nl&quot;:&quot;1 jaar 12 maanden&quot;,&quot;et&quot;:&quot;1 aasta 12 kuud&quot;,&quot;fi&quot;:&quot;1 vuosi 12 kuukautta&quot;,&quot;fr&quot;:&quot;1 an 12 mois&quot;,&quot;de&quot;:&quot;1 Jahr 12 Monate&quot;,&quot;el&quot;:&quot;1 \u03c7\u03c1\u03cc\u03bd\u03bf\u03c2 12 \u03bc\u03ae\u03bd\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;1 \u00e9v 12 h\u00f3nap&quot;,&quot;ga&quot;:&quot;1 bliain 12 m\u00ed&quot;,&quot;it&quot;:&quot;1 anno 12 mesi&quot;,&quot;lv&quot;:&quot;1 gads 12 m\u0113ne\u0161iem&quot;,&quot;lt&quot;:&quot;1 metai 12 m\u0117nes\u012f&quot;,&quot;ru&quot;:&quot;1 \u0433\u043e\u0434 12 \u043c\u0435\u0441\u044f\u0446\u0435\u0432&quot;,&quot;mt&quot;:&quot;sena 12 xhur&quot;,&quot;pl&quot;:&quot;1 rok 12 miesi\u0119cy&quot;,&quot;pt&quot;:&quot;1 ano 12 meses&quot;,&quot;ro&quot;:&quot;1 an 12 luni&quot;,&quot;sk&quot;:&quot;rok 12 mesiacov&quot;,&quot;sl&quot;:&quot;1 leto 12 mesecev&quot;,&quot;es&quot;:&quot;1 a\u00f1o 12 meses&quot;,&quot;sv&quot;:&quot;1 \u00e5r 12 m\u00e5nader&quot;,&quot;en&quot;:&quot;1 year 12 months&quot;}" label="Expiration">
+                        1 year 12 months                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie name is asssociated with Google Universal Analytics - which is a significant update to Google's more commonly used analytics service. This cookie is used to distinguish unique users by assigning a randomly generated number as a client identifier. It is included in each page request in a site and used to calculate visitor, session and campaign data for the sites analytics reports. By default it is set to expire after 2 years, although this is customisable by website owners.                      </td>
+                    </tr>
+                                    </tbody>
+                </table>
+              </div>
+            </div>
+                                  <div class="cookiescript_report_targeting cookiescript_hidden" data-cs-tab-content="targeting">
+              <div class="cookiescript_category_description" data-cs-i18n-text="[]">
+                Targeting cookies are used to identify visitors between different websites, eg. content partners, banner networks. Those cookies may be used by companies to build a profile of visitor interests or show relevant ads on other websites.              </div>
+              <div class="cookiescript_tablewrap">
+                <table class="cookiescript_fullreport" data-cs-table-report="cookiescript">
+                  <thead>
+                  <tr>
+                    <th data-cs-i18n-text="[]">
+                      Name                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Domain                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Expiration                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Description                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                                      <tr>
+                      <td label="Name">DSID</td>
+                      <td label="Domain">.doubleclick.net</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;59 \u043c\u0438\u043d\u0443\u0442\u0438&quot;,&quot;hr&quot;:&quot;59 minuta&quot;,&quot;cs&quot;:&quot;59 minut&quot;,&quot;da&quot;:&quot;59 minutter&quot;,&quot;nl&quot;:&quot;59 minuten&quot;,&quot;et&quot;:&quot;59 minutit&quot;,&quot;fi&quot;:&quot;59 minuuttia&quot;,&quot;fr&quot;:&quot;59 minutes&quot;,&quot;de&quot;:&quot;59 Minuten&quot;,&quot;el&quot;:&quot;59 \u03bb\u03b5\u03c0\u03c4\u03ac&quot;,&quot;hu&quot;:&quot;59 perc&quot;,&quot;ga&quot;:&quot;59 n\u00f3im\u00e9ad&quot;,&quot;it&quot;:&quot;59 minuti&quot;,&quot;lv&quot;:&quot;59 min\u016bt\u0113m&quot;,&quot;lt&quot;:&quot;59 minut\u0117s&quot;,&quot;ru&quot;:&quot;59 \u043c\u0438\u043d\u0443\u0442&quot;,&quot;mt&quot;:&quot;59 minuti&quot;,&quot;pl&quot;:&quot;59 minut&quot;,&quot;pt&quot;:&quot;59 minutos&quot;,&quot;ro&quot;:&quot;59 minute&quot;,&quot;sk&quot;:&quot;59 min\u00fat&quot;,&quot;sl&quot;:&quot;59 minut&quot;,&quot;es&quot;:&quot;59 minutos&quot;,&quot;sv&quot;:&quot;59 minuter&quot;,&quot;en&quot;:&quot;59 minutes&quot;}" label="Expiration">
+                        59 minutes                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie is set to note your specific user identity. It contains a hashed/encrypted unique ID.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">uuid</td>
+                      <td label="Domain">.innovid.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;2 \u043c\u0435\u0441\u0435\u0446\u0430 29 \u0434\u043d\u0438&quot;,&quot;hr&quot;:&quot;2 mjeseca 29 dana&quot;,&quot;cs&quot;:&quot;2 m\u011bs\u00edce 29 dn\u00ed&quot;,&quot;da&quot;:&quot;2 m\u00e5neder 29 dage&quot;,&quot;nl&quot;:&quot;2 maanden 29 dagen&quot;,&quot;et&quot;:&quot;2 kuud 29 p\u00e4eva&quot;,&quot;fi&quot;:&quot;2 kuukautta 29 p\u00e4iv\u00e4\u00e4&quot;,&quot;fr&quot;:&quot;2 mois 29 jours&quot;,&quot;de&quot;:&quot;2 Monate 29 Tage&quot;,&quot;el&quot;:&quot;2 \u03bc\u03ae\u03bd\u03b5\u03c2 29 \u03bc\u03ad\u03c1\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;2 h\u00f3nap 29 nap&quot;,&quot;ga&quot;:&quot;2 m\u00ed 29 l\u00e1&quot;,&quot;it&quot;:&quot;2 mesi 29 giorni&quot;,&quot;lv&quot;:&quot;2 m\u0113ne\u0161iem 29 dien\u0101m&quot;,&quot;lt&quot;:&quot;2 m\u0117nesiai 29 dienos&quot;,&quot;ru&quot;:&quot;2 \u043c\u0435\u0441\u044f\u0446\u0430 29 \u0434\u043d\u0435\u0439&quot;,&quot;mt&quot;:&quot;2 xhur 29 \u0121ranet&quot;,&quot;pl&quot;:&quot;2 miesi\u0105ce 29 dni&quot;,&quot;pt&quot;:&quot;2 meses 29 dias&quot;,&quot;ro&quot;:&quot;2 luni 29 zile&quot;,&quot;sk&quot;:&quot;2 mesiace 29 dn\u00ed&quot;,&quot;sl&quot;:&quot;2 meseca 29 dni&quot;,&quot;es&quot;:&quot;2 meses 29 d\u00edas&quot;,&quot;sv&quot;:&quot;2 m\u00e5nader 29 dagar&quot;,&quot;en&quot;:&quot;2 months 29 days&quot;}" label="Expiration">
+                        2 months 29 days                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie is used to optimize ad relevance by collecting visitor data from multiple websites – this exchange of visitor data is normally provided by a third-party data-center or ad-exchange.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">KADUSERCOOKIE</td>
+                      <td label="Domain">.pubmatic.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;2 \u043c\u0435\u0441\u0435\u0446\u0430 29 \u0434\u043d\u0438&quot;,&quot;hr&quot;:&quot;2 mjeseca 29 dana&quot;,&quot;cs&quot;:&quot;2 m\u011bs\u00edce 29 dn\u00ed&quot;,&quot;da&quot;:&quot;2 m\u00e5neder 29 dage&quot;,&quot;nl&quot;:&quot;2 maanden 29 dagen&quot;,&quot;et&quot;:&quot;2 kuud 29 p\u00e4eva&quot;,&quot;fi&quot;:&quot;2 kuukautta 29 p\u00e4iv\u00e4\u00e4&quot;,&quot;fr&quot;:&quot;2 mois 29 jours&quot;,&quot;de&quot;:&quot;2 Monate 29 Tage&quot;,&quot;el&quot;:&quot;2 \u03bc\u03ae\u03bd\u03b5\u03c2 29 \u03bc\u03ad\u03c1\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;2 h\u00f3nap 29 nap&quot;,&quot;ga&quot;:&quot;2 m\u00ed 29 l\u00e1&quot;,&quot;it&quot;:&quot;2 mesi 29 giorni&quot;,&quot;lv&quot;:&quot;2 m\u0113ne\u0161iem 29 dien\u0101m&quot;,&quot;lt&quot;:&quot;2 m\u0117nesiai 29 dienos&quot;,&quot;ru&quot;:&quot;2 \u043c\u0435\u0441\u044f\u0446\u0430 29 \u0434\u043d\u0435\u0439&quot;,&quot;mt&quot;:&quot;2 xhur 29 \u0121ranet&quot;,&quot;pl&quot;:&quot;2 miesi\u0105ce 29 dni&quot;,&quot;pt&quot;:&quot;2 meses 29 dias&quot;,&quot;ro&quot;:&quot;2 luni 29 zile&quot;,&quot;sk&quot;:&quot;2 mesiace 29 dn\u00ed&quot;,&quot;sl&quot;:&quot;2 meseca 29 dni&quot;,&quot;es&quot;:&quot;2 meses 29 d\u00edas&quot;,&quot;sv&quot;:&quot;2 m\u00e5nader 29 dagar&quot;,&quot;en&quot;:&quot;2 months 29 days&quot;}" label="Expiration">
+                        2 months 29 days                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie is generally provided by pubmatic.com and is used for advertising purposes.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">KTPCACOOKIE</td>
+                      <td label="Domain">.pubmatic.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;23 \u0447\u0430\u0441\u0430 59 \u043c\u0438\u043d\u0443\u0442\u0438&quot;,&quot;hr&quot;:&quot;23 sata 59 minuta&quot;,&quot;cs&quot;:&quot;23 hodin 59 minut&quot;,&quot;da&quot;:&quot;23 timer 59 minutter&quot;,&quot;nl&quot;:&quot;23 uur 59 minuten&quot;,&quot;et&quot;:&quot;23 tundi 59 minutit&quot;,&quot;fi&quot;:&quot;23 tuntia 59 minuuttia&quot;,&quot;fr&quot;:&quot;23 heures 59 minutes&quot;,&quot;de&quot;:&quot;23 Stunden 59 Minuten&quot;,&quot;el&quot;:&quot;23 \u03ce\u03c1\u03b5\u03c2 59 \u03bb\u03b5\u03c0\u03c4\u03ac&quot;,&quot;hu&quot;:&quot;23 \u00f3ra 59 perc&quot;,&quot;ga&quot;:&quot;23 uair an chloig 59 n\u00f3im\u00e9ad&quot;,&quot;it&quot;:&quot;23 ore 59 minuti&quot;,&quot;lv&quot;:&quot;23 stund\u0101m 59 min\u016bt\u0113m&quot;,&quot;lt&quot;:&quot;23 valandos 59 minut\u0117s&quot;,&quot;ru&quot;:&quot;23 \u0447\u0430\u0441\u0430 59 \u043c\u0438\u043d\u0443\u0442&quot;,&quot;mt&quot;:&quot;23 sieg\u0127at 59 minuti&quot;,&quot;pl&quot;:&quot;23 godziny 59 minut&quot;,&quot;pt&quot;:&quot;23 horas 59 minutos&quot;,&quot;ro&quot;:&quot;23 ore 59 minute&quot;,&quot;sk&quot;:&quot;23 hod\u00edn 59 min\u00fat&quot;,&quot;sl&quot;:&quot;23 ur 59 minut&quot;,&quot;es&quot;:&quot;23 horas 59 minutos&quot;,&quot;sv&quot;:&quot;23 timmar 59 minuter&quot;,&quot;en&quot;:&quot;23 hours 59 minutes&quot;}" label="Expiration">
+                        23 hours 59 minutes                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie is generally provided by pubmatic.com and is used for advertising purposes.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">mdata</td>
+                      <td label="Domain">.mookie1.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0433\u043e\u0434\u0438\u043d\u0430&quot;,&quot;hr&quot;:&quot;1 godinu&quot;,&quot;cs&quot;:&quot;1 rok&quot;,&quot;da&quot;:&quot;1 \u00e5r&quot;,&quot;nl&quot;:&quot;1 jaar&quot;,&quot;et&quot;:&quot;1 aasta&quot;,&quot;fi&quot;:&quot;1 vuosi&quot;,&quot;fr&quot;:&quot;1 an&quot;,&quot;de&quot;:&quot;1 Jahr&quot;,&quot;el&quot;:&quot;1 \u03c7\u03c1\u03cc\u03bd\u03bf\u03c2&quot;,&quot;hu&quot;:&quot;1 \u00e9v&quot;,&quot;ga&quot;:&quot;1 bliain&quot;,&quot;it&quot;:&quot;1 anno&quot;,&quot;lv&quot;:&quot;1 gads&quot;,&quot;lt&quot;:&quot;1 metai&quot;,&quot;ru&quot;:&quot;1 \u0433\u043e\u0434&quot;,&quot;mt&quot;:&quot;sena&quot;,&quot;pl&quot;:&quot;1 rok&quot;,&quot;pt&quot;:&quot;1 ano&quot;,&quot;ro&quot;:&quot;1 an&quot;,&quot;sk&quot;:&quot;rok&quot;,&quot;sl&quot;:&quot;1 leto&quot;,&quot;es&quot;:&quot;1 a\u00f1o&quot;,&quot;sv&quot;:&quot;1 \u00e5r&quot;,&quot;en&quot;:&quot;1 year&quot;}" label="Expiration">
+                        1 year                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">id</td>
+                      <td label="Domain">.mookie1.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0433\u043e\u0434\u0438\u043d\u0430&quot;,&quot;hr&quot;:&quot;1 godinu&quot;,&quot;cs&quot;:&quot;1 rok&quot;,&quot;da&quot;:&quot;1 \u00e5r&quot;,&quot;nl&quot;:&quot;1 jaar&quot;,&quot;et&quot;:&quot;1 aasta&quot;,&quot;fi&quot;:&quot;1 vuosi&quot;,&quot;fr&quot;:&quot;1 an&quot;,&quot;de&quot;:&quot;1 Jahr&quot;,&quot;el&quot;:&quot;1 \u03c7\u03c1\u03cc\u03bd\u03bf\u03c2&quot;,&quot;hu&quot;:&quot;1 \u00e9v&quot;,&quot;ga&quot;:&quot;1 bliain&quot;,&quot;it&quot;:&quot;1 anno&quot;,&quot;lv&quot;:&quot;1 gads&quot;,&quot;lt&quot;:&quot;1 metai&quot;,&quot;ru&quot;:&quot;1 \u0433\u043e\u0434&quot;,&quot;mt&quot;:&quot;sena&quot;,&quot;pl&quot;:&quot;1 rok&quot;,&quot;pt&quot;:&quot;1 ano&quot;,&quot;ro&quot;:&quot;1 an&quot;,&quot;sk&quot;:&quot;rok&quot;,&quot;sl&quot;:&quot;1 leto&quot;,&quot;es&quot;:&quot;1 a\u00f1o&quot;,&quot;sv&quot;:&quot;1 \u00e5r&quot;,&quot;en&quot;:&quot;1 year&quot;}" label="Expiration">
+                        1 year                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">u</td>
+                      <td label="Domain">.agkn.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;12 \u043c\u0435\u0441\u0435\u0446\u0430 4 \u0434\u043d\u0438&quot;,&quot;hr&quot;:&quot;12 mjeseci 4 dana&quot;,&quot;cs&quot;:&quot;12 m\u011bs\u00edc\u016f 4 dny&quot;,&quot;da&quot;:&quot;12 m\u00e5neder 4 dage&quot;,&quot;nl&quot;:&quot;12 maanden 4 dagen&quot;,&quot;et&quot;:&quot;12 kuud 4 p\u00e4eva&quot;,&quot;fi&quot;:&quot;12 kuukautta 4 p\u00e4iv\u00e4\u00e4&quot;,&quot;fr&quot;:&quot;12 mois 4 jours&quot;,&quot;de&quot;:&quot;12 Monate 4 Tage&quot;,&quot;el&quot;:&quot;12 \u03bc\u03ae\u03bd\u03b5\u03c2 4 \u03bc\u03ad\u03c1\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;12 h\u00f3nap 4 nap&quot;,&quot;ga&quot;:&quot;12 m\u00ed 4 l\u00e1&quot;,&quot;it&quot;:&quot;12 mesi 4 giorni&quot;,&quot;lv&quot;:&quot;12 m\u0113ne\u0161iem 4 dien\u0101m&quot;,&quot;lt&quot;:&quot;12 m\u0117nes\u012f 4 dienos&quot;,&quot;ru&quot;:&quot;12 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 4 \u0434\u043d\u044f&quot;,&quot;mt&quot;:&quot;12 xhur 4 \u0121ranet&quot;,&quot;pl&quot;:&quot;12 miesi\u0119cy 4 dni&quot;,&quot;pt&quot;:&quot;12 meses 4 dias&quot;,&quot;ro&quot;:&quot;12 luni 4 zile&quot;,&quot;sk&quot;:&quot;12 mesiacov 4 dni&quot;,&quot;sl&quot;:&quot;12 mesecev 4 dni&quot;,&quot;es&quot;:&quot;12 meses 4 d\u00edas&quot;,&quot;sv&quot;:&quot;12 m\u00e5nader 4 dagar&quot;,&quot;en&quot;:&quot;12 months 4 days&quot;}" label="Expiration">
+                        12 months 4 days                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">ab</td>
+                      <td label="Domain">.agkn.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;12 \u043c\u0435\u0441\u0435\u0446\u0430 4 \u0434\u043d\u0438&quot;,&quot;hr&quot;:&quot;12 mjeseci 4 dana&quot;,&quot;cs&quot;:&quot;12 m\u011bs\u00edc\u016f 4 dny&quot;,&quot;da&quot;:&quot;12 m\u00e5neder 4 dage&quot;,&quot;nl&quot;:&quot;12 maanden 4 dagen&quot;,&quot;et&quot;:&quot;12 kuud 4 p\u00e4eva&quot;,&quot;fi&quot;:&quot;12 kuukautta 4 p\u00e4iv\u00e4\u00e4&quot;,&quot;fr&quot;:&quot;12 mois 4 jours&quot;,&quot;de&quot;:&quot;12 Monate 4 Tage&quot;,&quot;el&quot;:&quot;12 \u03bc\u03ae\u03bd\u03b5\u03c2 4 \u03bc\u03ad\u03c1\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;12 h\u00f3nap 4 nap&quot;,&quot;ga&quot;:&quot;12 m\u00ed 4 l\u00e1&quot;,&quot;it&quot;:&quot;12 mesi 4 giorni&quot;,&quot;lv&quot;:&quot;12 m\u0113ne\u0161iem 4 dien\u0101m&quot;,&quot;lt&quot;:&quot;12 m\u0117nes\u012f 4 dienos&quot;,&quot;ru&quot;:&quot;12 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 4 \u0434\u043d\u044f&quot;,&quot;mt&quot;:&quot;12 xhur 4 \u0121ranet&quot;,&quot;pl&quot;:&quot;12 miesi\u0119cy 4 dni&quot;,&quot;pt&quot;:&quot;12 meses 4 dias&quot;,&quot;ro&quot;:&quot;12 luni 4 zile&quot;,&quot;sk&quot;:&quot;12 mesiacov 4 dni&quot;,&quot;sl&quot;:&quot;12 mesecev 4 dni&quot;,&quot;es&quot;:&quot;12 meses 4 d\u00edas&quot;,&quot;sv&quot;:&quot;12 m\u00e5nader 4 dagar&quot;,&quot;en&quot;:&quot;12 months 4 days&quot;}" label="Expiration">
+                        12 months 4 days                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie is generally provided by agkn.com and is used for advertising purposes.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">i</td>
+                      <td label="Domain">.openx.net</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;12 \u043c\u0435\u0441\u0435\u0446\u0430 4 \u0434\u043d\u0438&quot;,&quot;hr&quot;:&quot;12 mjeseci 4 dana&quot;,&quot;cs&quot;:&quot;12 m\u011bs\u00edc\u016f 4 dny&quot;,&quot;da&quot;:&quot;12 m\u00e5neder 4 dage&quot;,&quot;nl&quot;:&quot;12 maanden 4 dagen&quot;,&quot;et&quot;:&quot;12 kuud 4 p\u00e4eva&quot;,&quot;fi&quot;:&quot;12 kuukautta 4 p\u00e4iv\u00e4\u00e4&quot;,&quot;fr&quot;:&quot;12 mois 4 jours&quot;,&quot;de&quot;:&quot;12 Monate 4 Tage&quot;,&quot;el&quot;:&quot;12 \u03bc\u03ae\u03bd\u03b5\u03c2 4 \u03bc\u03ad\u03c1\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;12 h\u00f3nap 4 nap&quot;,&quot;ga&quot;:&quot;12 m\u00ed 4 l\u00e1&quot;,&quot;it&quot;:&quot;12 mesi 4 giorni&quot;,&quot;lv&quot;:&quot;12 m\u0113ne\u0161iem 4 dien\u0101m&quot;,&quot;lt&quot;:&quot;12 m\u0117nes\u012f 4 dienos&quot;,&quot;ru&quot;:&quot;12 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 4 \u0434\u043d\u044f&quot;,&quot;mt&quot;:&quot;12 xhur 4 \u0121ranet&quot;,&quot;pl&quot;:&quot;12 miesi\u0119cy 4 dni&quot;,&quot;pt&quot;:&quot;12 meses 4 dias&quot;,&quot;ro&quot;:&quot;12 luni 4 zile&quot;,&quot;sk&quot;:&quot;12 mesiacov 4 dni&quot;,&quot;sl&quot;:&quot;12 mesecev 4 dni&quot;,&quot;es&quot;:&quot;12 meses 4 d\u00edas&quot;,&quot;sv&quot;:&quot;12 m\u00e5nader 4 dagar&quot;,&quot;en&quot;:&quot;12 months 4 days&quot;}" label="Expiration">
+                        12 months 4 days                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">IDE</td>
+                      <td label="Domain">.doubleclick.net</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0433\u043e\u0434\u0438\u043d\u0430&quot;,&quot;hr&quot;:&quot;1 godinu&quot;,&quot;cs&quot;:&quot;1 rok&quot;,&quot;da&quot;:&quot;1 \u00e5r&quot;,&quot;nl&quot;:&quot;1 jaar&quot;,&quot;et&quot;:&quot;1 aasta&quot;,&quot;fi&quot;:&quot;1 vuosi&quot;,&quot;fr&quot;:&quot;1 an&quot;,&quot;de&quot;:&quot;1 Jahr&quot;,&quot;el&quot;:&quot;1 \u03c7\u03c1\u03cc\u03bd\u03bf\u03c2&quot;,&quot;hu&quot;:&quot;1 \u00e9v&quot;,&quot;ga&quot;:&quot;1 bliain&quot;,&quot;it&quot;:&quot;1 anno&quot;,&quot;lv&quot;:&quot;1 gads&quot;,&quot;lt&quot;:&quot;1 metai&quot;,&quot;ru&quot;:&quot;1 \u0433\u043e\u0434&quot;,&quot;mt&quot;:&quot;sena&quot;,&quot;pl&quot;:&quot;1 rok&quot;,&quot;pt&quot;:&quot;1 ano&quot;,&quot;ro&quot;:&quot;1 an&quot;,&quot;sk&quot;:&quot;rok&quot;,&quot;sl&quot;:&quot;1 leto&quot;,&quot;es&quot;:&quot;1 a\u00f1o&quot;,&quot;sv&quot;:&quot;1 \u00e5r&quot;,&quot;en&quot;:&quot;1 year&quot;}" label="Expiration">
+                        1 year                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie carries out information about how the end user uses the website and any advertising that the end user may have seen before visiting the said website.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">VISITOR_INFO1_LIVE</td>
+                      <td label="Domain">.youtube.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;5 \u043c\u0435\u0441\u0435\u0446\u0430 29 \u0434\u043d\u0438&quot;,&quot;hr&quot;:&quot;5 mjeseci 29 dana&quot;,&quot;cs&quot;:&quot;5 m\u011bs\u00edc\u016f 29 dn\u00ed&quot;,&quot;da&quot;:&quot;5 m\u00e5neder 29 dage&quot;,&quot;nl&quot;:&quot;5 maanden 29 dagen&quot;,&quot;et&quot;:&quot;5 kuud 29 p\u00e4eva&quot;,&quot;fi&quot;:&quot;5 kuukautta 29 p\u00e4iv\u00e4\u00e4&quot;,&quot;fr&quot;:&quot;5 mois 29 jours&quot;,&quot;de&quot;:&quot;5 Monate 29 Tage&quot;,&quot;el&quot;:&quot;5 \u03bc\u03ae\u03bd\u03b5\u03c2 29 \u03bc\u03ad\u03c1\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;5 h\u00f3nap 29 nap&quot;,&quot;ga&quot;:&quot;5 m\u00ed 29 l\u00e1&quot;,&quot;it&quot;:&quot;5 mesi 29 giorni&quot;,&quot;lv&quot;:&quot;5 m\u0113ne\u0161iem 29 dien\u0101m&quot;,&quot;lt&quot;:&quot;5 m\u0117nesiai 29 dienos&quot;,&quot;ru&quot;:&quot;5 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 29 \u0434\u043d\u0435\u0439&quot;,&quot;mt&quot;:&quot;5 xhur 29 \u0121ranet&quot;,&quot;pl&quot;:&quot;5 miesi\u0119cy 29 dni&quot;,&quot;pt&quot;:&quot;5 meses 29 dias&quot;,&quot;ro&quot;:&quot;5 luni 29 zile&quot;,&quot;sk&quot;:&quot;5 mesiacov 29 dn\u00ed&quot;,&quot;sl&quot;:&quot;5 mesecev 29 dni&quot;,&quot;es&quot;:&quot;5 meses 29 d\u00edas&quot;,&quot;sv&quot;:&quot;5 m\u00e5nader 29 dagar&quot;,&quot;en&quot;:&quot;5 months 29 days&quot;}" label="Expiration">
+                        5 months 29 days                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie is set by Youtube to keep track of user preferences for Youtube videos embedded in sites;it can also determine whether the website visitor is using the new or old version of the Youtube interface.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">GPS</td>
+                      <td label="Domain">.youtube.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;29 \u043c\u0438\u043d\u0443\u0442\u0438&quot;,&quot;hr&quot;:&quot;29 minuta&quot;,&quot;cs&quot;:&quot;29 minut&quot;,&quot;da&quot;:&quot;29 minutter&quot;,&quot;nl&quot;:&quot;29 minuten&quot;,&quot;et&quot;:&quot;29 minutit&quot;,&quot;fi&quot;:&quot;29 minuuttia&quot;,&quot;fr&quot;:&quot;29 minutes&quot;,&quot;de&quot;:&quot;29 Minuten&quot;,&quot;el&quot;:&quot;29 \u03bb\u03b5\u03c0\u03c4\u03ac&quot;,&quot;hu&quot;:&quot;29 perc&quot;,&quot;ga&quot;:&quot;29 n\u00f3im\u00e9ad&quot;,&quot;it&quot;:&quot;29 minuti&quot;,&quot;lv&quot;:&quot;29 min\u016bt\u0113m&quot;,&quot;lt&quot;:&quot;29 minut\u0117s&quot;,&quot;ru&quot;:&quot;29 \u043c\u0438\u043d\u0443\u0442&quot;,&quot;mt&quot;:&quot;29 minuti&quot;,&quot;pl&quot;:&quot;29 minut&quot;,&quot;pt&quot;:&quot;29 minutos&quot;,&quot;ro&quot;:&quot;29 minute&quot;,&quot;sk&quot;:&quot;29 min\u00fat&quot;,&quot;sl&quot;:&quot;29 minut&quot;,&quot;es&quot;:&quot;29 minutos&quot;,&quot;sv&quot;:&quot;29 minuter&quot;,&quot;en&quot;:&quot;29 minutes&quot;}" label="Expiration">
+                        29 minutes                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">YSC</td>
+                      <td label="Domain">.youtube.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;Session&quot;,&quot;hr&quot;:&quot;Session&quot;,&quot;cs&quot;:&quot;Session&quot;,&quot;da&quot;:&quot;Session&quot;,&quot;nl&quot;:&quot;Session&quot;,&quot;et&quot;:&quot;Session&quot;,&quot;fi&quot;:&quot;Session&quot;,&quot;fr&quot;:&quot;Session&quot;,&quot;de&quot;:&quot;Session&quot;,&quot;el&quot;:&quot;Session&quot;,&quot;hu&quot;:&quot;Session&quot;,&quot;ga&quot;:&quot;Session&quot;,&quot;it&quot;:&quot;Session&quot;,&quot;lv&quot;:&quot;Session&quot;,&quot;lt&quot;:&quot;Session&quot;,&quot;ru&quot;:&quot;Session&quot;,&quot;mt&quot;:&quot;Session&quot;,&quot;pl&quot;:&quot;Session&quot;,&quot;pt&quot;:&quot;Session&quot;,&quot;ro&quot;:&quot;Session&quot;,&quot;sk&quot;:&quot;Session&quot;,&quot;sl&quot;:&quot;Session&quot;,&quot;es&quot;:&quot;Session&quot;,&quot;sv&quot;:&quot;Session&quot;,&quot;en&quot;:&quot;Session&quot;}" label="Expiration">
+                        Session                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        This cookie is set by YouTube to track views of embedded videos.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">CMST</td>
+                      <td label="Domain">.casalemedia.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0434\u0435\u043d&quot;,&quot;hr&quot;:&quot;1 dan&quot;,&quot;cs&quot;:&quot;1 den&quot;,&quot;da&quot;:&quot;1 dag&quot;,&quot;nl&quot;:&quot;1 dag&quot;,&quot;et&quot;:&quot;1 p\u00e4ev&quot;,&quot;fi&quot;:&quot;1 p\u00e4iv\u00e4&quot;,&quot;fr&quot;:&quot;1 jour&quot;,&quot;de&quot;:&quot;1 Tag&quot;,&quot;el&quot;:&quot;1 \u03bc\u03ad\u03c1\u03b1&quot;,&quot;hu&quot;:&quot;1 nap&quot;,&quot;ga&quot;:&quot;1 l\u00e1&quot;,&quot;it&quot;:&quot;1 giorno&quot;,&quot;lv&quot;:&quot;1 dienas&quot;,&quot;lt&quot;:&quot;1 diena&quot;,&quot;ru&quot;:&quot;1 \u0434\u0435\u043d\u044c&quot;,&quot;mt&quot;:&quot;\u0121urnata&quot;,&quot;pl&quot;:&quot;1 dzie\u0144&quot;,&quot;pt&quot;:&quot;1 dia&quot;,&quot;ro&quot;:&quot;1 zi&quot;,&quot;sk&quot;:&quot;de\u0148&quot;,&quot;sl&quot;:&quot;1 dan&quot;,&quot;es&quot;:&quot;1 d\u00eda&quot;,&quot;sv&quot;:&quot;1 dag&quot;,&quot;en&quot;:&quot;1 day&quot;}" label="Expiration">
+                        1 day                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">CMPS</td>
+                      <td label="Domain">.casalemedia.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;3 \u043c\u0435\u0441\u0435\u0446\u0430&quot;,&quot;hr&quot;:&quot;3 mjeseca&quot;,&quot;cs&quot;:&quot;3 m\u011bs\u00edce&quot;,&quot;da&quot;:&quot;3 m\u00e5neder&quot;,&quot;nl&quot;:&quot;3 maanden&quot;,&quot;et&quot;:&quot;3 kuud&quot;,&quot;fi&quot;:&quot;3 kuukautta&quot;,&quot;fr&quot;:&quot;3 mois&quot;,&quot;de&quot;:&quot;3 Monate&quot;,&quot;el&quot;:&quot;3 \u03bc\u03ae\u03bd\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;3 h\u00f3nap&quot;,&quot;ga&quot;:&quot;3 m\u00ed&quot;,&quot;it&quot;:&quot;3 mesi&quot;,&quot;lv&quot;:&quot;3 m\u0113ne\u0161iem&quot;,&quot;lt&quot;:&quot;3 m\u0117nesiai&quot;,&quot;ru&quot;:&quot;3 \u043c\u0435\u0441\u044f\u0446\u0430&quot;,&quot;mt&quot;:&quot;3 xhur&quot;,&quot;pl&quot;:&quot;3 miesi\u0105ce&quot;,&quot;pt&quot;:&quot;3 meses&quot;,&quot;ro&quot;:&quot;3 luni&quot;,&quot;sk&quot;:&quot;3 mesiace&quot;,&quot;sl&quot;:&quot;3 mesece&quot;,&quot;es&quot;:&quot;3 meses&quot;,&quot;sv&quot;:&quot;3 m\u00e5nader&quot;,&quot;en&quot;:&quot;3 months&quot;}" label="Expiration">
+                        3 months                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        These cookies are linked to advertising and tracking the products users were looking at.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">CMID</td>
+                      <td label="Domain">.casalemedia.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0433\u043e\u0434\u0438\u043d\u0430&quot;,&quot;hr&quot;:&quot;1 godinu&quot;,&quot;cs&quot;:&quot;1 rok&quot;,&quot;da&quot;:&quot;1 \u00e5r&quot;,&quot;nl&quot;:&quot;1 jaar&quot;,&quot;et&quot;:&quot;1 aasta&quot;,&quot;fi&quot;:&quot;1 vuosi&quot;,&quot;fr&quot;:&quot;1 an&quot;,&quot;de&quot;:&quot;1 Jahr&quot;,&quot;el&quot;:&quot;1 \u03c7\u03c1\u03cc\u03bd\u03bf\u03c2&quot;,&quot;hu&quot;:&quot;1 \u00e9v&quot;,&quot;ga&quot;:&quot;1 bliain&quot;,&quot;it&quot;:&quot;1 anno&quot;,&quot;lv&quot;:&quot;1 gads&quot;,&quot;lt&quot;:&quot;1 metai&quot;,&quot;ru&quot;:&quot;1 \u0433\u043e\u0434&quot;,&quot;mt&quot;:&quot;sena&quot;,&quot;pl&quot;:&quot;1 rok&quot;,&quot;pt&quot;:&quot;1 ano&quot;,&quot;ro&quot;:&quot;1 an&quot;,&quot;sk&quot;:&quot;rok&quot;,&quot;sl&quot;:&quot;1 leto&quot;,&quot;es&quot;:&quot;1 a\u00f1o&quot;,&quot;sv&quot;:&quot;1 \u00e5r&quot;,&quot;en&quot;:&quot;1 year&quot;}" label="Expiration">
+                        1 year                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                        These cookies are linked to advertising and tracking the products users were looking at.                      </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">CMTEST</td>
+                      <td label="Domain">.casalemedia.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0447\u0430\u0441&quot;,&quot;hr&quot;:&quot;1 sat&quot;,&quot;cs&quot;:&quot;1 hodina&quot;,&quot;da&quot;:&quot;1 time&quot;,&quot;nl&quot;:&quot;1 uur&quot;,&quot;et&quot;:&quot;1 tund&quot;,&quot;fi&quot;:&quot;1 tunti&quot;,&quot;fr&quot;:&quot;1 heure&quot;,&quot;de&quot;:&quot;1 Stunde&quot;,&quot;el&quot;:&quot;1 \u03ce\u03c1\u03b1&quot;,&quot;hu&quot;:&quot;1 \u00f3ra&quot;,&quot;ga&quot;:&quot;1 uair an chloig&quot;,&quot;it&quot;:&quot;1 ora&quot;,&quot;lv&quot;:&quot;1 stundas&quot;,&quot;lt&quot;:&quot;1 valanda&quot;,&quot;ru&quot;:&quot;1 \u0447\u0430\u0441&quot;,&quot;mt&quot;:&quot;sieg\u0127a&quot;,&quot;pl&quot;:&quot;1 godzina&quot;,&quot;pt&quot;:&quot;1 hora&quot;,&quot;ro&quot;:&quot;1 or\u0103&quot;,&quot;sk&quot;:&quot;hodinu&quot;,&quot;sl&quot;:&quot;1 ura&quot;,&quot;es&quot;:&quot;1 hora&quot;,&quot;sv&quot;:&quot;1 timme&quot;,&quot;en&quot;:&quot;1 hour&quot;}" label="Expiration">
+                        1 hour                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                    </tbody>
+                </table>
+              </div>
+            </div>
+                                  <div class="cookiescript_report_unclassified cookiescript_hidden" data-cs-tab-content="unclassified">
+              <div class="cookiescript_category_description" data-cs-i18n-text="[]">
+                Unclassified cookies are cookies that do not belong to any other category or are in the process of categorization.              </div>
+              <div class="cookiescript_tablewrap">
+                <table class="cookiescript_fullreport" data-cs-table-report="cookiescript">
+                  <thead>
+                  <tr>
+                    <th data-cs-i18n-text="[]">
+                      Name                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Domain                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Expiration                    </th>
+                    <th data-cs-i18n-text="[]">
+                      Description                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                                      <tr>
+                      <td label="Name">cookiescriptaccept</td>
+                      <td label="Domain">tectonicpuzzel.eu</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;29 \u0434\u043d\u0438 23 \u0447\u0430\u0441\u0430&quot;,&quot;hr&quot;:&quot;29 dana 23 sata&quot;,&quot;cs&quot;:&quot;29 dn\u00ed 23 hodin&quot;,&quot;da&quot;:&quot;29 dage 23 timer&quot;,&quot;nl&quot;:&quot;29 dagen 23 uur&quot;,&quot;et&quot;:&quot;29 p\u00e4eva 23 tundi&quot;,&quot;fi&quot;:&quot;29 p\u00e4iv\u00e4\u00e4 23 tuntia&quot;,&quot;fr&quot;:&quot;29 jours 23 heures&quot;,&quot;de&quot;:&quot;29 Tage 23 Stunden&quot;,&quot;el&quot;:&quot;29 \u03bc\u03ad\u03c1\u03b5\u03c2 23 \u03ce\u03c1\u03b5\u03c2&quot;,&quot;hu&quot;:&quot;29 nap 23 \u00f3ra&quot;,&quot;ga&quot;:&quot;29 l\u00e1 23 uair an chloig&quot;,&quot;it&quot;:&quot;29 giorni 23 ore&quot;,&quot;lv&quot;:&quot;29 dien\u0101m 23 stund\u0101m&quot;,&quot;lt&quot;:&quot;29 dienos 23 valandos&quot;,&quot;ru&quot;:&quot;29 \u0434\u043d\u0435\u0439 23 \u0447\u0430\u0441\u0430&quot;,&quot;mt&quot;:&quot;29 \u0121ranet 23 sieg\u0127at&quot;,&quot;pl&quot;:&quot;29 dni 23 godziny&quot;,&quot;pt&quot;:&quot;29 dias 23 horas&quot;,&quot;ro&quot;:&quot;29 zile 23 ore&quot;,&quot;sk&quot;:&quot;29 dn\u00ed 23 hod\u00edn&quot;,&quot;sl&quot;:&quot;29 dni 23 ur&quot;,&quot;es&quot;:&quot;29 d\u00edas 23 horas&quot;,&quot;sv&quot;:&quot;29 dagar 23 timmar&quot;,&quot;en&quot;:&quot;29 days 23 hours&quot;}" label="Expiration">
+                        29 days 23 hours                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">ov</td>
+                      <td label="Domain">.mookie1.com</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;1 \u0433\u043e\u0434\u0438\u043d\u0430&quot;,&quot;hr&quot;:&quot;1 godinu&quot;,&quot;cs&quot;:&quot;1 rok&quot;,&quot;da&quot;:&quot;1 \u00e5r&quot;,&quot;nl&quot;:&quot;1 jaar&quot;,&quot;et&quot;:&quot;1 aasta&quot;,&quot;fi&quot;:&quot;1 vuosi&quot;,&quot;fr&quot;:&quot;1 an&quot;,&quot;de&quot;:&quot;1 Jahr&quot;,&quot;el&quot;:&quot;1 \u03c7\u03c1\u03cc\u03bd\u03bf\u03c2&quot;,&quot;hu&quot;:&quot;1 \u00e9v&quot;,&quot;ga&quot;:&quot;1 bliain&quot;,&quot;it&quot;:&quot;1 anno&quot;,&quot;lv&quot;:&quot;1 gads&quot;,&quot;lt&quot;:&quot;1 metai&quot;,&quot;ru&quot;:&quot;1 \u0433\u043e\u0434&quot;,&quot;mt&quot;:&quot;sena&quot;,&quot;pl&quot;:&quot;1 rok&quot;,&quot;pt&quot;:&quot;1 ano&quot;,&quot;ro&quot;:&quot;1 an&quot;,&quot;sk&quot;:&quot;rok&quot;,&quot;sl&quot;:&quot;1 leto&quot;,&quot;es&quot;:&quot;1 a\u00f1o&quot;,&quot;sv&quot;:&quot;1 \u00e5r&quot;,&quot;en&quot;:&quot;1 year&quot;}" label="Expiration">
+                        1 year                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                      <tr>
+                      <td label="Name">_gat_gtag_UA_131254660_1</td>
+                      <td label="Domain">.tectonicpuzzel.eu</td>
+                      <td data-cs-i18n-text="{&quot;bg&quot;:&quot;47 \u0441\u0435\u043a\u0443\u043d\u0434\u0438&quot;,&quot;hr&quot;:&quot;47 sekundi&quot;,&quot;cs&quot;:&quot;47 sekund&quot;,&quot;da&quot;:&quot;47 sekunder&quot;,&quot;nl&quot;:&quot;47 seconden&quot;,&quot;et&quot;:&quot;47 sekundit&quot;,&quot;fi&quot;:&quot;47 sekuntia&quot;,&quot;fr&quot;:&quot;47 secondes&quot;,&quot;de&quot;:&quot;47 Sekunden&quot;,&quot;el&quot;:&quot;47 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03b1&quot;,&quot;hu&quot;:&quot;47 m\u00e1sodperc&quot;,&quot;ga&quot;:&quot;47 soicind&quot;,&quot;it&quot;:&quot;47 secondi&quot;,&quot;lv&quot;:&quot;47 sekund\u0113m&quot;,&quot;lt&quot;:&quot;47 sekund\u0117s&quot;,&quot;ru&quot;:&quot;47 \u0441\u0435\u043a\u0443\u043d\u0434&quot;,&quot;mt&quot;:&quot;47 sekondi&quot;,&quot;pl&quot;:&quot;47 sekund&quot;,&quot;pt&quot;:&quot;47 segundos&quot;,&quot;ro&quot;:&quot;47 secunde&quot;,&quot;sk&quot;:&quot;47 sek\u00fand&quot;,&quot;sl&quot;:&quot;47 sekund&quot;,&quot;es&quot;:&quot;47 segundos&quot;,&quot;sv&quot;:&quot;47 sekunder&quot;,&quot;en&quot;:&quot;47 seconds&quot;}" label="Expiration">
+                        47 seconds                      </td>
+                      <td data-cs-i18n-text="" label="Description">
+                                              </td>
+                    </tr>
+                                    </tbody>
+                </table>
+              </div>
+            </div>
+                  </div>
+      </div>
+      <div id="cookiescript_aboutwrap" class="cookiescript_hidden" data-cs-maintab-content="aboutcookies" data-cs-i18n-text="[]">
+        Cookies are small text files that are placed on your computer by websites that you visit. Websites use cookies to help users navigate efficiently and perform certain functions. Cookies that are required for the website to operate properly are allowed to be set without your permission. All other cookies need to be approved before they can be set in the browser. 
+
+You can change your consent to cookie usage at any time on our Privacy Policy page.        <div style="display: none;" data-cs-consent-key-box="cookie-script" data-cs-i18n-text="[]">
+          Cookies consent ID:
+          <span data-cs-consent-key="cookie-script"></span>
+        </div>
+      </div>
+    </div>
+	<div id="cookiescript_reportdate">Cookie <a id="cookiescript_reportlink" href="https://cookie-script.com/cookie-report?identifier=6fc162efcb7289eb287a190f55fc3ad7" target="_blank">report</a> created on 2020-01-21  by <a href="https://cookie-script.com/" id="cookiescript_cookiescriptlink" target="_blank">Cookie-Script</a></div>
+	</div>
+	
+  <div id="cookiescript_copyright">
+    <a href="https://cookie-script.com/" target="_blank" id="cookiescript_link">
+      Powered by cookie-script
+    </a>
+  </div>
+  <div id="cookiescript_close" tabindex="0" role="button">×</div>
+</div>
+</body></html>
