@@ -7,6 +7,7 @@ idna==2.10
 lark-parser==0.11.2
 minizinc==0.4.2
 pycodestyle==2.7.0
+pygame==2.0.1
 requests==2.25.1
 rope==0.18.0
 soupsieve==2.2.1
