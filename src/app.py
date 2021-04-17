@@ -1,60 +1,54 @@
 import pygame as pg
 from pygame import locals as lcs
 
-from .model.cell import Cell
-from .model.misc import Font, Color
+from .util import get_board
+from .model.board import Board, Cell, State
+from .model.misc import Color
 
 
 class App:
-    def __init__(self, size=(800, 600)):
+    def __init__(self, size=(800, 600)) -> None:
         pg.init()
-        self.window = pg.display.set_mode(size, 0, 32)
 
-    def setTitle(self, title):
+        x, y = size
+
+        board_rect = pg.Rect(x // 3,  # left
+                             y // 20,  # top
+                             x - x // 3 - x // 20,  # width
+                             y // 20 * 18)  # height
+
+        with open('./res/pre.html', 'r') as f:
+            html = f.read()
+            state = get_board(html)
+
+        self.board = Board(board_rect, state)
+        self.window = pg.display.set_mode(size, 0, 32)
+        self.clock = pg.time.Clock()
+
+    def setTitle(self, title: str) -> None:
         pg.display.set_caption(title)
 
-    def draw(self):
-        text = Font.NORMAL.render('HELLO WORLD', True, Color.WHITE)
-        textRect = text.get_rect()
-        textRect.centerx = self.window.get_rect().centerx
-        textRect.centery = self.window.get_rect().centery
-
-        # Draw the white background onto the surface
+    def draw(self) -> None:
         self.window.fill(Color.BLACK)
+        self.board.draw(self.window)
 
-        # Draw a blue poligon onto the surface
-        pg.draw.polygon(self.window, Color.BLUE, ((250, 0),
-                                                  (500, 200), (250, 400), (0, 200)))
-
-        # Draw a green poligon onto the surface
-        pg.draw.polygon(self.window, Color.GREEN, ((125, 100),
-                                                   (375, 100), (375, 300), (125, 300)))
-
-        # Draw a red circle onto the surface
-        pg.draw.circle(self.window, Color.RED, (250, 200), 125)
-
-        # Get a pixel array of the surface
-        pixArray = pg.PixelArray(self.window)
-        pixArray[480][380] = Color.WHITE
-        del pixArray
-
-        # Draw the text onto the surface
-        self.window.blit(text, textRect)
-
-    def run(self):
-        pg.display.update()
-
+    def run(self) -> bool:
         for event in pg.event.get():
             if event.type == lcs.QUIT:
                 pg.quit()
                 return False
 
+            elif event.type == pg.MOUSEBUTTONUP:
+                self.board.handle_click(pg.mouse.get_pos())
+
+        pg.display.update()
+        self.clock.tick(30)
         return True
 
 
 if __name__ == '__main__':
     app = App()
-    app.setTitle('some title')
+    app.setTitle('Bag Puzzle')
 
     while app.run():
         app.draw()

@@ -1,11 +1,3 @@
-import pygame as pg
-
-pg.init()  # for fonts
-
-
-class Font:
-    NORMAL = pg.font.SysFont('roboto', 48, bold=True)
-
 
 class Color:
     BLACK = (0, 0, 0)
