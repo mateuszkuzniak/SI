@@ -3,7 +3,7 @@ from pygame import locals as lcs
 
 from .util import get_board
 from .model.board import Board
-from .model.misc import Color
+from .model.misc import Color, Button
 
 
 class App:
@@ -25,8 +25,30 @@ class App:
         self.board = Board(board_rect, state)
         self.window = pg.display.set_mode(size, 0, 32)
         self.clock = pg.time.Clock()
+        self.size = size
+
         self.background = pg.transform.scale(
             pg.image.load('./res/background.png'), size)
+
+        self.buttons = []
+        self.__init_buttons()
+
+    def __init_buttons(self, button_width=200, button_height=50):
+        x, y = self.size
+        button_x = x // 6 - button_width // 2
+
+        self.buttons = [
+            Button('RESET', pg.Rect(button_x, y // 10, button_width,
+                                    button_height), onclick=self.board.reset_cells),
+            Button('CHECK', pg.Rect(button_x, y // 10 * 2, button_width,
+                                    button_height), onclick=lambda: None),
+            Button('SOLVE', pg.Rect(button_x, y // 10 * 3, button_width,
+                                    button_height), onclick=lambda: None),
+            Button('<', pg.Rect(button_x, y // 10 * 4, button_width // 2,
+                                button_height), onclick=lambda: None),
+            Button('>', pg.Rect(button_x + button_width // 2, y // 10 * 4, button_width // 2,
+                                button_height), onclick=lambda: None)
+        ]
 
     def setTitle(self, title: str) -> None:
         pg.display.set_caption(title)
@@ -37,14 +59,29 @@ class App:
 
         self.board.draw(self.window)
 
+        for b in self.buttons:
+            b.draw(self.window)
+
     def run(self) -> bool:
+        mouse_pos = pg.mouse.get_pos()
+        self.board.handle_hover(mouse_pos)
+
+        for b in self.buttons:
+            b.handle_hover(mouse_pos)
+
         for event in pg.event.get():
             if event.type == lcs.QUIT:
                 pg.quit()
                 return False
 
             elif event.type == pg.MOUSEBUTTONUP:
-                self.board.handle_click(pg.mouse.get_pos())
+                for b in self.buttons:
+                    if b.is_clicked(mouse_pos):
+                        b.use()
+                        break
+
+                else:
+                    self.board.handle_click(mouse_pos)
 
         pg.display.update()
         self.clock.tick(30)

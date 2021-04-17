@@ -1,5 +1,6 @@
 from enum import Enum
 from typing import Tuple, Union, List
+from dataclasses import dataclass
 import pygame as pg
 
 from .misc import Color
@@ -12,36 +13,42 @@ class State(Enum):
 
 
 class Cell:
-    EMPTY = pg.image.load('./res/gray.png')
-    PATH = pg.image.load('./res/white.png')
-    WALL = pg.image.load('./res/black.png')
+    EMPTY_IMG = pg.image.load('./res/gray.png')
+    PATH_IMG = pg.image.load('./res/white.png')
+    WALL_IMG = pg.image.load('./res/black.png')
 
     def __init__(self, rect: pg.Rect, state: Union[State, int], font: pg.font.Font = None) -> None:
         self.state = state
         self.rect = rect
         self.font = font
+        self.hovered = False
 
     def __transform_bg(self, background: pg.Surface):
         return pg.transform.scale(background, (self.rect.width, self.rect.width))
 
     def draw(self, window: pg.Surface) -> None:
         if self.state == State.EMPTY:
-            window.blit(self.__transform_bg(Cell.EMPTY), self.rect)
+            window.blit(self.__transform_bg(Cell.EMPTY_IMG), self.rect)
 
         elif self.state == State.PATH:
-            window.blit(self.__transform_bg(Cell.PATH), self.rect)
+            window.blit(self.__transform_bg(Cell.PATH_IMG), self.rect)
 
         elif self.state == State.WALL:
-            window.blit(self.__transform_bg(Cell.WALL), self.rect)
+            window.blit(self.__transform_bg(Cell.WALL_IMG), self.rect)
 
         else:
             text = self.font.render(str(self.state), True, Color.BLACK)
             text_rect = text.get_rect(center=self.rect.center)
 
-            scaled_bg = pg.transform.scale(
-                Cell.PATH, (self.rect.width, self.rect.width))
-            window.blit(scaled_bg, self.rect)
+            window.blit(self.__transform_bg(Cell.PATH_IMG), self.rect)
             window.blit(text, text_rect)
+
+        if self.hovered:
+            alpha = pg.Surface(self.rect.size, pg.SRCALPHA)
+            pg.draw.rect(alpha, Color.ALPHA_BLACK, alpha.get_rect())
+            window.blit(alpha, self.rect)
+
+        self.hovered = False
 
     def is_clicked(self, pos: Tuple[int, int]) -> bool:
         return self.rect.collidepoint(pos)
@@ -55,12 +62,12 @@ class Cell:
             self.state = State.EMPTY
 
 
+@dataclass(order=True)
 class Line:
-    def __init__(self, start: Tuple[int, int], end: Tuple[int, int], color: Color, thickness: int) -> None:
-        self.start = start
-        self.end = end
-        self.color = color
-        self.thickness = thickness
+    start: Tuple[int, int]
+    end: Tuple[int, int]
+    color: Color
+    thickness: int
 
     def draw(self, window: pg.Surface) -> None:
         pg.draw.line(window, self.color, self.start, self.end, self.thickness)
@@ -72,11 +79,14 @@ class Board:
         self.size = size
         self.state = initial_state
 
-        self.cells = []
-        self.__init_cells()
+        self.reset_cells()
 
         self.lines = []
         self.__init_lines()
+
+    def reset_cells(self):
+        self.cells = []
+        self.__init_cells()
 
     def __init_cells(self) -> None:
         delta_x = self.size.width // 10
@@ -146,3 +156,7 @@ class Board:
         for cell in self.cells:
             if cell.is_clicked(mouse_pos):
                 cell.switch_state()
+
+    def handle_hover(self, mouse_pos: Tuple[int, int]) -> None:
+        for cell in self.cells:
+            cell.hovered = cell.is_clicked(mouse_pos) and isinstance(cell.state, State)
