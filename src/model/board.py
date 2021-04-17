@@ -12,26 +12,35 @@ class State(Enum):
 
 
 class Cell:
+    EMPTY = pg.image.load('./res/gray.png')
+    PATH = pg.image.load('./res/white.png')
+    WALL = pg.image.load('./res/black.png')
+
     def __init__(self, rect: pg.Rect, state: Union[State, int], font: pg.font.Font = None) -> None:
         self.state = state
         self.rect = rect
         self.font = font
 
+    def __transform_bg(self, background: pg.Surface):
+        return pg.transform.scale(background, (self.rect.width, self.rect.width))
+
     def draw(self, window: pg.Surface) -> None:
         if self.state == State.EMPTY:
-            pg.draw.rect(window, Color.WHITE, self.rect)
+            window.blit(self.__transform_bg(Cell.EMPTY), self.rect)
 
         elif self.state == State.PATH:
-            pg.draw.rect(window, Color.BLUE, self.rect)
+            window.blit(self.__transform_bg(Cell.PATH), self.rect)
 
         elif self.state == State.WALL:
-            pg.draw.rect(window, Color.GREEN, self.rect)
+            window.blit(self.__transform_bg(Cell.WALL), self.rect)
 
         else:
             text = self.font.render(str(self.state), True, Color.BLACK)
             text_rect = text.get_rect(center=self.rect.center)
 
-            pg.draw.rect(window, Color.BLUE, self.rect)
+            scaled_bg = pg.transform.scale(
+                Cell.PATH, (self.rect.width, self.rect.width))
+            window.blit(scaled_bg, self.rect)
             window.blit(text, text_rect)
 
     def is_clicked(self, pos: Tuple[int, int]) -> bool:
@@ -46,19 +55,36 @@ class Cell:
             self.state = State.EMPTY
 
 
+class Line:
+    def __init__(self, start: Tuple[int, int], end: Tuple[int, int], color: Color, thickness: int) -> None:
+        self.start = start
+        self.end = end
+        self.color = color
+        self.thickness = thickness
+
+    def draw(self, window: pg.Surface) -> None:
+        pg.draw.line(window, self.color, self.start, self.end, self.thickness)
+
+
 class Board:
     def __init__(self, size: pg.Rect, initial_state: List[List[int]]) -> None:
         self.cell_font = pg.font.SysFont('roboto', size.width // 20, bold=True)
         self.size = size
-
-        delta_x = size.width // 10
-        delta_y = size.height // 10
+        self.state = initial_state
 
         self.cells = []
-        temp_y = size.top
+        self.__init_cells()
 
-        for row in initial_state:
-            temp_x = size.left
+        self.lines = []
+        self.__init_lines()
+
+    def __init_cells(self) -> None:
+        delta_x = self.size.width // 10
+        delta_y = self.size.height // 10
+
+        temp_y = self.size.top
+        for row in self.state:
+            temp_x = self.size.left
 
             for state in row:
                 rect = pg.Rect(temp_x, temp_y, delta_x, delta_y)
@@ -76,9 +102,45 @@ class Board:
 
             temp_y += delta_y
 
+    def __init_lines(self, outside_thick=2, inside_thick=1, color=Color.WHITE) -> None:
+        delta_x = self.size.width // 10
+        delta_y = self.size.height // 10
+        temp_x = self.size.left
+        temp_y = self.size.top
+
+        actual_topright = (temp_x + 10 * delta_x, temp_y)
+        actual_bottomleft = (temp_x, temp_y + 10 * delta_y)
+        actual_bottomright = (actual_topright[0], actual_bottomleft[1])
+
+        self.lines = [
+            Line(self.size.topleft, actual_topright, color, outside_thick),
+            Line(self.size.topleft, actual_bottomleft, color, outside_thick),
+            Line(actual_topright, actual_bottomright, color, outside_thick),
+            Line(actual_bottomleft, actual_bottomright, color, outside_thick),
+        ]
+
+        temp_x = self.size.left
+        temp_y = self.size.top + delta_y
+
+        for _ in range(len(self.state) - 1):
+            self.lines.append(
+                Line((temp_x, temp_y), (actual_topright[0], temp_y), color, inside_thick))
+            temp_y += delta_y
+
+        temp_x = self.size.left + delta_x
+        temp_y = self.size.top
+
+        for _ in range(len(self.state) - 1):
+            self.lines.append(
+                Line((temp_x, temp_y), (temp_x, actual_bottomleft[1]), color, inside_thick))
+            temp_x += delta_x
+
     def draw(self, window: pg.Surface) -> None:
         for cell in self.cells:
             cell.draw(window)
+
+        for line in self.lines:
+            line.draw(window)
 
     def handle_click(self, mouse_pos: Tuple[int, int]) -> None:
         for cell in self.cells:

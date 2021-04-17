@@ -2,7 +2,7 @@ import pygame as pg
 from pygame import locals as lcs
 
 from .util import get_board
-from .model.board import Board, Cell, State
+from .model.board import Board
 from .model.misc import Color
 
 
@@ -11,11 +11,12 @@ class App:
         pg.init()
 
         x, y = size
+        square_width = min([x - x // 3 - x // 20, y // 20 * 18])
 
-        board_rect = pg.Rect(x // 3,  # left
-                             y // 20,  # top
-                             x - x // 3 - x // 20,  # width
-                             y // 20 * 18)  # height
+        board_rect = pg.Rect(x // 3,
+                             y // 20,
+                             square_width,
+                             square_width)
 
         with open('./res/pre.html', 'r') as f:
             html = f.read()
@@ -24,12 +25,16 @@ class App:
         self.board = Board(board_rect, state)
         self.window = pg.display.set_mode(size, 0, 32)
         self.clock = pg.time.Clock()
+        self.background = pg.transform.scale(
+            pg.image.load('./res/background.png'), size)
 
     def setTitle(self, title: str) -> None:
         pg.display.set_caption(title)
 
     def draw(self) -> None:
         self.window.fill(Color.BLACK)
+        self.window.blit(self.background, (0, 0))
+
         self.board.draw(self.window)
 
     def run(self) -> bool:
