@@ -159,4 +159,5 @@ class Board:
 
     def handle_hover(self, mouse_pos: Tuple[int, int]) -> None:
         for cell in self.cells:
-            cell.hovered = cell.is_clicked(mouse_pos) and isinstance(cell.state, State)
+            cell.hovered = cell.is_clicked(
+                mouse_pos) and isinstance(cell.state, State)
