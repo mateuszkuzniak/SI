@@ -3,7 +3,7 @@ from minizinc import Instance, Model, Solver
 from .util import get_board, parse_dzn
 
 if __name__ == '__main__':
-    model = Model("./src/CavePuzzle.mzn")
+    model = Model("./src/BagPuzzle.mzn")
     solver = Solver.lookup("gecode")
     instance = Instance(solver, model)
 
