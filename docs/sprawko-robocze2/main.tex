@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, polish]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{import}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{tabularx}
+
+\graphicspath{{images/}}
+
+\begin{document}
+
+\begin{flushright}
+    \today
+\end{flushright}
+
+\begin{flushleft}
+    \begin{tabular}{ll}
+        Bartosz Kosmala  & 140726 \\
+        Hubert Knioła    & 139644 \\
+        Mateusz Kuźniak  & 139092 \\
+        Jordan Kondracki & 140721
+    \end{tabular}
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textbf{Sztuczna Inteligencja - laboratorium}\\[0.3cm]
+    Sprawozdanie robocze, wariant 2\\[0.3cm]
+    \textit{\textbf{Algorytm rozwiązujący Bag Puzzle z wykorzystaniem paradygmatu CSP/FD}}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Zmiany}
+
+W tym rozdziale opiszemy zmiany wprowadzone w ostatnich
+dwóch tygodniach.
+
+\subsection{Aspekt wizualny - Bartosz Kosmala i Hubert Knioła}
+
+Udało nam się przygotować aplikację okienkową, pozwalającą
+na rozwiązywanie łamigłówki \textit{Bag Puzzle}. Jest ona
+widoczna na rysunkach \ref{fig:okno1} oraz \ref{fig:okno2}.
+
+Na obecną chwilę jej funkcjonalność ogranicza się do odczytu
+pojedynczej planszy oraz możliwości jej wypełniania.
+Działa również przycisk resetujący planszę.
+
+\subsection{Aspekt wykorzystania CSP - Jordan Kondracki i Mateusz Kuźniak}
+
+W ostatnim okresie skupiliśmy się na studiowaniu modelowania
+problemów CSP za pomocą tutoriali oferowanych przez
+\textit{MiniZinc} \cite{modelling} jak i sposobach rozwiązania
+bardziej złożonych łamigłówek z artykułu 
+,,\textit{Solving Challenging Grid Puzzles with Answer Set Programming}'' \cite{solving}.
+
+Po przeanalizowaniu wszystkich materiałów doszliśmy do wniosku,
+że problem nam przydzielony jest znacznie trudniejszy niż się
+spodziewaliśmy. W drugim artykule przytoczone jest co prawda
+rozwiązanie tego problemu w języku \texttt{LParse}, jednak 
+ciężko jest zrozumieć co on reprezentuje. Dodatkowo, w internecie
+bardzo trudno jest zdobyć jakiekolwiek materiały 
+dotyczące samego języka \texttt{LParse}.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\begin{figure}[p]
+    \includegraphics[width=0.8\textwidth]{1.png}
+    \centering
+    \caption{Zrzut ekranu aplikacji wizualizującej łamigłówkę}
+    \label{fig:okno1}
+\end{figure}
+
+\begin{figure}[p]
+    \includegraphics[width=0.8\textwidth]{2.png}
+    \centering
+    \caption{Zrzut ekranu aplikacji wizualizującej łamigłówkę}
+    \label{fig:okno2}
+\end{figure}
+
+\end{document}
