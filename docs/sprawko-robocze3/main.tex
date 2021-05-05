@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, polish]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{import}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage[justification=centering]{caption}
+\usepackage{minted}
+
+\usemintedstyle{emacs}
+
+
+\graphicspath{{images/}}
+
+\begin{document}
+
+\begin{flushright}
+    \today
+\end{flushright}
+
+\begin{flushleft}
+    \begin{tabular}{ll}
+        Bartosz Kosmala  & 140726 \\
+        Hubert Knioła    & 139644 \\
+        Mateusz Kuźniak  & 139092 \\
+        Jordan Kondracki & 140721
+    \end{tabular}
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \textbf{Sztuczna Inteligencja - laboratorium}\\[0.3cm]
+    Sprawozdanie robocze, wariant 3\\[0.3cm]
+    \textit{\textbf{Algorytm rozwiązujący Bag Puzzle z wykorzystaniem paradygmatu CSP/FD}}
+\end{center}
+
+\vspace{0.5cm}
+
+\newenvironment{longlisting}{\captionsetup{type=listing}}{\hfill}
+
+\section{Zmiany}
+
+W tym rozdziale opiszemy zmiany i postępy prac poczynione przez ostatnie
+dwa tygodnie.
+
+\subsection{Algorytm rozwiązujący łamigłówkę}
+
+Rozpoczęliśmy szkolenie udostępnione nam przez Prowadzącego 
+na platformie \textit{Coursea} \cite{course}.
+
+Z dotychczas zdobytych wiadomości udało nam się przygotować wstępny zarys
+rozwiązania w języku \textit{MiniZinc}. Jest on widoczny na listingu \ref{lst:kod}.
+W aktualnej formie wypełnia on ścieżkę o zadaną liczbę pól w prawo i w dół dla
+pierwszej napotkanej liczby. Wynik jego działania można zauważyć na rysunku
+\ref{fig:wynik}.
+
+Największym problemem w realizacji przydzielonego nam zadania semestralnego
+okazuje się zdefiniowanie ograniczeń w środowisku \textit{MiniZinc}.
+
+
+\begin{longlisting}
+    \begin{minted}[breaklines, linenos, frame=lines]{csharp}
+int: x = 10;
+set of int: RANGE = 1..x;
+set of int: RANGE1 = 0..x;
+array[RANGE, RANGE] of var RANGE1: plansza;
+/* 
+0 - ściana
+1 - ścieżka
+*/
+
+constraint plansza[1,1] = 6;
+constraint plansza[6,2] = 2;
+
+int: n=0;
+int: m=0;
+include "alldifferent.mzn";
+constraint forall(i in RANGE,j in RANGE,  n = plansza[i,j], m = plansza[i,j])(
+  if plansza[i,j] > 1 then 
+    forall(k in 2..n where m > 0)(
+      plansza[i,k] = 1
+    )/\
+    forall(l in 2..n where m > 0)(
+      plansza[l,j] = 1
+    )
+  endif);
+
+
+output [show([plansza[i,j]| j in RANGE]) ++ "\n"| i in RANGE];
+
+solve satisfy;
+    \end{minted}
+    \caption{Algorytm rozwiązujący \textit{BagPuzzle}}
+    \label{lst:kod}
+\end{longlisting}
+
+\begin{figure}[h]
+    \includegraphics{wynik.png}
+    \centering
+    \caption{Wynik działania kodu z listingu \ref{lst:kod}}
+    \label{fig:wynik}
+\end{figure}
+
+\newpage
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
