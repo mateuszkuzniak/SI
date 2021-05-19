@@ -2,145 +2,170 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog as fd
 from tkinter.messagebox import showinfo
-
-from typing import List, Tuple, Callable
-
-
-def select_file():
-    filetypes = (
-        ('Text files', '*.txt'),
-        ('DZN files', '*.dzn')
-    )
-
-    filename = fd.askopenfilename(
-        title='Open a file',
-        initialdir='~/',
-        filetypes=filetypes)
-
-    showinfo(
-        title='Selected File',
-        message=filename
-    )
+from typing import Any, Dict, Generator, List
 
 
-def file_info():
-    showinfo(
-        title='Canvas file structure',
-        message='Should be like this: '
-    )
-
-
-class Input:
-    def __init__(self, root: tk.Tk, text: str, position: Tuple[int, int], placeholder: str = None):
-        x, y = position
-
-        label = ttk.Label(root, text=text)
-        label.place(x=x, y=y)
-
-        self.entry = ttk.Entry(root)
-        self.entry.place(x=x+140, y=y, width=50)
-
-        if placeholder:
-            self.entry.insert(0, placeholder)
-
-    def get(self):
-        return self.entry.get()
-
-
-class Button:
-    def __init__(self, root: tk.Tk, text: str, position: Tuple[int, int], on_click: Callable, primary=False, width=100):
-        x, y = position
-
-        if primary:
-            btn = tk.Button(root, text=text, command=on_click,
-                            bg='red', fg='white')
-        else:
-            btn = ttk.Button(root, text=text, command=on_click)
-
-        btn.place(x=x, y=y, width=width)
-
-
-class Cell:
-    def __init__(self, root: tk.Tk, position: Tuple[int, int], placeholder: str = None):
-        x, y = position
-
-        self.entry = tk.Entry(
-            root, font="Helvetica 15 bold", justify=tk.CENTER)
-        self.entry.place(x=x, y=y, width=30, height=30)
-
-        if placeholder:
-            self.entry.insert(0, placeholder)
-
-    def color(self, color: str):
-        self.entry.configure({'background': color})
-
-    def destroy(self):
-        self.entry.destroy()
+from .util import parse_dzn, solve_rogo, parse_arg_array2d
+from .components import Button, CellBoard, Input, Cell
 
 
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.resizable(False, False)
-        self.geometry('1280x720')
+        self.minsize(800, 600)
         self.title('Rogo Puzzle Solver')
 
-        self.cells: List[Cell] = []
+        self.board = CellBoard()
+        self.has_summary = False
 
-        inp1 = Input(self, 'Enter canvas rows:', (10, 10), placeholder='10')
-        inp2 = Input(self, 'Enter canvas columns:', (10, 40), placeholder='10')
+        self.cols_in = Input(self, 'Enter canvas columns:',
+                             (10, 10), placeholder='10')
+        self.rows_in = Input(self, 'Enter canvas rows:',
+                             (10, 40), placeholder='10')
 
-        sep1 = ttk.Separator(self, orient=tk.HORIZONTAL)
-        sep1.place(x=0, y=70, width=340)
+        Button(self, 'Create canvas', (220, 25),
+               on_click=self.create_board)
 
-        Button(self,
-               'Create canvas', (220, 25),
-               on_click=lambda: self.create_board(int(inp1.get()), int(inp2.get())))
+        ttk.Separator(self, orient=tk.HORIZONTAL).place(x=0, y=70, width=340)
 
-        Button(self,
-               'Read canvas from file', (70, 78),
-               on_click=select_file, width=200)
+        Button(self, 'Read canvas from file', (70, 78),
+               on_click=self.select_file, width=200)
 
-        Button(self,
-               '?', (280, 78),
-               on_click=file_info, width=30)
+        Button(self, '?', (280, 78),
+               on_click=App.file_info, width=30)
 
-        sep2 = ttk.Separator(self, orient=tk.HORIZONTAL)
-        sep2.place(x=0, y=110, width=340)
+        Button(self, 'Save current canvas to file', (70, 110),
+               on_click=self.save_to_file, width=200)
 
-        inp3 = Input(self, 'Enter maximum steps:', (10, 120))
+        ttk.Separator(self, orient=tk.HORIZONTAL) .place(x=0, y=145, width=340)
 
-        Button(self,
-               'Solve puzzle', (220, 118),
-               on_click=lambda: print(inp3.get()), primary=True)
+        self.steps_in = Input(self, 'Enter maximum steps:', (10, 158))
 
-        sep2 = ttk.Separator(self, orient=tk.HORIZONTAL)
-        sep2.place(x=0, y=152, width=340)
+        Button(self, 'Solve puzzle', (220, 156),
+               on_click=self.handle_solution_button, primary=True)
 
-        self.draw_solve_info()
+        ttk.Separator(self, orient=tk.HORIZONTAL) .place(x=0, y=192, width=340)
 
-        sep3 = ttk.Separator(self, orient=tk.VERTICAL)
-        sep3.place(x=340, y=0, relheight=1)
+        ttk.Separator(self, orient=tk.VERTICAL).place(x=340, y=0, relheight=1)
 
-    def draw_solve_info(self):
-        self.solutions = []
+    @staticmethod
+    def file_info():
+        showinfo(
+            title='Canvas file structure',
+            message="""
+            Data file structure should look like this:
+                rows = 5;
+                cols = 9;
+                max_steps = 12;
+                problem = array2d(1..rows, 1..cols,
+                [
+                2, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 3, 0, 0, 1, 0, 0, 2, 0,
+                0, 0, 0, 0, 0, 0, -1, 0, 2,
+                0, 0, 2, -1, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 2, 0, 0, 1, 0,
+                ]);
+            """
+        )
+
+    def save_to_file(self):
+        # TODO
+        pass
+
+    def select_file(self):
+        filename = fd.askopenfilename(
+            title='Open a ROGO problem describing text file',
+            initialdir='~/',
+            filetypes=(
+                ('DZN files', '*.dzn'),
+                ('Text files', '*.txt'),
+            ))
+
+        args = parse_dzn(filename)
+
+        self.cols_in.insert(args['rows'])
+        self.rows_in.insert(args['cols'])
+        self.steps_in.insert(args['max_steps'])
+
+        self.create_board(canvas=parse_arg_array2d(args))
+
+    def handle_solution_button(self):
+        if self.has_summary:
+            self.summary_btn1.destroy()
+            self.summary_btn2.destroy()
+            self.summary_lbl.destroy()
+            self.summary_lbl1.destroy()
+            self.step_btn.destroy()
+            self.has_summary = False
+
+        self.board.remove_mark()
+
+        if self.board.has_errors():
+            showinfo(
+                title='Error', message='Canvas has some errors, they have been highlighted.')
+            return
+
+        args = self.get_args_from_app_state()
+
+        self.solutions = [solve_rogo(args)]
+        print(self.solutions)
+
         index = 0
+        self.board.show_solution(self.solutions[index])
+        max_points = self.solutions[index]['sum_points']
 
-        ttk.Label(self, text='Solving summary:',
-                  font="Helvetica 20 bold").place(x=40, y=160)
+        self.summary_lbl = ttk.Label(self, text='Solving summary:',
+                                     font="Helvetica 20 bold")
+        self.summary_lbl.place(x=40, y=200)
 
-        ttk.Label(self, text=f'There are {len(self.solutions)} solutions.').place(x=15, y=200)
+        if len(self.solutions) <= 1:
+            self.summary_lbl1 = ttk.Label(
+                self, text=f'There is one best solution of {max_points} points.')
+            self.summary_lbl1.place(x=15, y=240)
+        else:
+            self.summary_lbl1 = ttk.Label(
+                self, text=f'There are {len(self.solutions)} best solutions with a sum of {max_points} points. Currently showing {index + 1}.')
+            self.summary_lbl1.place(x=15, y=240)
 
-        ttk.Label(self, text=f'Currently showing {index + 1}.').place(x=15, y=220)
+        self.summary_btn1 = Button(
+            self, 'Previous solution', (10, 290), width=150, on_click=None)
+        self.summary_btn2 = Button(
+            self, 'Next solution', (180, 290), width=150, on_click=None)
 
-        Button(self, 'Previous solution', (10, 250), width=150, on_click=None)
-        Button(self, 'Next solution', (180, 250), width=150, on_click=None)
+        self.step_btn = Button(
+            self, 'Show step by step', (85, 320), width=150, on_click=lambda: self.handle_step(self.solutions[index]))
+        self.has_summary = True
 
-    def create_board(self, size_x, size_y):
-        for c in self.cells:
-            c.destroy()
+    def handle_step(self, solution: Dict[str, Any], timeout=300):
+        self.board.remove_mark()
+        gen = self.board.show_solution(solution, step=True)
+        last_id = ''
 
-        self.cells = []
+        try:
+            last_id = self.after(
+                timeout, lambda: self.go_handle_step(gen, timeout, last_id))
+
+        except StopIteration:
+            pass
+
+    def go_handle_step(self, gen: Generator, timeout: int, last_id: str):
+        next(gen)
+        last_id = self.after(
+            timeout, lambda: self.go_handle_step(gen, timeout, last_id))
+
+    def get_args_from_app_state(self):
+        return {
+            'rows': int(self.cols_in.get()),
+            'cols': int(self.rows_in.get()),
+            'max_steps': int(self.steps_in.get()),
+            'problem': self.board.as_values(),
+        }
+
+    def create_board(self, canvas: List[List[int]] = None):
+        size_x = int(self.cols_in.get())
+        size_y = int(self.rows_in.get())
+
+        self.board.clear()
 
         canvas_start_x = 360
         canvas_start_y = 20
@@ -148,16 +173,25 @@ class App(tk.Tk):
         delta = 31
 
         temp_x = canvas_start_x
-        for _ in range(size_x):
+        for x in range(size_x):
             temp_y = canvas_start_y
+            temp = []
 
-            for _ in range(size_y):
-                c = Cell(self, (temp_x, temp_y), placeholder='x')
-                self.cells.append(c)
+            for y in range(size_y):
+                point = (temp_x, temp_y)
+                if not canvas:
+                    c = Cell(self, point, placeholder=' ')
+
+                else:
+                    elem = canvas[x][y]
+                    c = Cell(self, point, placeholder=elem)
+
+                temp.append(c)
 
                 temp_y += delta
 
             temp_x += delta
+            self.board.new_row(temp)
 
 
 if __name__ == "__main__":

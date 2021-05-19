@@ -1,60 +1,58 @@
+from minizinc import Instance, Model, Solver
 from minizinc.dzn import parse_dzn as pd
-from bs4 import BeautifulSoup
-from typing import List, Union, Dict
+from typing import Union, Dict, Any, List
+import re
+
 
 def parse_dzn(filepath: str) -> Dict[str, Union[int, list, float]]:
     '''
-        Konwertuje '.dzn' na słownik argumentów dla modelu.
+        Converts '.dzn' to a model arguments dict.
     '''
 
     with open(filepath, 'r') as f:
         return pd(f.read())
 
-def get_board(html: str) -> List[List[int]]:
+
+def solve_rogo(args: Dict[str, Union[int, list, float]]) -> Dict[str, Any]:
     '''
-        Odczytuje planszę z htmla strony http://www.tectonicpuzzel.eu/cave-corral-puzzle-online.html
-        Sztywny przykład w folderze res
-
-        0  - puste pole
-        1+ - wymaganie ze ścieżką
-        -1 - ścieżka
-        -2 - ściana
+        Use system installation of mini-zinc to solve the rogo puzzle.
     '''
-    soup = BeautifulSoup(html, features="html.parser")
-    grid = soup.find(id='grid')
 
-    board = []
+    model = Model("./src/ROGO.mzn")
+    solver = Solver.lookup("gecode")
+    instance = Instance(solver, model)
 
-    PATH = 'url("grint.jpg");'
-    WALL = 'url("gras.jpg");'
+    instance['problem'] = args['problem']
+    instance['max_steps'] = args['max_steps']
+    instance['cols'] = args['cols']
+    instance['rows'] = args['rows']
 
-    for row in grid.find_all("tr"):
-        temp = []
-        for cell in row.find_all("td", style=True):
-            if cell.text.strip():
-                temp.append(int(cell.text))
-
-            else:
-                cell_styles = cell['style'].split()
-
-                if PATH in cell_styles:
-                    temp.append(-1)
-                elif WALL in cell_styles:
-                    temp.append(-2)
-                else:
-                    temp.append(0)
-
-        board.append(temp)
-
-    assert len(board) == 10 and all([len(r) == 10 for r in board])
-
-    return board
+    return instance.solve()
 
 
-if __name__ == '__main__':
+def parse_arg_array2d(args: Dict[str, Union[int, list, float]]) -> List[List[int]]:
     '''
-        Przykład odczytu planszy.
+        Parse an array2d object into python list.
     '''
-    with open('./res/post.html', 'r') as f:
-        board = get_board(f.read())
-        print(board)
+    match = re.search(r'\[((.|\s)*)\]', args['problem'])
+
+    if match:
+        numbers = [int(e) for e in re.split(
+            r'[\s,]', match.group(1)) if e.strip()]
+    else:
+        raise ValueError('invalid data structure')
+
+    result = []
+    temp = []
+    row_len = 0
+
+    for n in numbers:
+        temp.append(n)
+        row_len += 1
+
+        if row_len >= args['cols']:
+            row_len = 0
+            result.append(temp)
+            temp = []
+
+    return result
