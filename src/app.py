@@ -91,8 +91,6 @@ class App(tk.Tk):
 
     def handle_solution_button(self):
         if self.has_summary:
-            self.summary_btn1.destroy()
-            self.summary_btn2.destroy()
             self.summary_lbl.destroy()
             self.summary_lbl1.destroy()
             self.step_btn.destroy()
@@ -126,11 +124,6 @@ class App(tk.Tk):
             self.summary_lbl1 = ttk.Label(
                 self, text=f'There are {len(self.solutions)} best solutions with a sum of {max_points} points. Currently showing {index + 1}.')
             self.summary_lbl1.place(x=15, y=240)
-
-        self.summary_btn1 = Button(
-            self, 'Previous solution', (10, 290), width=150, on_click=None)
-        self.summary_btn2 = Button(
-            self, 'Next solution', (180, 290), width=150, on_click=None)
 
         self.step_btn = Button(
             self, 'Show step by step', (85, 320), width=150, on_click=lambda: self.handle_step(self.solutions[index]))
