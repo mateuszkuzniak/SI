@@ -66,14 +66,29 @@ Rozwiązaniem CSP jest przypisanie każdej zmiennej wartości z jej dziedziny
 spełniającej wszystkie ograniczenia. Zadaniem jest znalezienie jednego
 lub wszystkich rozwiązań \cite{cotocsp}.
 
-Łamigłówka \textit{Rogo} polega na znalezieniu na prostokątnej planszy takiej ścieżki, która:
-\begin{itemize}
-    \item zaczyna się w dowolnym polu planszy,
-    \item jest pętlą - to znaczy, że jej początek jest bezpośrednio połączony z jej końcem,
-    \item nie zawiera pól niedozwolonych,
-    \item składa się z pól, które są ze sobą połączone ortogonalnie,
-    \item może odwiedzić każde pole tylko raz,
+Do prawidłowego działania należy wprowadzić dane wejściowe takie jak: \begin{itemize}
+    \item wymiary planszy,
+    \item ilość kroków,
+    \item tablica dwuwymiarowa zawierająca liczby znajdujące się na polach planszy.
 \end{itemize}
+
+Następnie wyznaczana jest największa wartość znajdująca się na planszy. 
+Wyliczana jest również suma wszystkich dodatnich liczb w tablicy w celu określenia maksymalnej wartości planszy.
+Kolejnym elementem jest implementacja ograniczeń takich jak:
+
+\begin{itemize}
+    \item zapewniające, że każdy krok jest różny (żadna para kroków nie ma takich samych współrzędnych),
+    \item ustalające ilość punktów na każdym kroku rozwiązania,
+    \item zliczające sumę punktów zdobytych dla danego rozwiązania,
+    \item sprawdzające czy pole niedozwolone nie znajduje się w rozwiązaniu,
+    \item sprawdzające, że kolejny krok jest w bezpośrednim kontakcie z obecnym (tzn. w odległości jednego pola nie wliczając przekątnych),
+    \item sprawdzjące czy ostatni krok w rozwiązaniu znajduje się w bezpośrenim kontakcie z pierwszym krokiem, w celu zamknięcia pętli.
+\end{itemize}
+
+Ograniczenia te są głównym elementem implementacji całego programu.
+Są one odpowiedzialne za znalezienie najlepszego rozwiązania.
+
+Podczas implementacji sugerowaliśmy się rozwiązaniem umieszczonym na blogu "My Constraint Programming Blog"\cite{hakan}
 
 Plansza łamigłówki składa się z dokładnej liczby pól wyznaczanej przy jej definiowaniu.
 
