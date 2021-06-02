@@ -1,7 +1,7 @@
 rows = 5;
-cols = 9;
-max_steps = 12;
-problem = array2d(1..rows, 1..cols, 
+columns = 9;
+steps = 12;
+board = array2d(1..rows, 1..columns, 
 [
   2, 0, 0, 0, 0, 0, 0, 0, 0,
   0, 3, 0, 0, 1, 0, 0, 2, 0,

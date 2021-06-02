@@ -1,16 +1,16 @@
 import tkinter as tk
+
 from tkinter import ttk
 from tkinter import filedialog as fd
-from tkinter.constants import S
 from tkinter.messagebox import showerror, showinfo
-from typing import Any, Dict, Generator, List, Union
+
 from pprint import pprint
-from datetime import timedelta
+from typing import Generator, List
 
 import threading as thrd
 
-from .util import parse_dzn, solve_rogo, parse_arg_array2d
-from .components import Button, CellBoard, Input, Cell
+from .util import solve_rogo, SolverResults, SolverArguments
+from .components import Button, CellBoard, Input, Cell, ResultsView
 
 
 class App(tk.Tk):
@@ -20,10 +20,14 @@ class App(tk.Tk):
         self.title('Rogo Puzzle Solver')
 
         self.board = CellBoard()
-        self.has_summary = False
+        self.results: ResultsView = None
+
         self.is_animating = False
         self.is_solving = False
 
+        self.create_main_menu()
+
+    def create_main_menu(self) -> None:
         self.rows_input = Input(self, 'Enter canvas rows:',
                                 (10, 10), placeholder='10')
         self.columns_input = Input(self, 'Enter canvas columns:',
@@ -35,10 +39,10 @@ class App(tk.Tk):
         ttk.Separator(self, orient=tk.HORIZONTAL).place(x=0, y=70, width=340)
 
         Button(self, 'Read canvas from file', (70, 78),
-               on_click=self.select_file, width=200)
+               on_click=self.open_board_from_file, width=200)
 
         Button(self, '?', (280, 78),
-               on_click=App.file_info, width=30)
+               on_click=self.file_info, width=30)
 
         Button(self, 'Save current canvas to file', (70, 110),
                on_click=self.save_to_file, width=200)
@@ -54,26 +58,26 @@ class App(tk.Tk):
 
         ttk.Separator(self, orient=tk.VERTICAL).place(x=340, y=0, relheight=1)
 
-    @staticmethod
-    def file_info():
+    def file_info(self) -> None:
         showinfo(
             title='Canvas file structure',
             message="""\
 Data file structure should look like this:
-    rows = 5;
-    cols = 9;
-    max_steps = 12;
-    problem = array2d(1..rows, 1..cols,
-    [
-    2, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 3, 0, 0, 1, 0, 0, 2, 0,
-    0, 0, 0, 0, 0, 0, -1, 0, 2,
-    0, 0, 2, -1, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 2, 0, 0, 1, 0,
-    ]);
+
+rows = 5;
+columns = 9;
+steps = 12;
+board = array2d(1..rows, 1..columns,
+[
+2, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 3, 0, 0, 1, 0, 0, 2, 0,
+0, 0, 0, 0, 0, 0, -1, 0, 2,
+0, 0, 2, -1, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 2, 0, 0, 1, 0,
+]);
 """)
 
-    def save_to_file(self):
+    def save_to_file(self) -> None:
         try:
             args = self.get_args_from_app_state()
         except:
@@ -94,20 +98,9 @@ Data file structure should look like this:
                 )
             )
             with open(filename, 'w') as f:
-                rows = [''.join([f"{cell}," for cell in row])
-                        for row in args['problem']]
-                cells = '\n'.join(rows)
+                f.write(args.to_file_string())
 
-                f.write(f"""\
-rows = {args['rows']};
-cols = {args['cols']};
-max_steps = {args['max_steps']};
-problem = array2d(1..rows, 1..cols,
-[
-{cells}
-]);""")
-
-    def select_file(self):
+    def open_board_from_file(self) -> None:
         filename = fd.askopenfilename(
             title='Open a ROGO problem describing text file',
             initialdir='~/',
@@ -116,13 +109,13 @@ problem = array2d(1..rows, 1..cols,
                 ('Text files', '*.txt'),
             ))
 
-        args = parse_dzn(filename)
+        args = SolverArguments.from_dzn(filename)
 
-        self.rows_input.insert(args['rows'])
-        self.columns_input.insert(args['cols'])
-        self.steps_input.insert(args['max_steps'])
+        self.rows_input.insert(str(args.rows))
+        self.columns_input.insert(str(args.columns))
+        self.steps_input.insert(str(args.steps))
 
-        self.create_board(canvas=parse_arg_array2d(args))
+        self.create_board(canvas=args.board)
 
     def handle_solution_button(self):
         if self.is_animating:
@@ -135,13 +128,10 @@ problem = array2d(1..rows, 1..cols,
             )
             return
 
-        if self.has_summary:
-            self.summary_lbl.destroy()
-            self.summary_lbl1.destroy()
-            self.step_btn.destroy()
-            self.has_summary = False
+        if self.results:
+            self.results.destroy()
 
-        self.board.remove_mark()
+        self.board.remove_markings()
 
         if self.board.has_errors():
             showinfo(
@@ -153,10 +143,9 @@ problem = array2d(1..rows, 1..cols,
         if not self.is_solving:
             self.is_solving = True
 
-            t = thrd.Thread(target=self.solve_rogo, args=(args,))
-            t.start()
+            thrd.Thread(target=self.handle_rogo_solve, args=(args,)).start()
 
-    def solve_rogo(self, args: Dict[str, Union[int, List[List[int]]]]):
+    def handle_rogo_solve(self, args: SolverArguments):
         self.config(cursor='wait')
         self.update()
 
@@ -168,61 +157,36 @@ problem = array2d(1..rows, 1..cols,
         self.show_summary()
 
     def show_summary(self):
-        if self.solution:
-            pprint(self.solution)
+        self.board.show_solution(self.solution)
 
-            init_time = self.solution.statistics['initTime'] / \
-                timedelta(milliseconds=1)
-            solve_time = self.solution.statistics['solveTime'] / \
-                timedelta(milliseconds=1)
-            variables = self.solution.statistics['variables']
-            propagators = self.solution.statistics['propagators']
-            propagations = self.solution.statistics['propagations']
-            nodes = self.solution.statistics['nodes']
-            failures = self.solution.statistics['failures']
-            restarts = self.solution.statistics['restarts']
-            peak_depth = self.solution.statistics['peakDepth']
+        self.results = ResultsView(self, self.solution,
+                                   on_animate=lambda: self.animate_solution(self.solution))
 
-            self.board.show_solution(self.solution)
-            max_points = self.solution['sum_points']
-
-            self.summary_lbl = ttk.Label(self, text='Solving summary:',
-                                         font="Helvetica 20 bold")
-            self.summary_lbl.place(x=40, y=200)
-
-            self.summary_lbl1 = ttk.Label(
-                self, text=f'The best solution has {max_points} points.')
-            self.summary_lbl1.place(x=15, y=240)
-
-            self.step_btn = Button(
-                self, 'Show step by step', (85, 320), width=150, on_click=lambda: self.handle_step(self.solution))
-            self.has_summary = True
-
-    def handle_step(self, solution: Dict[str, Any], timeout=300):
+    def animate_solution(self, solution: SolverResults, timeout=300):
         if not self.is_animating:
             self.is_animating = True
 
-            self.board.remove_mark()
+            self.board.remove_markings()
             gen = self.board.show_solution(solution, step=True)
 
-            self.after(timeout, lambda: self.go_handle_step(gen, timeout))
+            self.after(timeout, lambda: self.__handle_step(gen, timeout))
 
-    def go_handle_step(self, gen: Generator, timeout: int):
+    def __handle_step(self, gen: Generator, timeout: int) -> None:
         try:
             next(gen)
-            self.after(timeout, lambda: self.go_handle_step(gen, timeout))
+            self.after(timeout, lambda: self.__handle_step(gen, timeout))
         except StopIteration:
             self.is_animating = False
 
-    def get_args_from_app_state(self) -> Dict[str, Union[int, List[List[int]]]]:
-        return {
-            'rows': int(self.rows_input.get()),
-            'cols': int(self.columns_input.get()),
-            'max_steps': int(self.steps_input.get()),
-            'problem': self.board.as_values(),
-        }
+    def get_args_from_app_state(self) -> SolverArguments:
+        return SolverArguments(
+            int(self.rows_input.get()),
+            int(self.columns_input.get()),
+            int(self.steps_input.get()),
+            self.board.as_values()
+        )
 
-    def create_board(self, canvas: List[List[int]] = None):
+    def create_board(self, canvas: List[List[int]] = None) -> None:
         size_x = int(self.rows_input.get())
         size_y = int(self.columns_input.get())
 
