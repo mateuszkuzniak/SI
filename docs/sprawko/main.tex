@@ -13,6 +13,7 @@
 \usepackage{listings}
 \usepackage{float}
 \usepackage[justification=centering]{caption}
+\usepackage[htt]{hyphenat}
 
 \graphicspath{{images/}}
 
@@ -77,20 +78,18 @@ Wyliczana jest również suma wszystkich dodatnich liczb w tablicy w celu okreś
 Kolejnym elementem jest implementacja ograniczeń takich jak:
 
 \begin{itemize}
-    \item zapewniające, że każdy krok jest różny (żadna para kroków nie ma takich samych współrzędnych),
-    \item ustalające ilość punktów na każdym kroku rozwiązania,
-    \item zliczające sumę punktów zdobytych dla danego rozwiązania,
-    \item sprawdzające czy pole niedozwolone nie znajduje się w rozwiązaniu,
-    \item sprawdzające, że kolejny krok jest w bezpośrednim kontakcie z obecnym (tzn. w odległości jednego pola nie wliczając przekątnych),
-    \item sprawdzjące czy ostatni krok w rozwiązaniu znajduje się w bezpośrenim kontakcie z pierwszym krokiem, w celu zamknięcia pętli.
+    \item zapewniających, że każdy krok jest różny (żadna para kroków nie ma takich samych współrzędnych),
+    \item ustalających ilość punktów na każdym kroku rozwiązania,
+    \item zliczających sumę punktów zdobytych dla danego rozwiązania,
+    \item sprawdzających czy pole niedozwolone nie znajduje się w rozwiązaniu,
+    \item sprawdzających, że kolejny krok jest w bezpośrednim kontakcie z obecnym (tzn. w odległości jednego pola nie wliczając przekątnych),
+    \item sprawdzających czy ostatni krok w rozwiązaniu znajduje się w bezpośrenim kontakcie z pierwszym krokiem, w celu zamknięcia pętli.
 \end{itemize}
 
 Ograniczenia te są głównym elementem implementacji całego programu.
-Są one odpowiedzialne za znalezienie najlepszego rozwiązania.
-
-Podczas implementacji sugerowaliśmy się rozwiązaniem umieszczonym na blogu "My Constraint Programming Blog"\cite{hakan}
-
-Plansza łamigłówki składa się z dokładnej liczby pól wyznaczanej przy jej definiowaniu.
+Są one odpowiedzialne za znalezienie najlepszego rozwiązania. Podczas implementacji sugerowaliśmy 
+się rozwiązaniem umieszczonym na blogu ,,My Constraint Programming Blog'' \cite{hakan}. 
+Pełen kod rozwiązania w języku \textit{MiniZinc} można zobaczyć na listingu 1.
 
 \hfill
 
@@ -116,7 +115,7 @@ Pythona o nazwie \texttt{tkinter}.
 Podział prac przy projekcie pomiędzy jego członków jest widoczny na
 tablicy \ref{tab:podzialprac}.
 
-\begin{table}[h!]
+\begin{table}[H]
     \caption{\label{tab:podzialprac}Podział prac przy projekcie}
     \begin{tabularx}{\textwidth}{ | p{\dimexpr.28\linewidth-2\tabcolsep-1.3333\arrayrulewidth} | X | }
         \hline
@@ -166,12 +165,69 @@ o klasach \texttt{Input}, \texttt{Button}, \texttt{Cell} oraz \texttt{ResultsVie
 Opakowują one istniejące komponenty biblioteki \texttt{tkinter} w bardziej zwięzłe elementy realizujące
 funkcjonalności pola do wprowadzania tekstu z opisem, przycisku, komórki planszy i okna z podsumowaniem wyników.
 
-Pozostałe struktury zostaną nieco szerzej opisane.
+\subsubsection{Klasa \texttt{SolverArguments}}
+
+To klasa opakowująca wymagane argumenty solvera w pojedynczy obiekt. W skład jej atrybutów wchodzi
+liczba wierszy, kolumn, kroków oraz stan planszy w postaci macierzy.
+
+Posiada ona jedną statyczną metodę \texttt{from\_dzn(filepath: str) -> SolverArguments}, która
+zwraca obiekt stworzony na podstawie pliku z rozszerzeniem \texttt{.dzn} (plik z danymi wejściowymi w formacie \textit{MiniZinc})
+którego ścieżkę w systemie przyjmuje jako parametr.
+
+Jedyną niestatyczną metodą tej klasy jest \texttt{to\_file\_string() -> str}, która tworzy na podstawie stanu obiektu string eksportowany do pliku.
+Ta funkcjonalność jest wykorzystywana w głównej klasie programu.
+
+\subsubsection{Klasa \texttt{SolverResults}}
+
+Ta klasa wyodrębnia część danych z obiektu zwracanego po rozwiązaniu modelu przez bibliotekę \texttt{minizinc}.
+Jej atrybuty stanowią dane wykorzystywane w warstwie prezentacji rozwiązania. Realizuje ona wzorzec
+\textbf{DTO} (ang. \textit{Data Transfer Object}). 
+
+Jedyna statyczna metoda tej klasy to \texttt{from\_minizinc\_results(solution: Tuple[Status, Optional[Union[List[Dict], Dict]], Dict]) -> SolverResults}.
+Przyjmuje ona obiekt zwracany przez metodę \texttt{Instance.solve()} z biblioteki \textit{MiniZinc} i wybiera z niego oczekiwane dane zwracając
+je w postaci obiektu \texttt{SolverResults}.
+
+
+\subsubsection{Klasa \texttt{CellBoard}}
+
+Jest to klasa reprezentująca planszę komórek, które można wypełnić zgodnie z założeniami łamigłówki.
+Opakowuje ona macierz komponentów \texttt{Cell} i udostępnia wysokopoziomowe abstrakcje.
+
+Do metod tej klasy należą:
+\begin{itemize}
+    \item \texttt{is\_empty() -> bool} - sprawdza czy plansza jest pusta,
+    \item \texttt{has\_errors() -> bool} - sprawdza którakolwiek z komórek zawiera błędy,
+    \item \texttt{clear() -> bool} - usuwa komórki planszy,
+    \item \texttt{new\_row(cells: List[Cell]) -> None} - dodaje do planszy nowy wiersz komórek podanych jako parametr,
+    \item \texttt{\_\_mark\_generator(results: SolverResults) -> Generator} - tworzy generator kroków wykorzystanych do osiągnięcia rozwiązania. Po wyciągnięciu z niego elementu zaznacza on wybraną komórkę,
+    \item \texttt{show\_solution(results: SolverResults, step: bool) -> Optional[Generator]} - przeprowadza procedurę zaznaczania rozwiązania na planszy. Jeśli parametr \texttt{step} jest prawdą - zwraca generator opisany w poprzednim punkcie, w przeciwnym wypadku zaznacza wszystkie od razu,
+    \item \texttt{remove\_markings() -> None} - usuwa zaznaczenia z komórek planszy,
+    \item \texttt{as\_values() -> List[List[int]]} - zwraca macierz liczb całkowitych reprezentujących aktualne wartości komórek planszy.
+\end{itemize}
 
 \subsubsection{Klasa \texttt{App}}
-\subsubsection{Klasa \texttt{CellBoard}}
-\subsubsection{Klasa \texttt{SolverArguments}}
-\subsubsection{Klasa \texttt{SolverResults}}
+
+To klasa dziedzicząca z głównej klasy biblioteki \texttt{tkinter}, otrzymująca z niej wszystkie właściwości
+okna. Rozszerzono ją o atrybuty i metody wymagane w naszym zastosowaniu - takie jak flagi \texttt{is\_animating}
+oraz \texttt{is\_solving}, które sygnalizują wykonywanie ciągłych operacji i pomagają w sterowaniu przepływem programu.
+
+Zaimplementowane w klasie metody to:
+
+\begin{itemize}
+    \item \texttt{create\_main\_menu() -> None} - tworzy okno menu głównego wraz z przyciskami i polami tekstowymi,
+    \item \texttt{file\_info() -> None} - wyświetla dialog informujący o strukturze otwieranego pliku z danymi do rozwiązania,
+    \item \texttt{save\_to\_file() -> None} - przeprowadza procedurę zapisu do pliku stworzonej w programie planszy,
+    \item \texttt{open\_board\_from\_file() -> None} - przeprowadza procedurę odczytu planszy z pliku,
+    \item \texttt{handle\_solution\_button() -> None} - obsługuje kliknięcie przycisku rozwiązania - waliduje dane wejściowe i wywołuje rozwiązywanie problemu przez \textit{MiniZinc} w osobnym wątku,
+    \item \texttt{handle\_rogo\_solve(arguments: SolverArguments) -> None} - definiuje procedurę wykonywaną przez osobny wątek, która dotyczy rozwiązania łamigłówki i wyświetlenia informacji o wynikach,
+    \item \texttt{show\_summary() -> None} - tworzy panel podsumowania i wyświetla informacje o rozwiązaniu,
+    \item \texttt{animate\_solution(solution: SolverResults, timeout: int) -> None} - rozpoczyna procedurę wyświetlania krok po kroku wyboru pól w otrzymanym rozwiązaniu łamigłówki,
+    \item \texttt{\_\_handle\_step(gen: Generator, timeout: int) -> None} - wykonuje rekurencyjnie procedurę prezentowania kroków rozwiązania,
+    \item \texttt{get\_args\_from\_app\_state() -> SolverArguments} - pobiera z pól w menu dane będące argumentami solvera i tworzy z nich obiekt klasy \texttt{SolverArguments},
+    \item \texttt{create\_board(canvas: Optional[List[List[int]]]) -> None} - tworzy planszę do wypełniania o rozmiarach podanych w polach menu. Jeśli otrzyma parametr \texttt{canvas} będący liczbami istniejącej planszy wprowadza odpowiadające wartości w pola.
+\end{itemize}
+
+Odziedziczona z klasy \texttt{tkinter.Tk} metoda \texttt{mainloop()} uruchamia cały program.
 
 \subsection{Funkcje oraz procedury}
 
@@ -219,9 +275,6 @@ Pozostałe struktury zostaną nieco szerzej opisane.
 
 \dots
 
-\section{Funkcjonalności dodatkowe}
-
-\dots
 
 \newpage
 

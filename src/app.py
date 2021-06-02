@@ -116,7 +116,7 @@ board = array2d(1..rows, 1..columns,
 
         self.create_board(canvas=args.board)
 
-    def handle_solution_button(self):
+    def handle_solution_button(self) -> None:
         if self.is_animating:
             return
 
@@ -144,7 +144,7 @@ board = array2d(1..rows, 1..columns,
 
             thrd.Thread(target=self.handle_rogo_solve, args=(args,)).start()
 
-    def handle_rogo_solve(self, args: SolverArguments):
+    def handle_rogo_solve(self, args: SolverArguments) -> None:
         self.config(cursor='wait')
         self.update()
 
@@ -155,13 +155,13 @@ board = array2d(1..rows, 1..columns,
         self.config(cursor='')
         self.show_summary()
 
-    def show_summary(self):
+    def show_summary(self) -> None:
         self.board.show_solution(self.solution)
 
         self.results = ResultsView(self, self.solution,
                                    on_animate=lambda: self.animate_solution(self.solution))
 
-    def animate_solution(self, solution: SolverResults, timeout=300):
+    def animate_solution(self, solution: SolverResults, timeout=300) -> None:
         if not self.is_animating:
             self.is_animating = True
 

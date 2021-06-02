@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from typing import Generator, List, Tuple, Callable, Union
+from typing import Generator, List, Optional, Tuple, Callable, Union
 
 from src.util import SolverResults
 
@@ -111,20 +111,20 @@ class CellBoard:
     def new_row(self, cells: List[Cell]) -> None:
         self.cells.append(cells)
 
-    def __mark_generator(self, solution: SolverResults) -> Generator:
-        points = zip(solution.x_steps, solution.y_steps)
+    def __mark_generator(self, results: SolverResults) -> Generator:
+        points = zip(results.x_steps, results.y_steps)
 
         for x, y in points:
             yield self.cells[x-1][y-1].mark()
 
-    def show_solution(self, solution: SolverResults, step=False) -> Union[None, Generator]:
-        print(solution)
+    def show_solution(self, results: SolverResults, step=False) -> Optional[Generator]:
+        print(results)
 
         if step:
-            return self.__mark_generator(solution)
+            return self.__mark_generator(results)
 
         else:
-            list(self.__mark_generator(solution))
+            list(self.__mark_generator(results))
 
     def remove_markings(self) -> None:
         for row in self.cells:
