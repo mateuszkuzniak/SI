@@ -4,6 +4,7 @@ from typing import Generator, List, Tuple, Callable, Union
 
 from src.util import SolverResults
 
+
 class Input:
     def __init__(self, root: tk.Tk, text: str, position: Tuple[int, int], placeholder: str = None) -> None:
         x, y = position
@@ -139,23 +140,44 @@ class CellBoard:
 
 class ResultsView:
     def __init__(self, root: tk.Tk, results: SolverResults, on_animate: Callable) -> None:
-        self.summary_lbl = ttk.Label(root, text='Solving summary:',
-                                     font="Helvetica 20 bold")
-        self.summary_lbl.place(x=40, y=200)
+        self.l1 = ttk.Label(root, text='Solving summary:',
+                            font="Helvetica 20 bold")
+        self.l1.place(x=40, y=200)
 
-        self.summary_lbl1 = ttk.Label(
-            root, text=f'The best solution has {results.points} points.')
-        self.summary_lbl1.place(x=15, y=240)
+        self.l2 = ttk.Label(
+            root, text=f'The best solution has {results.points} total points.')
+        self.l2.place(x=15, y=240)
+
+        self.l3 = ttk.Label(
+            root, text=f'Initialization took {results.init_time} seconds.')
+        self.l3.place(x=15, y=255)
+
+        self.l4 = ttk.Label(
+            root, text=f'Solving took {results.solve_time} seconds.')
+        self.l4.place(x=15, y=270)
+
+        self.l5 = ttk.Label(
+            root, text=f'Detailed statistics: \n{results.details_to_string()}')
+        self.l5.place(x=15, y=295)
 
         self.step_btn = Button(
-            root, 'Show step by step', (85, 320), width=150, on_click=on_animate)
+            root, 'Show step by step', (85, 450), width=150, on_click=on_animate)
 
     def destroy(self):
-        if self.summary_lbl:
-            self.summary_lbl.destroy()
+        if self.l1:
+            self.l1.destroy()
 
-        if self.summary_lbl1:
-            self.summary_lbl1.destroy()
+        if self.l2:
+            self.l2.destroy()
+
+        if self.l3:
+            self.l3.destroy()
+
+        if self.l4:
+            self.l4.destroy()
+
+        if self.l5:
+            self.l5.destroy()
 
         if self.step_btn:
             self.step_btn.destroy()

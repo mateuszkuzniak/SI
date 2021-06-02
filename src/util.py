@@ -77,8 +77,8 @@ class SolverResults:
     y_steps: List[int]
     point_steps: List[int]
     points: List[int]
-    init_time_ms: float
-    solve_time_ms: float
+    init_time: float
+    solve_time: float
     variables: int
     propagators: int
     propagations: int
@@ -87,15 +87,15 @@ class SolverResults:
     restarts: int
     peak_depth: int
 
-    @ staticmethod
+    @staticmethod
     def from_minizinc_results(solution: Tuple[Status, Optional[Union[List[Dict], Dict]], Dict]) -> "SolverResults":
         return SolverResults(
             solution['row'],
             solution['column'],
             solution['points'],
             solution['sum_points'],
-            solution.statistics['initTime'].total_seconds() / 1000,
-            solution.statistics['solveTime'] .total_seconds() / 1000,
+            solution.statistics['initTime'].total_seconds(),
+            solution.statistics['solveTime'] .total_seconds(),
             solution.statistics['variables'],
             solution.statistics['propagators'],
             solution.statistics['propagations'],
@@ -104,6 +104,17 @@ class SolverResults:
             solution.statistics['restarts'],
             solution.statistics['peakDepth'],
         )
+
+    def details_to_string(self) -> str:
+        return f"""\
+Variables: \t{self.variables}
+Propagators: \t{self.propagators}
+Propagations: \t{self.propagations}
+Nodes: \t\t{self.nodes}
+Failures: \t\t{self.failures}
+Restarts: \t\t{self.restarts}
+Peak depth: \t{self.peak_depth}
+"""
 
 
 def solve_rogo(args: SolverArguments, model_path: str = "./src/rogopuzzle.mzn", solver: str = 'gecode') -> SolverResults:
