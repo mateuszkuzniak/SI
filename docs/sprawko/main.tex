@@ -45,15 +45,12 @@
 \section{Opis zadania}
 
 Celem projektu jest stworzenie aplikacji, która umożliwia rozwiązanie łamigłówki
-\textit{Bag}, znanej także jako \textit{Coral} oraz \textit{Cave}, zgodnie z
-paradygmatem CSP (ang. \textit{Contraint Satisfaction Problem}) w skończonej
+\textit{Rogo}, zgodnie z paradygmatem CSP (ang. \textit{Contraint Satisfaction Problem}) w skończonej
 dziedzinie (ang. \textit{Finite Domain}).
 
-Łamigłówka polega na ustaleniu na planszy ciągłej ścieżki, która zawiera wszystkie
-pola z liczbami. Każde z oznaczonych pól posiada informację o ilości przylegających
-ortogonalnie pól ścieżki. Pola niebędące ścieżką określamy mianem ,,ściany''.
-
-Każdy ciąg ścian musi mieć połączenie z zewnętrznymi krawędziami planszy.
+Łamigłówka polega na ustaleniu na planszy ciągłej ścieżki, która zawiera pola z liczbami. 
+Ścieżek na takiej planczy można znaleźć wiele ale rozwiązaniem jest ta ścieżka, 
+której suma liczb na jej polach jest największa.
 
 \section{Założenia realizacyjne}
 
@@ -65,6 +62,16 @@ rozwiązania problemu.
 Rozwiązaniem CSP jest przypisanie każdej zmiennej wartości z jej dziedziny
 spełniającej wszystkie ograniczenia. Zadaniem jest znalezienie jednego
 lub wszystkich rozwiązań.\footnote{,,Programowanie logiczne z użyciem ograniczeń'' \cite{cotocsp}}
+
+Łamigłówka \textit{Rogo} polega na znalezieniu na prostokątnej planszy takiej ścieżki, która:
+\begin{itemize}
+    \item zaczyna się w dowolnym polu planszy,
+    \item jest pętlą, to znaczy, że jej początek jest bezpośredio połączony z jej końcem,
+    \item nie zawiera pól niedozwolonych,
+    \item składa się z pól, które są ze sobą połączone ortogonalnie,
+    \item może odwiedzić każde pole tylko raz,
+    \item składa się z dokładnej liczby pól wyznaczanej przy jej definiowaniu.
+\end{itemize}
 
 \subsection{Język programowania, narzędzia informatyczne, środowisko i biblioteki}
 
