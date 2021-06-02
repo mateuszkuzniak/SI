@@ -149,25 +149,32 @@ problem = array2d(1..rows, 1..cols,
             return
 
         args = self.get_args_from_app_state()
-        self.solution = None
 
         if not self.is_solving:
             self.is_solving = True
+
             t = thrd.Thread(target=self.solve_rogo, args=(args,))
             t.start()
 
     def solve_rogo(self, args: Dict[str, Union[int, List[List[int]]]]):
+        self.config(cursor='wait')
+        self.update()
+
+        self.solution = None
         self.solution = solve_rogo(args)
 
         self.is_solving = False
+        self.config(cursor='')
         self.show_summary()
 
     def show_summary(self):
         if self.solution:
             pprint(self.solution)
 
-            init_time = self.solution.statistics['initTime'] / timedelta(milliseconds=1)
-            solve_time = self.solution.statistics['solveTime'] / timedelta(milliseconds=1)
+            init_time = self.solution.statistics['initTime'] / \
+                timedelta(milliseconds=1)
+            solve_time = self.solution.statistics['solveTime'] / \
+                timedelta(milliseconds=1)
             variables = self.solution.statistics['variables']
             propagators = self.solution.statistics['propagators']
             propagations = self.solution.statistics['propagations']
