@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[english, polish]{babel}
+\usepackage{polski}
 \usepackage[hidelinks]{hyperref}
 \usepackage{import}
 \usepackage{graphicx}
@@ -10,6 +10,9 @@
 \usepackage{enumerate}
 \usepackage{amsmath}
 \usepackage{tabularx}
+\usepackage{listings}
+\usepackage{float}
+\usepackage[justification=centering]{caption}
 
 \graphicspath{{images/}}
 
@@ -48,8 +51,8 @@ Celem projektu jest stworzenie aplikacji, która umożliwia rozwiązanie łamig�
 \textit{Rogo}, zgodnie z paradygmatem CSP (ang. \textit{Contraint Satisfaction Problem}) w skończonej
 dziedzinie (ang. \textit{Finite Domain}).
 
-Łamigłówka polega na ustaleniu na planszy ciągłej ścieżki, która zawiera pola z liczbami. 
-Ścieżek na takiej planczy można znaleźć wiele ale rozwiązaniem jest ta ścieżka, 
+Łamigłówka polega na ustaleniu na planszy zapętlonej ścieżki, która zawiera pola z liczbami.
+Ścieżek na takiej planczy można znaleźć wiele ale rozwiązaniem jest ta ścieżka,
 której suma liczb na jej polach jest największa.
 
 \section{Założenia realizacyjne}
@@ -61,17 +64,22 @@ rozwiązania problemu.
 
 Rozwiązaniem CSP jest przypisanie każdej zmiennej wartości z jej dziedziny
 spełniającej wszystkie ograniczenia. Zadaniem jest znalezienie jednego
-lub wszystkich rozwiązań.\footnote{,,Programowanie logiczne z użyciem ograniczeń'' \cite{cotocsp}}
+lub wszystkich rozwiązań \cite{cotocsp}.
 
 Łamigłówka \textit{Rogo} polega na znalezieniu na prostokątnej planszy takiej ścieżki, która:
 \begin{itemize}
     \item zaczyna się w dowolnym polu planszy,
-    \item jest pętlą, to znaczy, że jej początek jest bezpośredio połączony z jej końcem,
+    \item jest pętlą - to znaczy, że jej początek jest bezpośrednio połączony z jej końcem,
     \item nie zawiera pól niedozwolonych,
     \item składa się z pól, które są ze sobą połączone ortogonalnie,
     \item może odwiedzić każde pole tylko raz,
-    \item składa się z dokładnej liczby pól wyznaczanej przy jej definiowaniu.
 \end{itemize}
+
+Plansza łamigłówki składa się z dokładnej liczby pól wyznaczanej przy jej definiowaniu.
+
+\hfill
+
+\lstinputlisting[numbers=left, captionpos=b, frame=single, language=Python, caption=Rozwiązanie łamigłówki w języku \textit{MiniZinc}]{../../src/nocommentrogo.mzn}
 
 \subsection{Język programowania, narzędzia informatyczne, środowisko i biblioteki}
 
@@ -80,13 +88,13 @@ Do implementacji aplikacji wykorzystamy język programowania ogólnego przeznacz
 problemów CSP \cite{minizinc}.
 
 Do pisania kodu wykorzystamy narzędzie \textit{Visual Studio Code}. Do kontroli
-wersji aplikacji
-użyjemy systemu \textit{Git} wraz z platformą \textit{GitHub}.
+wersji aplikacji użyjemy systemu \textit{Git} wraz z platformą \textit{GitHub}.
 
 W implementacji skorzystamy z biblioteki \texttt{minizinc}
 dla języka \textit{Python}. Pozwala ona na korzystanie ze środowiska
 \textit{MiniZinc} z poziomu interpretera. Umożliwia ona m.in. komplilację modeli
-oraz rozwiązywanie ich.
+oraz rozwiązywanie ich. Do stworzenia interfejsu graficznego wykorzystamy standardową bibliotekę
+Pythona o nazwie \texttt{tkinter}.
 
 \section{Podział prac}
 
@@ -130,15 +138,25 @@ tablicy \ref{tab:podzialprac}.
     \end{tabularx}
 \end{table}
 
-\newpage
-
 \section{Opis implementacji}
 
-\dots
+W tym rozdziale opiszemy strukturę aplikacji klienckiej naszego systemu oraz przedstawimy 
+szczegóły jej implementacji. Kod programu można znaleźć wewnątrz folderu \texttt{src} w głównym
+katalogu repozytorium.
 
 \subsection{Struktury danych wykorzystywane w programie}
 
-\dots
+Zrealizowany program zawiera w sobie 8 klas z czego 4 są elementami czysto prezentacyjnymi - mowa
+o klasach \texttt{Input}, \texttt{Button}, \texttt{Cell} oraz \texttt{ResultsView} z pakietu \texttt{components}.
+Opakowują one istniejące komponenty biblioteki \texttt{tkinter} w bardziej zwięzłe elementy realizujące
+funkcjonalności pola do wprowadzania tekstu z opisem, przycisku, komórki planszy i okna z podsumowaniem wyników.
+
+Pozostałe struktury zostaną nieco szerzej opisane.
+
+\subsubsection{Klasa \texttt{App}}
+\subsubsection{Klasa \texttt{CellBoard}}
+\subsubsection{Klasa \texttt{SolverArguments}}
+\subsubsection{Klasa \texttt{SolverResults}}
 
 \subsection{Funkcje oraz procedury}
 
@@ -150,7 +168,33 @@ tablicy \ref{tab:podzialprac}.
 
 \subsection{Interfejs aplikacji}
 
-\dots
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{2.png}
+    \centering
+    \caption{Ekran startowy aplikacji}
+    \label{fig:ekran_startowy}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{1.png}
+    \centering
+    \caption{Okno podglądu rozwiązania}
+    \label{fig:rozwiazanie}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{3.png}
+    \centering
+    \caption{Okno z informacją o oczekiwanej strukturze pliku}
+    \label{fig:info}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{4.png}
+    \centering
+    \caption{Wyświetlenie informacji o błędnie wypełnionej planszy}
+    \label{fig:blad}
+\end{figure}
 
 \subsection{Sterowanie aplikacją}
 

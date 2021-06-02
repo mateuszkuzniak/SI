@@ -4,7 +4,6 @@ from tkinter import ttk
 from tkinter import filedialog as fd
 from tkinter.messagebox import showerror, showinfo
 
-from pprint import pprint
 from typing import Generator, List
 
 import threading as thrd
