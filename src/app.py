@@ -1,9 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog as fd
-from tkinter.messagebox import showinfo
-from typing import Any, Dict, Generator, List
+from tkinter.constants import S
+from tkinter.messagebox import showerror, showinfo
+from typing import Any, Dict, Generator, List, Union
+from pprint import pprint
+from datetime import timedelta
 
+import threading as thrd
 
 from .util import parse_dzn, solve_rogo, parse_arg_array2d
 from .components import Button, CellBoard, Input, Cell
@@ -17,11 +21,13 @@ class App(tk.Tk):
 
         self.board = CellBoard()
         self.has_summary = False
+        self.is_animating = False
+        self.is_solving = False
 
-        self.cols_in = Input(self, 'Enter canvas columns:',
-                             (10, 10), placeholder='10')
-        self.rows_in = Input(self, 'Enter canvas rows:',
-                             (10, 40), placeholder='10')
+        self.rows_input = Input(self, 'Enter canvas rows:',
+                                (10, 10), placeholder='10')
+        self.columns_input = Input(self, 'Enter canvas columns:',
+                                   (10, 40), placeholder='10')
 
         Button(self, 'Create canvas', (220, 25),
                on_click=self.create_board)
@@ -39,7 +45,7 @@ class App(tk.Tk):
 
         ttk.Separator(self, orient=tk.HORIZONTAL) .place(x=0, y=145, width=340)
 
-        self.steps_in = Input(self, 'Enter maximum steps:', (10, 158))
+        self.steps_input = Input(self, 'Enter maximum steps:', (10, 158))
 
         Button(self, 'Solve puzzle', (220, 156),
                on_click=self.handle_solution_button, primary=True)
@@ -52,25 +58,54 @@ class App(tk.Tk):
     def file_info():
         showinfo(
             title='Canvas file structure',
-            message="""
-            Data file structure should look like this:
-                rows = 5;
-                cols = 9;
-                max_steps = 12;
-                problem = array2d(1..rows, 1..cols,
-                [
-                2, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 3, 0, 0, 1, 0, 0, 2, 0,
-                0, 0, 0, 0, 0, 0, -1, 0, 2,
-                0, 0, 2, -1, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 2, 0, 0, 1, 0,
-                ]);
-            """
-        )
+            message="""\
+Data file structure should look like this:
+    rows = 5;
+    cols = 9;
+    max_steps = 12;
+    problem = array2d(1..rows, 1..cols,
+    [
+    2, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 3, 0, 0, 1, 0, 0, 2, 0,
+    0, 0, 0, 0, 0, 0, -1, 0, 2,
+    0, 0, 2, -1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 2, 0, 0, 1, 0,
+    ]);
+""")
 
     def save_to_file(self):
-        # TODO
-        pass
+        try:
+            args = self.get_args_from_app_state()
+        except:
+            showerror(
+                title="Can't save current canvas",
+                message="You have to create a canvas and fill all the inputs on the left panel to save it."
+            )
+            return
+
+        if not self.board.is_empty():
+            filename = fd.asksaveasfilename(
+                title='Save current canvas to a file',
+                initialdir='~/',
+                defaultextension='.dzn',
+                filetypes=(
+                    ('DZN files', '*.dzn'),
+                    ('Text files', '*.txt'),
+                )
+            )
+            with open(filename, 'w') as f:
+                rows = [''.join([f"{cell}," for cell in row])
+                        for row in args['problem']]
+                cells = '\n'.join(rows)
+
+                f.write(f"""\
+rows = {args['rows']};
+cols = {args['cols']};
+max_steps = {args['max_steps']};
+problem = array2d(1..rows, 1..cols,
+[
+{cells}
+]);""")
 
     def select_file(self):
         filename = fd.askopenfilename(
@@ -83,13 +118,23 @@ class App(tk.Tk):
 
         args = parse_dzn(filename)
 
-        self.cols_in.insert(args['rows'])
-        self.rows_in.insert(args['cols'])
-        self.steps_in.insert(args['max_steps'])
+        self.rows_input.insert(args['rows'])
+        self.columns_input.insert(args['cols'])
+        self.steps_input.insert(args['max_steps'])
 
         self.create_board(canvas=parse_arg_array2d(args))
 
     def handle_solution_button(self):
+        if self.is_animating:
+            return
+
+        if int(self.steps_input.get()) % 2 != 0:
+            showerror(
+                title="Uneven steps number",
+                message="Uneven step number prevents creating a cell loop and therefore is not solvable."
+            )
+            return
+
         if self.has_summary:
             self.summary_lbl.destroy()
             self.summary_lbl1.destroy()
@@ -104,59 +149,75 @@ class App(tk.Tk):
             return
 
         args = self.get_args_from_app_state()
+        self.solution = None
 
-        self.solutions = [solve_rogo(args)]
-        print(self.solutions)
+        if not self.is_solving:
+            self.is_solving = True
+            t = thrd.Thread(target=self.solve_rogo, args=(args,))
+            t.start()
 
-        index = 0
-        self.board.show_solution(self.solutions[index])
-        max_points = self.solutions[index]['sum_points']
+    def solve_rogo(self, args: Dict[str, Union[int, List[List[int]]]]):
+        self.solution = solve_rogo(args)
 
-        self.summary_lbl = ttk.Label(self, text='Solving summary:',
-                                     font="Helvetica 20 bold")
-        self.summary_lbl.place(x=40, y=200)
+        self.is_solving = False
+        self.show_summary()
 
-        if len(self.solutions) <= 1:
+    def show_summary(self):
+        if self.solution:
+            pprint(self.solution)
+
+            init_time = self.solution.statistics['initTime'] / timedelta(milliseconds=1)
+            solve_time = self.solution.statistics['solveTime'] / timedelta(milliseconds=1)
+            variables = self.solution.statistics['variables']
+            propagators = self.solution.statistics['propagators']
+            propagations = self.solution.statistics['propagations']
+            nodes = self.solution.statistics['nodes']
+            failures = self.solution.statistics['failures']
+            restarts = self.solution.statistics['restarts']
+            peak_depth = self.solution.statistics['peakDepth']
+
+            self.board.show_solution(self.solution)
+            max_points = self.solution['sum_points']
+
+            self.summary_lbl = ttk.Label(self, text='Solving summary:',
+                                         font="Helvetica 20 bold")
+            self.summary_lbl.place(x=40, y=200)
+
             self.summary_lbl1 = ttk.Label(
-                self, text=f'There is one best solution of {max_points} points.')
-            self.summary_lbl1.place(x=15, y=240)
-        else:
-            self.summary_lbl1 = ttk.Label(
-                self, text=f'There are {len(self.solutions)} best solutions with a sum of {max_points} points. Currently showing {index + 1}.')
+                self, text=f'The best solution has {max_points} points.')
             self.summary_lbl1.place(x=15, y=240)
 
-        self.step_btn = Button(
-            self, 'Show step by step', (85, 320), width=150, on_click=lambda: self.handle_step(self.solutions[index]))
-        self.has_summary = True
+            self.step_btn = Button(
+                self, 'Show step by step', (85, 320), width=150, on_click=lambda: self.handle_step(self.solution))
+            self.has_summary = True
 
     def handle_step(self, solution: Dict[str, Any], timeout=300):
-        self.board.remove_mark()
-        gen = self.board.show_solution(solution, step=True)
-        last_id = ''
+        if not self.is_animating:
+            self.is_animating = True
 
+            self.board.remove_mark()
+            gen = self.board.show_solution(solution, step=True)
+
+            self.after(timeout, lambda: self.go_handle_step(gen, timeout))
+
+    def go_handle_step(self, gen: Generator, timeout: int):
         try:
-            last_id = self.after(
-                timeout, lambda: self.go_handle_step(gen, timeout, last_id))
-
+            next(gen)
+            self.after(timeout, lambda: self.go_handle_step(gen, timeout))
         except StopIteration:
-            pass
+            self.is_animating = False
 
-    def go_handle_step(self, gen: Generator, timeout: int, last_id: str):
-        next(gen)
-        last_id = self.after(
-            timeout, lambda: self.go_handle_step(gen, timeout, last_id))
-
-    def get_args_from_app_state(self):
+    def get_args_from_app_state(self) -> Dict[str, Union[int, List[List[int]]]]:
         return {
-            'rows': int(self.cols_in.get()),
-            'cols': int(self.rows_in.get()),
-            'max_steps': int(self.steps_in.get()),
+            'rows': int(self.rows_input.get()),
+            'cols': int(self.columns_input.get()),
+            'max_steps': int(self.steps_input.get()),
             'problem': self.board.as_values(),
         }
 
     def create_board(self, canvas: List[List[int]] = None):
-        size_x = int(self.cols_in.get())
-        size_y = int(self.rows_in.get())
+        size_x = int(self.rows_input.get())
+        size_y = int(self.columns_input.get())
 
         self.board.clear()
 
@@ -165,9 +226,9 @@ class App(tk.Tk):
 
         delta = 31
 
-        temp_x = canvas_start_x
+        temp_y = canvas_start_y
         for x in range(size_x):
-            temp_y = canvas_start_y
+            temp_x = canvas_start_x
             temp = []
 
             for y in range(size_y):
@@ -181,9 +242,9 @@ class App(tk.Tk):
 
                 temp.append(c)
 
-                temp_y += delta
+                temp_x += delta
 
-            temp_x += delta
+            temp_y += delta
             self.board.new_row(temp)
 
 

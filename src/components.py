@@ -88,6 +88,9 @@ class CellBoard:
     def __init__(self):
         self.cells: List[Cell] = []
 
+    def is_empty(self):
+        return not self.cells
+
     def has_errors(self):
         had_error = False
         for row in self.cells:
@@ -115,7 +118,7 @@ class CellBoard:
 
     def show_solution(self, solution: Dict[str, Any], step=False):
         print(solution)
-        
+
         if step:
             return self.__mark_generator(solution)
 

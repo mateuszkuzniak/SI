@@ -13,7 +13,7 @@ def parse_dzn(filepath: str) -> Dict[str, Union[int, list, float]]:
         return pd(f.read())
 
 
-def solve_rogo(args: Dict[str, Union[int, list, float]]) -> Dict[str, Any]:
+def solve_rogo(args: Dict[str, Union[int, list, float]], all_solutions=False) -> Dict[str, Any]:
     '''
         Use system installation of mini-zinc to solve the rogo puzzle.
     '''
@@ -27,7 +27,7 @@ def solve_rogo(args: Dict[str, Union[int, list, float]]) -> Dict[str, Any]:
     instance['cols'] = args['cols']
     instance['rows'] = args['rows']
 
-    return instance.solve()
+    return instance.solve(all_solutions=all_solutions)
 
 
 def parse_arg_array2d(args: Dict[str, Union[int, list, float]]) -> List[List[int]]:
