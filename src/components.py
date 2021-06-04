@@ -118,8 +118,6 @@ class CellBoard:
             yield self.cells[x-1][y-1].mark()
 
     def show_solution(self, results: SolverResults, step=False) -> Optional[Generator]:
-        print(results)
-
         if step:
             return self.__mark_generator(results)
 

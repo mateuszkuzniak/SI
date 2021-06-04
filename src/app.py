@@ -120,10 +120,12 @@ board = array2d(1..rows, 1..columns,
         if self.is_animating:
             return
 
-        if int(self.steps_input.get()) % 2 != 0:
+        step_val = int(self.steps_input.get())
+
+        if step_val % 2 != 0 or step_val < 2:
             showerror(
-                title="Uneven steps number",
-                message="Uneven step number prevents creating a cell loop and therefore is not solvable."
+                title="Invalid step number",
+                message="Uneven step number prevents creating a cell loop and therefore is not valid. Negative numbers are also considered invalid."
             )
             return
 
