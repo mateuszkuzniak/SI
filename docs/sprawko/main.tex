@@ -52,9 +52,9 @@ Celem projektu jest stworzenie aplikacji, która umożliwia rozwiązanie łamig�
 \textit{Rogo}, zgodnie z paradygmatem CSP (ang. \textit{Contraint Satisfaction Problem}) w skończonej
 dziedzinie (ang. \textit{Finite Domain}).
 
-Łamigłówka polega na ustaleniu na planszy zapętlonej ścieżki, która zawiera pola z liczbami.
-Ścieżek na takiej planczy można znaleźć wiele ale rozwiązaniem jest ta ścieżka,
-której suma liczb na jej polach jest największa.
+Łamigłówka polega na ustaleniu na planszy, która zawiera pola z liczbami, zapętlonej ścieżki.
+Ścieżek na takiej planszy można znaleźć wiele, jednak rozwiązaniem jest ta ścieżka,
+dla której suma liczb na polach jest największa.
 
 \section{Założenia realizacyjne}
 
@@ -63,32 +63,48 @@ rozwiązania problemu.
 
 \subsection{Zdefiniowanie problemu oraz opis algorytmu}
 
-Rozwiązaniem CSP jest przypisanie każdej zmiennej wartości z jej dziedziny
-spełniającej wszystkie ograniczenia. Zadaniem jest znalezienie jednego
-lub wszystkich rozwiązań \cite{cotocsp}.
+Rozwiązaniem problemu ograniczeń jest przypisanie każdej zmiennej wartości z jej dziedziny
+spełniającej wszystkie ograniczenia. Zadaniem do wykonania jest znalezienie jednego
+lub wszystkich rozwiązań problemu \cite{cotocsp}.
 
-Do prawidłowego działania należy wprowadzić dane wejściowe takie jak: \begin{itemize}
-    \item wymiary planszy,
-    \item ilość kroków,
+\subsection{Opis algorytmu}
+
+Wymagane dane wejściowe algorytmu to:
+
+\begin{itemize}
+    \item wymiary planszy (ilość wierszy i kolumn),
+    \item ilość kroków w których ma powstać zapętlona ścieżka,
     \item tablica dwuwymiarowa zawierająca liczby znajdujące się na polach planszy.
 \end{itemize}
 
-Następnie wyznaczana jest największa wartość znajdująca się na planszy. 
-Wyliczana jest również suma wszystkich dodatnich liczb w tablicy w celu określenia maksymalnej wartości planszy.
-Kolejnym elementem jest implementacja ograniczeń takich jak:
+Do oznaczania pól planszy wykorzystywane są następujące liczby/przedziały liczbowe:
+
+\begin{itemize}
+    \item \(-1\) dla ,,ściany'' - pola przez które nie może biec ścieżka,
+    \item \(0\) dla pustego pola - bez wartości,
+    \item \(<1; \infty)\) dla pola z wartością.
+\end{itemize}
+
+Pola z liczbami o wartościach mniejszych niż \texttt{-1} są traktowane jako błędne.
+
+\hfill
+
+Pierwszym krokiem algorytmu jest wyznaczenie największej wartości znajdującej się na planszy. 
+Obliczana jest również suma wszystkich dodatnich liczb w tablicy w celu określenia maksymalnej wartości planszy.
+Kolejnym elementem jest spełnienie ograniczeń takich jak:
 
 \begin{itemize}
     \item zapewniających, że każdy krok jest różny (żadna para kroków nie ma takich samych współrzędnych),
     \item ustalających ilość punktów na każdym kroku rozwiązania,
     \item zliczających sumę punktów zdobytych dla danego rozwiązania,
     \item sprawdzających czy pole niedozwolone nie znajduje się w rozwiązaniu,
-    \item sprawdzających, że kolejny krok jest w bezpośrednim kontakcie z obecnym (tzn. w odległości jednego pola nie wliczając przekątnych),
+    \item sprawdzających czy kolejny krok jest w bezpośrednim kontakcie z obecnym (tzn. w odległości jednego pola - nie wliczając przekątnych),
     \item sprawdzających czy ostatni krok w rozwiązaniu znajduje się w bezpośrenim kontakcie z pierwszym krokiem, w celu zamknięcia pętli.
 \end{itemize}
 
-Ograniczenia te są głównym elementem implementacji całego programu.
-Są one odpowiedzialne za znalezienie najlepszego rozwiązania. Podczas implementacji sugerowaliśmy 
-się rozwiązaniem umieszczonym na blogu ,,My Constraint Programming Blog'' \cite{hakan}. 
+To powyższe ograniczenia są odpowiedzialne za znalezienie najlepszego rozwiązania. 
+Podczas planowania algorytmu i jego implementacji sugerowaliśmy się rozwiązaniem umieszczonym na 
+blogu Hakana Kjellerstranda \cite{hakan}. 
 Pełen kod rozwiązania w języku \textit{MiniZinc} można zobaczyć na listingu 1.
 
 \hfill
@@ -97,17 +113,19 @@ Pełen kod rozwiązania w języku \textit{MiniZinc} można zobaczyć na listingu
 
 \subsection{Język programowania, narzędzia informatyczne, środowisko i biblioteki}
 
-Do implementacji aplikacji wykorzystamy język programowania ogólnego przeznaczenia
+Do implementacji aplikacji okienkowej wykorzystaliśmy język programowania ogólnego przeznaczenia
 \textit{Python} oraz język \textit{MiniZinc}, który pozwala na definiowanie
-problemów CSP \cite{minizinc}.
+algorytmów CSP \cite{minizinc}.
 
-Do pisania kodu wykorzystamy narzędzie \textit{Visual Studio Code}. Do kontroli
-wersji aplikacji użyjemy systemu \textit{Git} wraz z platformą \textit{GitHub}.
+Do pisania kodu wykorzystaliśmy narzędzie \textit{Visual Studio Code} oraz \textit{MiniZinc IDE}. 
+Do kontroli wersji aplikacji użyliśmy systemu \textit{Git} wraz z platformą \textit{GitHub}.
 
-W implementacji skorzystamy z biblioteki \texttt{minizinc}
+W implementacji programu skorzystaliśmy z biblioteki \texttt{minizinc}
 dla języka \textit{Python}. Pozwala ona na korzystanie ze środowiska
 \textit{MiniZinc} z poziomu interpretera. Umożliwia ona m.in. komplilację modeli
-oraz rozwiązywanie ich. Do stworzenia interfejsu graficznego wykorzystamy standardową bibliotekę
+oraz rozwiązywanie ich. Wymaga ona osobnej instalacji \textit{MiniZinc} tak, aby była ona w ścieżce
+systemu operacyjnego.
+Do stworzenia interfejsu graficznego wykorzystaliśmy standardową bibliotekę GUI (ang. \textit{Graphical User Interface})
 Pythona o nazwie \texttt{tkinter}.
 
 \section{Podział prac}
@@ -156,18 +174,18 @@ tablicy \ref{tab:podzialprac}.
 
 W tym rozdziale opiszemy strukturę aplikacji klienckiej naszego systemu oraz przedstawimy 
 szczegóły jej implementacji. Kod programu można znaleźć wewnątrz folderu \texttt{src} w głównym
-katalogu repozytorium.
+katalogu repozytorium \cite{repository}.
 
 \subsection{Struktury danych wykorzystywane w programie}
 
-Zrealizowany program zawiera w sobie 8 klas z czego 4 są elementami czysto prezentacyjnymi - mowa
-o klasach \texttt{Input}, \texttt{Button}, \texttt{Cell} oraz \texttt{ResultsView} z pakietu \texttt{components}.
+Zrealizowany program zawiera w sobie 8 klas z czego 3 są elementami czysto prezentacyjnymi - mowa
+o klasach \texttt{Input}, \texttt{Button} oraz \texttt{ResultsView} z pakietu \texttt{components}.
 Opakowują one istniejące komponenty biblioteki \texttt{tkinter} w bardziej zwięzłe elementy realizujące
 funkcjonalności pola do wprowadzania tekstu z opisem, przycisku, komórki planszy i okna z podsumowaniem wyników.
 
-\subsubsection{Klasa \texttt{SolverArguments}}
+\subsubsection{Klasa \texttt{SolverArguments} (pakiet \texttt{util})}
 
-To klasa opakowująca wymagane argumenty solvera w pojedynczy obiekt. W skład jej atrybutów wchodzi
+To klasa opakowująca wymagane argumenty solvera (programu rozwiązującego problem CSP) w pojedynczy obiekt. W skład jej atrybutów wchodzi
 liczba wierszy, kolumn, kroków oraz stan planszy w postaci macierzy.
 
 Posiada ona jedną statyczną metodę \texttt{from\_dzn(filepath: str) -> SolverArguments}, która
@@ -177,7 +195,7 @@ którego ścieżkę w systemie przyjmuje jako parametr.
 Jedyną niestatyczną metodą tej klasy jest \texttt{to\_file\_string() -> str}, która tworzy na podstawie stanu obiektu string eksportowany do pliku.
 Ta funkcjonalność jest wykorzystywana w głównej klasie programu.
 
-\subsubsection{Klasa \texttt{SolverResults}}
+\subsubsection{Klasa \texttt{SolverResults} (pakiet \texttt{util})}
 
 Ta klasa wyodrębnia część danych z obiektu zwracanego po rozwiązaniu modelu przez bibliotekę \texttt{minizinc}.
 Jej atrybuty stanowią dane wykorzystywane w warstwie prezentacji rozwiązania. Realizuje ona wzorzec
@@ -188,7 +206,19 @@ Przyjmuje ona obiekt zwracany przez metodę \texttt{Instance.solve()} z bibliote
 je w postaci obiektu \texttt{SolverResults}.
 
 
-\subsubsection{Klasa \texttt{CellBoard}}
+\subsubsection{Klasa \texttt{Cell} (pakiet \texttt{components})}
+
+To klasa reprezentująca pole w planszy, które można wypełnić wartością liczbową.
+
+Do metod tej klasy należą:
+\begin{itemize}
+    \item \texttt{is\_valid() -> bool} - sprawdza czy wartość komórki jest poprawnie rozumianą przez algorytm wartością, a w przeciwnym wypadku zmienia kolor tła komórki na czerwony po wywołaniu,
+    \item \texttt{mark(clear: bool) -> None} - zaznacza komórkę jako część rozwiązania, zmienia jej tło na kolor zielony. Jeśli parametr \texttt{clear} jest prawdą to usuwa istniejące zaznaczenie,
+    \item \texttt{on\_change() -> None} - sprawdza czy aktualna wartość komórki to \texttt{-1}, jeśli tak jest to zmienia kolor tła na czarny, w przeciwnym wypadku ustawia go jako biały,
+    \item \texttt{destroy() -> None} - niszczy obiekt komórki.
+\end{itemize}
+
+\subsubsection{Klasa \texttt{CellBoard} (pakiet \texttt{components})}
 
 Jest to klasa reprezentująca planszę komórek, które można wypełnić zgodnie z założeniami łamigłówki.
 Opakowuje ona macierz komponentów \texttt{Cell} i udostępnia wysokopoziomowe abstrakcje.
@@ -200,18 +230,20 @@ Do metod tej klasy należą:
     \item \texttt{clear() -> bool} - usuwa komórki planszy,
     \item \texttt{new\_row(cells: List[Cell]) -> None} - dodaje do planszy nowy wiersz komórek podanych jako parametr,
     \item \texttt{\_\_mark\_generator(results: SolverResults) -> Generator} - tworzy generator kroków wykorzystanych do osiągnięcia rozwiązania. Po wyciągnięciu z niego elementu zaznacza on wybraną komórkę,
-    \item \texttt{show\_solution(results: SolverResults, step: bool) -> Optional[Generator]} - przeprowadza procedurę zaznaczania rozwiązania na planszy. Jeśli parametr \texttt{step} jest prawdą - zwraca generator opisany w poprzednim punkcie, w przeciwnym wypadku zaznacza wszystkie od razu,
+    \item \texttt{show\_solution(results: SolverResults, step: bool) -> Optional[Generator]} - przeprowadza procedurę zaznaczania rozwiązania na planszy. Jeśli parametr \texttt{step} jest prawdą - zwraca generator opisany w poprzednim punkcie, w przeciwnym wypadku zaznacza wszystkie komórki od razu,
     \item \texttt{remove\_markings() -> None} - usuwa zaznaczenia z komórek planszy,
     \item \texttt{as\_values() -> List[List[int]]} - zwraca macierz liczb całkowitych reprezentujących aktualne wartości komórek planszy.
 \end{itemize}
 
-\subsubsection{Klasa \texttt{App}}
+\subsubsection{Klasa \texttt{App}  (pakiet \texttt{app})}
 
 To klasa dziedzicząca z głównej klasy biblioteki \texttt{tkinter}, otrzymująca z niej wszystkie właściwości
 okna. Rozszerzono ją o atrybuty i metody wymagane w naszym zastosowaniu - takie jak flagi \texttt{is\_animating}
 oraz \texttt{is\_solving}, które sygnalizują wykonywanie ciągłych operacji i pomagają w sterowaniu przepływem programu.
 
-Zaimplementowane w klasie metody to:
+\hfill
+
+Zaimplementowane w tej klasie metody to:
 
 \begin{itemize}
     \item \texttt{create\_main\_menu() -> None} - tworzy okno menu głównego wraz z przyciskami i polami tekstowymi,
@@ -231,13 +263,36 @@ Odziedziczona z klasy \texttt{tkinter.Tk} metoda \texttt{mainloop()} uruchamia c
 
 \subsection{Funkcje oraz procedury}
 
-\dots
+Jedynymi funkcjami nie będącymi częścią wyżej wymienionych struktur są następujące funkcje z pakietu \texttt{util}:
+
+\begin{itemize}
+    \item \texttt{parse\_dzn(filepath: str) -> Dict[str, Union[int, list, float]]} - wczytuje plik z rozszerzeniem \texttt{.dzn} i zwraca jego zawartość jako słownik języka \textit{Python},
+    \item \texttt{parse\_arg\_array2d(args: Dict[str, Union[int, list, float]]) -> List[List[int]]} - rozwiązuje problem parsera plików \texttt{dzn} wbudowanego w bibliotekę \texttt{minizinc} zwracając macierz liczb zamiast napisu po przetworzeniu obiektu \texttt{array2d},
+    \item \texttt{solve\_rogo(args: SolverArguments, model\_path: str, solver: str) -> SolverResults} - wykorzystuje mechanizmy biblioteki \texttt{minizinc} do rozwiązania problemu CSP. Parametrami z domyślnymi wartościami są ścieżka do modelu algorytmu w formacie \texttt{.mzn} (domyślnie \texttt{./src/rogopuzzle.mzn}) oraz nazwa wykorzystywanego solvera (domyślnie \texttt{gecode}). Zwraca wyniki rozwiązania.
+\end{itemize}
 
 \section{Użytkowanie i testowanie systemu}
 
-\dots
+W tym rozdziale opiszemy interfejs aplikacji oraz wprowadzimy instrukcję korzystania z niego.
+Wspomnimy również o metodach testowania stworzonego oprogramowania.
+
+Proces instalacji i uruchomienia programu znajduje się w instrukcji (pliku \href{https://github.com/mateuszkuzniak/RogoPuzzle/blob/main/README.md}{\texttt{README.md}}) w repozytorium
+projektu \cite{repository}.
 
 \subsection{Interfejs aplikacji}
+
+Wygląd aplikacji okienkowej na przykładzie różnych stanów programu można zobaczyć na rysunkach \ref{fig:ekran_startowy},
+\ref{fig:rozwiazanie}, \ref{fig:info} oraz \ref{fig:blad}. Interfejs dzieli się na dwie kolumny - w lewej mamy dostęp
+do pól parametrów rozwiązania oraz przycisków do tworzenia planszy, odczytu planszy z pliku, zapisu planszy do pliku
+oraz wyzwalacza rozwiązania zadanego problemu.
+
+W przypadku poprawnego rozwiązania problemu pod widocznym na rysunku \ref{fig:ekran_startowy} lewym menu pojawia
+się specjalny panel prezentujący statystyki otrzymanego rozwiązania.
+Każda z sytuacji wprowadzenia niepoprawnej kombinacji danych wejściowych jest oznajmiana poprzez wyskakujące okno
+z informacją.
+
+Dodatkowo, po znalezieniu rozwiązania mamy możliwość wyświetlenia krok po kroku pól planszy, które były wybierane
+przez solver. Dokonujemy tego przyciskiem w panelu podsumowania. Jest on widoczny na rysunku \ref{fig:rozwiazanie}.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{2.png}
@@ -268,13 +323,63 @@ Odziedziczona z klasy \texttt{tkinter.Tk} metoda \texttt{mainloop()} uruchamia c
 \end{figure}
 
 \subsection{Sterowanie aplikacją}
+\label{sec:instrukcja}
 
-\dots
+Do sterowania aplikacją potrzebna jest mysz komputerowa oraz klawiatura. Instrukcję korzystania z aplikacji
+przedstawimy na przykładzie typowego zastosowania.
+
+\subsubsection{Utworzenie planszy}
+
+Planszę tworzymy wprowadzając w odpowiednie pola liczbę wierszy oraz kolumn i naciskając przycisk \textbf{,,Create canvas''}.
+W prawej części interfejsu pojawi się macierz komórek.
+
+\subsubsection{Wczytanie planszy z pliku}
+\label{sec:zpliku}
+
+Planszę możemy także odczytać z pliku o specjalnej strukturze i formacie \texttt{dzn} lub \texttt{txt}.
+Oczekiwaną strukturę pliku możemy zobaczyć w specjalnym dialogu po naciśnięciu przycisku \textbf{,,?''} znajdującego się po prawej stronie
+przycisku \textbf{,,Read canvas from file''}. Naciśnięcie tego drugiego wywoła dialog systemu operacyjnego w którym należy wskazać wybrany plik. Jest to widoczne na rysunku \ref{fig:info}.
+Poprawne wczytanie spowoduje zmianę stanu wszystkich parametrów programu i pojawienie się planszy komórek.
+
+\subsubsection{Wypełnienie planszy}
+
+Po stworzeniu planszy możemy ją wypełniać liczbami. Zgodnie z założeniami algorytmu będą to $-1$ dla ,,ściany'',
+$0$ lub brak danych dla pustego pola i liczba dodatnia dla pola z wartością. Ewentualne niepoprawne wypełnienie planszy
+zostanie zasugerowane w momencie próby uruchomienia zadanego problemu.
+
+Jeśli standardowy rozmiar okna jest zbyt mały dla planszy wprowadzanej przez użytkownika może on kliknąć w 
+prostokąt w prawym górnym rogu okna programu. Spowoduje to dostosowanie wielkości okna do maksymalnej wielkości wyświetlania monitora użytkownika. Pozwoli to na tworzenie znacznie większych plansz.
+
+\subsubsection{Ustalenie liczby kroków rozwiązania}
+
+Przed próbą rozwiązania problemu należy wprowadzić liczbę kroków do przeprowadzenia w ramach rozwiązania.
+Musi to być całkowita liczba parzysta większa od 1 - jeśli uruchomimy program z niepoprawną ilością kroków
+wyświetlona zostanie stosowna wiadomość informująca o powodach błędu.
+
+Należy pamiętać, że wraz ze wzrostem liczby kroków czas wyszukiwania rozwiązania wzrasta wykładniczo.
+
+\subsubsection{Wyświetlenie rozwiązania}
+
+Po przygotowaniu planszy i wszystkich pozostałych parametrów użytkownik powinien nacisnąć przycisk 
+\textbf{,,Solve puzzle''}. Spowoduje to zmianę kursora aplikacji na taki który sygnalizuje przetwarzanie.
+Po odnalezieniu rozwiązania przez \textit{MiniZinc} aplikacja wyświetli rozwiązanie prezentując statystyki w lewym dolnym panelu
+oraz zaznaczając ścieżkę poprzez zielone tło komórki. W tym stanie użytkownik może także uruchomić krokową prezentację rozwiązania
+poprzez naciśnięcie przycisku \textbf{,,Show step by step''}.
+
+\subsubsection{Zapis planszy do pliku}
+
+Aktualny stan uzupełnienia problemu można zapisać po wypełnieniu wszystkich parametrów rozwiązania za pomocą przycisku
+\textbf{,,Save current canvas to file''}. Spowoduje to otwarcie dialogu omawianego w sekcji \textit{\nameref{sec:zpliku}}.
+Tym razem należy sprecyzować nazwę pliku wynikowego i wybrać lokalizację jego zapisu.
+Stworzony w ten sposób plik możemy otworzyć w dowolnym momencie, także po ponownym uruchomieniu aplikacji.
+
+By zamknąć program należy nacisnąć na krzyżyk w prawym górnym roku okna.
 
 \subsection{Testy aplikacji}
 
-\dots
-
+Aplikacja była testowana w całości manualnie w postaci testów \textbf{E2E} (ang. \textit{End To End}).
+Dużą uwagę poświęcono eliminowaniu błędów wynikających z posługiwania się aplikacją w sposób niezgodny z 
+instrukcją zawartą w rozdziale \ref{sec:instrukcja} - \textit{\nameref{sec:instrukcja}}.
 
 \newpage
 
