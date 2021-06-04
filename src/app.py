@@ -221,5 +221,4 @@ board = array2d(1..rows, 1..columns,
 
 
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    App().mainloop()
