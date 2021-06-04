@@ -1,6 +1,4 @@
-### Solver łamigłówki Bag Puzzle (aka Coral Puzzle, Cave Puzzle) przedstawionej jako problem spełniania ograniczeń w skończonej dziedzinie (CSP/FD)
-
-[Bag Puzzle Online](http://www.tectonicpuzzel.eu/cave-corral-puzzle-online.html)
+### Solver łamigłówki Rogo przedstawionej jako problem spełniania ograniczeń w skończonej dziedzinie (CSP/FD)
 
 #### Instalacja
 
@@ -14,9 +12,8 @@
     pip install -r requirements.txt
     ```
 
-1. Lecisz:
+1. Uruchom program:
 
     ```powershell
-    (venv) PS D:\Repos\BagPuzzle> python -m src.main
-    [[5, 3, 1, 4, 8, 9, 6, 2, 7], [6, 4, 9, 7, 5, 2, 8, 1, 3], ...
+    (venv) PS D:\RogoPuzzle> python -m src.app
     ```
