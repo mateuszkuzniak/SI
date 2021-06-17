@@ -10,7 +10,7 @@
 
     * **Linux `Bash`:**
     ```bash
-    # cd katalog domowy repozytorium
+    # cd katalog główny repozytorium
     virtualenv -p python3 venv
     source ./venv/bin/activate
     pip install -r requirements.txt
@@ -18,7 +18,7 @@
 
     * **Windows `PowerShell`:**
     ```powershell
-    # cd katalog domowy repozytorium
+    # cd katalog główny repozytorium
     python -m venv venv
     .\venv\Scripts\activate
     pip install -r requirements.txt
@@ -27,7 +27,7 @@
 1. Uruchom program (pamiętaj o każdorazowej aktywacji środowiska po restarcie powłoki - tak jak w poprzednim punkcie):
 
     ```bash
-    # cd katalog domowy repozytorium
+    # cd katalog główny repozytorium
     python -m src.app
     ```
 
@@ -53,8 +53,5 @@
   <img src="docs/sprawko/images/4.png" width="500" title="Logo">
 </p>
 
-#### Dokumentacja
-
-1. Zbuduj `docs/sprawko/main.tex`.
 
 > 2021 @ PUT - Sztuczna Inteligencja
