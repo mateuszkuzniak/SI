@@ -100,6 +100,9 @@ board = array2d(1..rows, 1..columns,
                 f.write(args.to_file_string())
 
     def open_board_from_file(self) -> None:
+        if self.is_solving:
+            return
+            
         filename = fd.askopenfilename(
             title='Open a ROGO problem describing text file',
             initialdir='~/',
@@ -188,6 +191,9 @@ board = array2d(1..rows, 1..columns,
         )
 
     def create_board(self, canvas: List[List[int]] = None) -> None:
+        if self.is_solving:
+            return
+
         size_x = int(self.rows_input.get())
         size_y = int(self.columns_input.get())
 
