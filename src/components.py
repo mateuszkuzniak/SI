@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from typing import Generator, List, Optional, Tuple, Callable, Union
+from typing import Generator, List, Optional, Tuple, Callable
 
 from src.util import SolverResults
 
