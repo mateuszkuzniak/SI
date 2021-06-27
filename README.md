@@ -35,22 +35,22 @@
 
 * Wynik poprawnego rozwiązania problemu
 <p align="center">
-  <img src="docs/sprawko/images/1.png" width="500" title="Logo">
+  <img src="docs/final_report/images/1.png" width="500" title="Logo">
 </p>
 
 * Panel startowy
 <p align="center">
-  <img src="docs/sprawko/images/2.png" width="500" title="Logo">
+  <img src="docs/final_report/images/2.png" width="500" title="Logo">
 </p>
 
 * Informacja o strukturze pliku
 <p align="center">
-  <img src="docs/sprawko/images/3.png" width="500" title="Logo">
+  <img src="docs/final_report/images/3.png" width="500" title="Logo">
 </p>
 
 * Powiadomienie o błędach na planszy
 <p align="center">
-  <img src="docs/sprawko/images/4.png" width="500" title="Logo">
+  <img src="docs/final_report/images/4.png" width="500" title="Logo">
 </p>
 
 
